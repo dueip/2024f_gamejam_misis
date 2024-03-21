@@ -17,7 +17,7 @@ var stamina: BarResource
 @export 
 var stamina_lose: StaminaLoseResource
 @export
-var mouse_sens = 0.3
+var mouse_sens: float = 0.005
 
 
 var speed_multiplyer: float = 1.0 
@@ -32,12 +32,20 @@ var running_mult: float = 1
 
 func _ready(): 
 	seed("Byeworld".hash())
+	Input.warp_mouse(Vector2(self.position.x, self.position.y))
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 	
-
-
-var camera_anglev=0
-func _input(event):  		
-	pass
+	
+func _input(event):
+	if event is InputEventMouseMotion:
+		var normal = get_viewport().get_camera_3d().project_local_ray_normal(event.relative)
+		
+		#self.rotate_y(normal.angle_to(self.position) * mouse_sens)
+		#self.rotate_y(event.relative.y * mouse_sens)
+		
+		
+	
+	
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
