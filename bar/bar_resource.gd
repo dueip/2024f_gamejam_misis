@@ -22,13 +22,13 @@ static func getResourceBar (path_name : String) -> BarResource:
 	var new_bar = load("res://bar/bars/" + path_name + ".tres")
 	return new_bar
 
-func loseStamina(how_much: int):
+func lose(how_much: int):
 	value=value-how_much
 	emit_signal("updated")
 	emit_signal("updated_value",value)
 	
 	
-func gainStamina(how_much: int):
+func gain(how_much: int):
 	value=value+how_much
 	emit_signal("updated")
 	emit_signal("updated_value",value)
