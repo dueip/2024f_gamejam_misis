@@ -12,13 +12,14 @@ var MIN_DASH_TIME: float = 0.3
 var MAX_DASH_TIME: float = 0.5
 @export 
 var RUNNING_SPEED_MULT: float = 1.5
-
+@export 
+var stamina: BarResource
 
 var speed_multiplyer: float = 1.0
 var energy: int = 100 
 
 @onready var dash_timer := $DashTimer
-
+@onready var stamina_bar := $StaminaBar
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -26,6 +27,8 @@ var running_mult: float = 1
 
 func _ready(): 
 	seed("Byeworld".hash())
+	
+	
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -37,6 +40,7 @@ func _physics_process(delta):
 		speed_multiplyer = dash_multiplyer
 		# Начинаем таймер, который находится между этими переменными
 		dash_timer.start(randf_range(MIN_DASH_TIME, MAX_DASH_TIME))
+		stamina.loseStamina(10)
 
 	var is_running: bool = Input.is_action_pressed("character_run")
 	if is_running:

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BarResource" load_steps=2 format=3 uid="uid://12cfv8iouicg"]
+
+[ext_resource type="Script" path="res://bar/bar_resource.gd" id="1_ix8cj"]
+
+[resource]
+script = ExtResource("1_ix8cj")
+value = 100.0
+min_value = 0.0
+max_value = 100.0
