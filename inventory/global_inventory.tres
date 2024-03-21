@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Inv" load_steps=5 format=3 uid="uid://dcwansgtieuqh"]
+
+[ext_resource type="Script" path="res://inventory/inv.gd" id="1_aofla"]
+[ext_resource type="Resource" uid="uid://s85wrutggsqt" path="res://inventory/items/blood.tres" id="2_wrpkh"]
+[ext_resource type="Script" path="res://inventory/inv_slot.gd" id="2_ypycj"]
+
+[sub_resource type="Resource" id="Resource_s1n2m"]
+script = ExtResource("2_ypycj")
+item = ExtResource("2_wrpkh")
+amount = 2
+
+[resource]
+script = ExtResource("1_aofla")
+slots = Array[ExtResource("2_ypycj")]([SubResource("Resource_s1n2m")])
+money = 400.0
