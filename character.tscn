@@ -1,14 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://ca4ode1cog4je"]
+[gd_scene load_steps=7 format=3 uid="uid://ca4ode1cog4je"]
 
 [ext_resource type="Script" path="res://character.gd" id="1_s7r02"]
 [ext_resource type="PackedScene" uid="uid://cbkrux0053i8c" path="res://bar/progress_bar.tscn" id="2_5nwxr"]
 [ext_resource type="Resource" uid="uid://12cfv8iouicg" path="res://stamina_resource.tres" id="2_roinp"]
+[ext_resource type="Script" path="res://StaminaLoseResource.gd" id="3_cif5q"]
+
+[sub_resource type="Resource" id="Resource_71j2l"]
+script = ExtResource("3_cif5q")
+stamina_lose_on_dash = 10.0
+stamina_lose_on_sprint = 2.0
+stamina_lose_on_walk = 1.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2pkr1"]
 
 [node name="Character" type="CharacterBody3D"]
 script = ExtResource("1_s7r02")
 stamina = ExtResource("2_roinp")
+stamina_lose = SubResource("Resource_71j2l")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_2pkr1")
@@ -27,6 +35,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, -4.37114e-08, 0.866025, 0.5, 7.5710
 [node name="DashTimer" type="Timer" parent="."]
 
 [node name="StaminaBar" parent="." instance=ExtResource("2_5nwxr")]
+show_percentage = false
 resource = ExtResource("2_roinp")
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

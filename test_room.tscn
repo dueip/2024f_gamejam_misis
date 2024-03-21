@@ -5,9 +5,9 @@
 
 [sub_resource type="Resource" id="Resource_clihd"]
 script = ExtResource("2_8cec3")
-stamina_lose_on_dash = 10
-stamina_lose_on_sprint = 2
-stamina_lose_on_walk = 1
+stamina_lose_on_dash = 10.0
+stamina_lose_on_sprint = 2.0
+stamina_lose_on_walk = 1.0
 
 [node name="TestRoom" type="Node3D"]
 
