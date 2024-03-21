@@ -12,7 +12,5 @@ use_collision = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.24046, 2.02801, 0.614011)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-
-[node name="SpotLight3D" type="SpotLight3D" parent="DirectionalLight3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6047, 0, 8.73526)
-spot_range = 9.27582
+transform = Transform3D(1, 0, 0, 0, 0.206409, 0.978466, 0, -0.978466, 0.206409, 3.74477, 13.3325, 18.4079)
+light_energy = 0.58
