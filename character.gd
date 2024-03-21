@@ -14,9 +14,10 @@ var MAX_DASH_TIME: float = 0.5
 var RUNNING_SPEED_MULT: float = 1.5
 @export 
 var stamina: BarResource
+@export 
+var stamina_lose: StaminaLoseResource
 
-var speed_multiplyer: float = 1.0
-var energy: int = 100 
+var speed_multiplyer: float = 1.0 
 
 @onready var dash_timer := $DashTimer
 @onready var stamina_bar := $StaminaBar
@@ -40,11 +41,12 @@ func _physics_process(delta):
 		speed_multiplyer = dash_multiplyer
 		# Начинаем таймер, который находится между этими переменными
 		dash_timer.start(randf_range(MIN_DASH_TIME, MAX_DASH_TIME))
-		stamina.loseStamina(10)
+		stamina.loseStamina(stamina_lose.stamina_lose_on_dash)
 
 	var is_running: bool = Input.is_action_pressed("character_run")
 	if is_running:
 		running_mult = RUNNING_SPEED_MULT
+		stamina.loseStamina(stamina_lose.stamina_lose_on_sprint)
 	else:
 		running_mult = 1
 	# Get the input direction and handle the movement/deceleration.
@@ -56,6 +58,7 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction.x * SPEED * speed_multiplyer * running_mult
 		velocity.z = direction.z * SPEED * speed_multiplyer * running_mult
+		stamina.loseStamina(stamina_lose.stamina_lose_on_walk)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED * speed_multiplyer * running_mult)
 		velocity.z = move_toward(velocity.z, 0, SPEED * speed_multiplyer * running_mult)
