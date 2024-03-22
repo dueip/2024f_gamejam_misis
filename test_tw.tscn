@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://626ehrp4x5p8"]
+
+[ext_resource type="PackedScene" uid="uid://ukij8uagjnc7" path="res://test_room.tscn" id="1_ju52g"]
+[ext_resource type="PackedScene" uid="uid://dr1t3444vuiws" path="res://TW/TW.tscn" id="2_fbpmy"]
+[ext_resource type="PackedScene" uid="uid://bvxofregcai0m" path="res://minigames/coffee_minigame.tscn" id="3_3feon"]
+
+[node name="test_tw" type="Node3D"]
+
+[node name="TestRoom" parent="." instance=ExtResource("1_ju52g")]
+
+[node name="DirectionalLight3D" parent="TestRoom" index="2"]
+visible = false
+editor_only = true
+
+[node name="Camera" parent="TestRoom" index="3"]
+transform = Transform3D(-1, 1.60587e-07, -7.5498e-08, 1.49101e-08, 0.5, 0.866025, 1.76821e-07, 0.866025, -0.5, 0, 11.8596, -6.324)
+
+[node name="coffee_tw" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("2_fbpmy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.88699, 0, 3.61969)
+minigame = NodePath("coffee_minigame")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="coffee_tw"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.142787, 4.81762, 0.175553)
+light_color = Color(1, 1, 0, 1)
+light_energy = 4.55
+light_indirect_energy = 0.838
+light_volumetric_fog_energy = 7.949
+light_size = 0.273
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 784.73
+distance_fade_shadow = 587.86
+distance_fade_length = 1209.84
+omni_range = 6.997
+omni_attenuation = 1.46409
+
+[node name="coffee_minigame" parent="coffee_tw" instance=ExtResource("3_3feon")]
+
+[node name="pab_tw" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("2_fbpmy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.11301, 0, 3.61969)
+minigame = NodePath("../coffee_tw/coffee_minigame")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="pab_tw"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.142787, 4.81762, 0.175553)
+light_color = Color(1, 1, 0, 1)
+light_energy = 4.55
+light_indirect_energy = 0.838
+light_volumetric_fog_energy = 7.949
+light_size = 0.273
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 784.73
+distance_fade_shadow = 587.86
+distance_fade_length = 1209.84
+omni_range = 6.997
+omni_attenuation = 1.46409
+
+[node name="coffee_minigame" parent="pab_tw" instance=ExtResource("3_3feon")]
+
+[connection signal="mouse_entered" from="coffee_tw" to="coffee_tw" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="pab_tw" to="pab_tw" method="_on_mouse_entered"]
+
+[editable path="TestRoom"]

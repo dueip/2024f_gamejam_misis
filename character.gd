@@ -37,15 +37,16 @@ func _ready():
 	
 	
 func _input(event):
-	if event is InputEventMouse:
+	pass
+	#if event is InputEventMouse:
 		
-		var camera = get_viewport().get_camera_3d()
-		var normal = get_viewport().get_camera_3d().project_local_ray_normal(event.position)
-		var C = -camera.position.y/ normal.y
-		var point_to_look_at = (camera.position + C * normal)
-		var vector_but_dont_change_y = Vector3(point_to_look_at.x, 5, -point_to_look_at.z)
-		self.position=vector_but_dont_change_y
-		print(camera.position + C * normal)
+		#var camera = get_viewport().get_camera_3d()
+		#var normal = get_viewport().get_camera_3d().project_local_ray_normal(event.position)
+		#var C = -camera.position.y/ normal.y
+		#var point_to_look_at = (camera.position + C * normal)
+		#var vector_but_dont_change_y = Vector3(point_to_look_at.x, 5, -point_to_look_at.z)
+		#self.position=vector_but_dont_change_y
+		#print(camera.position + C * normal)
 		# self.rotate_y( * mouse_sens)
 
 	
