@@ -13,7 +13,7 @@ signal failed_update_slot(action)
 
 
 func add(item : InvItem) -> bool:
-	var itemslots=slots.filter(func(slot) : return slot.item==item && slot.amount<99)
+	var itemslots=slots.filter(func(slot) : return slot.item==item && slot.amount<slot.capacity)
 	if !itemslots.is_empty():
 		itemslots[0].amount+=1
 		emit_signal("updated_slot", "add", item.name)

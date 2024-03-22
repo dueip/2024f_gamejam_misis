@@ -1,8 +1,8 @@
 extends Control
 
-@export var inv_size : int = 4
+@export var inv_size : int = 2
 @export var inv : Inv
-var ui_slots
+var ui_slots : Array[Node]
 
 
 func _ready():
