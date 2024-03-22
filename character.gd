@@ -30,6 +30,17 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var running_mult: float = 1
 
+func calculatePositionToLookAt(point: Vector2, current_position: Vector3, camera: Camera3D) -> Vector3:
+	var normal = camera.project_ray_normal(point)
+	var C = (current_position.y-camera.position.y)/ normal.y
+	var point_to_look_at : Vector3 = (camera.position)
+	point_to_look_at.x+=C*normal.x
+	point_to_look_at.z+=C*normal.z
+	point_to_look_at.y= current_position.y
+	return point_to_look_at
+	
+
+
 func _ready(): 
 	seed("Byeworld".hash())
 	Input.warp_mouse(Vector2(self.position.x, self.position.y))
@@ -39,21 +50,11 @@ func _ready():
 func _input(event):
 	if event is InputEventMouse:
 		var camera = get_viewport().get_camera_3d()
-		var normal = get_viewport().get_camera_3d().project_ray_normal(event.position)
-		print(normal)
-		var C = (self.position.y-camera.position.y)/ normal.y
-		var point_to_look_at = (camera.position)
-		point_to_look_at.x+=C*normal.x
-		point_to_look_at.z+=C*normal.z
-		point_to_look_at.y=self.position.y
-		$Body.look_at(point_to_look_at)
+		$Body.look_at(calculatePositionToLookAt(event.position, self.position, camera))
 		$Body.rotate_y(deg_to_rad(180))
 
 	
 func _physics_process(delta):
-	
-	
-
 	var is_running: bool = Input.is_action_pressed("character_run")
 	if is_running:
 		running_mult = RUNNING_SPEED_MULT
