@@ -24,7 +24,7 @@ var speed_multiplyer: float = 1.0
 
 @onready var dash_timer := $DashTimer
 @onready var stamina_bar := $StaminaBar
-@onready var camera := $CameraSpring/Camera
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -37,17 +37,17 @@ func _ready():
 	
 	
 func _input(event):
-	pass
-	#if event is InputEventMouse:
-		
-		#var camera = get_viewport().get_camera_3d()
-		#var normal = get_viewport().get_camera_3d().project_local_ray_normal(event.position)
-		#var C = -camera.position.y/ normal.y
-		#var point_to_look_at = (camera.position + C * normal)
-		#var vector_but_dont_change_y = Vector3(point_to_look_at.x, 5, -point_to_look_at.z)
-		#self.position=vector_but_dont_change_y
-		#print(camera.position + C * normal)
-		# self.rotate_y( * mouse_sens)
+	if event is InputEventMouse:
+		var camera = get_viewport().get_camera_3d()
+		var normal = get_viewport().get_camera_3d().project_ray_normal(event.position)
+		print(normal)
+		var C = (self.position.y-camera.position.y)/ normal.y
+		var point_to_look_at = (camera.position)
+		point_to_look_at.x+=C*normal.x
+		point_to_look_at.z+=C*normal.z
+		point_to_look_at.y=self.position.y
+		$Body.look_at(point_to_look_at)
+		$Body.rotate_y(deg_to_rad(180))
 
 	
 func _physics_process(delta):
