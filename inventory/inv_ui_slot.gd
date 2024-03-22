@@ -1,18 +1,20 @@
 extends Panel
 
-@onready var item_visual : Sprite2D = $CenterContainer/Panel/item
-@onready var item_amount_visual : Label = $CenterContainer/Panel/Amount
-@onready var right_scale=item_visual.transform.scaled_local(Vector2(0.5,0.5))
+@onready var item_visual : TextureRect = $Item
+@onready var item_amount_visual : Label = $Item/Amount
+
 
 func update(item : InvSlot):
-	if (!item or item.amount==0):
+	if (!item or (item.amount==0 and item.clear_if_empty==true)):
 		item_visual.visible=false
 		item_amount_visual.visible=false
 	else:
 		item_visual.visible=true
-		item_visual.transform=right_scale
-		item_visual.centered=true
-		item_amount_visual.visible=true
+		if (item.capacity>1):
+			item_amount_visual.visible=true
+		else:
+			item_amount_visual.visible=false
 		item_visual.texture=item.item.texture
 		item_amount_visual.text=str(item.amount)
+		tooltip_text=item.item.name
 		

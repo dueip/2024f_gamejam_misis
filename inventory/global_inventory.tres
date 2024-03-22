@@ -1,15 +1,25 @@
-[gd_resource type="Resource" script_class="Inv" load_steps=5 format=3 uid="uid://dcwansgtieuqh"]
+[gd_resource type="Resource" script_class="Inv" load_steps=7 format=3 uid="uid://dcwansgtieuqh"]
 
 [ext_resource type="Script" path="res://inventory/inv.gd" id="1_aofla"]
-[ext_resource type="Resource" uid="uid://s85wrutggsqt" path="res://inventory/items/blood.tres" id="2_wrpkh"]
+[ext_resource type="Resource" uid="uid://byy7884fyuuae" path="res://inventory/items/grade_book.tres" id="2_7ijxr"]
+[ext_resource type="Resource" uid="uid://cil8tk8yj7vng" path="res://inventory/items/cider.tres" id="2_jjs0e"]
 [ext_resource type="Script" path="res://inventory/inv_slot.gd" id="2_ypycj"]
 
 [sub_resource type="Resource" id="Resource_s1n2m"]
 script = ExtResource("2_ypycj")
-item = ExtResource("2_wrpkh")
+item = ExtResource("2_jjs0e")
 amount = 2
+clear_if_empty = true
+capacity = 1
+
+[sub_resource type="Resource" id="Resource_ont0s"]
+script = ExtResource("2_ypycj")
+item = ExtResource("2_7ijxr")
+amount = 0
+clear_if_empty = false
+capacity = 3
 
 [resource]
 script = ExtResource("1_aofla")
-slots = Array[ExtResource("2_ypycj")]([SubResource("Resource_s1n2m")])
+slots = Array[ExtResource("2_ypycj")]([SubResource("Resource_s1n2m"), SubResource("Resource_ont0s")])
 money = 400.0
