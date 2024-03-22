@@ -11,7 +11,7 @@ func _ready():
 	var slot=preload("res://inventory/inv_ui_slot.tscn")
 	for i in range(0,inv_size):
 		var new_child_node = slot.instantiate()
-		new_child_node.set_position(Vector2(128*i,0))
+		new_child_node.set_position(Vector2(144*i,0))
 		add_child(new_child_node)
 		
 	ui_slots = get_children()
