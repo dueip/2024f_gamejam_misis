@@ -7,9 +7,6 @@ signal updated_slot(action,item_name)
 signal failed_update_slot(action)
 
 @export var slots : Array[InvSlot]
-@export var money : float = 0
-
-
 
 
 func add(item : InvItem) -> bool:
@@ -41,4 +38,20 @@ func use(item : InvItem) -> bool:
 	else:
 		emit_signal("failed_update_slot","use")
 		return 0
-		
+
+func use_index(index : int) -> bool:
+	if (index < 0 or index>=slots.size()):
+		emit_signal("failed_update_slot","use")
+		return false
+	if slots[index]==null:
+		emit_signal("failed_update_slot","use")
+		return false
+	if slots[index].amount<=0:
+		emit_signal("failed_update_slot","use")
+		return false
+	
+	emit_signal("updated_slot", "use", slots[index].item.name)
+	emit_signal("updated")
+	slots[index].amount-=1
+	
+	return true
