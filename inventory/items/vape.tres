@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://boqyxtbmtkwmh"]
+
+[ext_resource type="Script" path="res://inventory/inv_item.gd" id="1_nbgfx"]
+[ext_resource type="Texture2D" uid="uid://cmj8qp8wk4nwe" path="res://images/vape.png" id="2_te7xe"]
+
+[resource]
+script = ExtResource("1_nbgfx")
+name = "Вейп"
+texture = ExtResource("2_te7xe")

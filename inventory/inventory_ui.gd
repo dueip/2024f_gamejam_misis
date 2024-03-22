@@ -1,6 +1,6 @@
 extends Control
 
-@export var inv_size : int = 7
+@export var inv_size : int = 4
 @export var inv : Inv
 var ui_slots
 
