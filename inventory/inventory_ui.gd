@@ -1,7 +1,7 @@
 extends Control
 
 @export var inv_size : int = 7
-@onready var inv : Inv = preload("res://inventory/global_inventory.tres")
+@export var inv : Inv
 var ui_slots
 
 

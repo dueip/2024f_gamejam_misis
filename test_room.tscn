@@ -19,16 +19,10 @@ use_collision = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.60831, 0)
 stamina_lose = SubResource("Resource_clihd")
 
-[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Character"]
-transform = Transform3D(-1, 5.96046e-08, -4.47035e-08, 1.49101e-08, 0.5, 0.866026, 1.19209e-07, 0.866026, -0.5, 0, 9.5199, -6.3242)
-remote_path = NodePath("../../Camera")
-use_global_coordinates = false
-update_scale = false
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.206409, 0.978466, 0, -0.978466, 0.206409, 3.74477, 13.3325, 18.4079)
 light_energy = 0.58
 
 [node name="Camera" type="Camera3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(-1, 1.60586e-07, -7.54979e-08, 1.49101e-08, 0.5, 0.866025, 1.76821e-07, 0.866025, -0.5, 0, 9.5199, -6.3242)
+transform = Transform3D(-1, 1.60586e-07, -7.54979e-08, 1.49101e-08, 0.5, 0.866025, 1.76821e-07, 0.866025, -0.5, 0, 30.52, -6.324)

@@ -17,7 +17,7 @@ var stamina: BarResource
 @export 
 var stamina_lose: StaminaLoseResource
 @export
-var mouse_sens: float = 0.005
+var mouse_sens: float = 0.05
 
 
 var speed_multiplyer: float = 1.0 
@@ -33,25 +33,24 @@ var running_mult: float = 1
 func _ready(): 
 	seed("Byeworld".hash())
 	Input.warp_mouse(Vector2(self.position.x, self.position.y))
-	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
+	#Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 	
 	
 func _input(event):
-	if event is InputEventMouseMotion:
-		var normal = get_viewport().get_camera_3d().project_local_ray_normal(event.relative)
+	if event is InputEventMouse:
 		
-		#self.rotate_y(normal.angle_to(self.position) * mouse_sens)
-		#self.rotate_y(event.relative.y * mouse_sens)
-		
-		
-	
+		var camera = get_viewport().get_camera_3d()
+		var normal = get_viewport().get_camera_3d().project_local_ray_normal(event.position)
+		var C = -camera.position.y/ normal.y
+		var point_to_look_at = (camera.position + C * normal)
+		var vector_but_dont_change_y = Vector3(point_to_look_at.x, 5, -point_to_look_at.z)
+		self.position=vector_but_dont_change_y
+		print(camera.position + C * normal)
+		# self.rotate_y( * mouse_sens)
+
 	
 func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y -= gravity * delta
-
-	# Handle Dash
+	
 	
 
 	var is_running: bool = Input.is_action_pressed("character_run")
