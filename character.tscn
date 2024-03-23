@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://ca4ode1cog4je"]
+[gd_scene load_steps=9 format=3 uid="uid://ca4ode1cog4je"]
 
 [ext_resource type="Script" path="res://character.gd" id="1_s7r02"]
 [ext_resource type="PackedScene" uid="uid://cbkrux0053i8c" path="res://bar/progress_bar.tscn" id="2_5nwxr"]
 [ext_resource type="Resource" uid="uid://12cfv8iouicg" path="res://stamina_resource.tres" id="2_roinp"]
 [ext_resource type="Script" path="res://StaminaLoseResource.gd" id="3_cif5q"]
 [ext_resource type="PackedScene" uid="uid://b78nmta87loqj" path="res://inventory/inventory_ui.tscn" id="4_6ojq5"]
-[ext_resource type="Resource" uid="uid://ue0kd3fugfii" path="res://global_char_stats.tres" id="4_w4hhk"]
 [ext_resource type="PackedScene" uid="uid://ct62gqlhtgtlg" path="res://assets/DrugConsumer.glb" id="6_2xxda"]
 
 [sub_resource type="Resource" id="Resource_71j2l"]
@@ -20,7 +19,6 @@ stamina_lose_on_walk = 1.0
 script = ExtResource("1_s7r02")
 stamina = ExtResource("2_roinp")
 stamina_lose = SubResource("Resource_71j2l")
-stats = ExtResource("4_w4hhk")
 
 [node name="inventory_ui" parent="." instance=ExtResource("4_6ojq5")]
 offset_left = 468.0

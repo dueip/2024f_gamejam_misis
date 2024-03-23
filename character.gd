@@ -2,6 +2,9 @@ extends CharacterBody3D
 
 class_name Character
 
+
+@onready
+var stats: CharacterStats = preload("res://global_char_stats.tres")
 @export
 var SPEED = 5.0
 @export
@@ -20,8 +23,6 @@ var stamina: BarResource
 var stamina_lose: StaminaLoseResource
 @export
 var mouse_sens: float = 0.05
-@export
-var stats: CharacterStats
 
 
 var current_minigame_focused: Minigame = null
@@ -67,14 +68,14 @@ func calculatePositionToLookAt(point: Vector2, current_position: Vector3, camera
 	return point_to_look_at
 	
 
-
-func _ready(): 
+func _ready():
 	# var minigames: Minigame = get_tree().find_
 	seed("Byeworld".hash())
 	Input.warp_mouse(Vector2(self.position.x, self.position.y))
 	#print(stats.inventory.slots[0].amount)
 	#print(stats.inventory.slots[1].amount)
 	stats.inventory.updated_slot.connect(_on_item_used)
+	
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 	
 func handle_minigame_input(input_event: InputEventKey):
@@ -158,7 +159,7 @@ func _on_minigame_ended(did_player_win: bool):
 	if did_player_win:
 		print("Player won!")
 	else:
-		print("Player lostr!")
+		print("Player lost!")
 	
 	current_minigame = null
 	is_in_minigame = false
