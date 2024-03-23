@@ -10,6 +10,8 @@ var control_buttons: Array
 @onready var controlButton = preload("res://control_buttons.tscn")
 var question_index: int = 0
 
+signal minigameWon()
+
 var is_in_the_hole: bool = false
 
 func _ready():
@@ -38,8 +40,7 @@ func _input(event):
 				if current_mark < 0:
 					return
 		if question_index == control_buttons.size():
-			print("we won!")
-			get_tree().change_scene_to_file("res://test_tw.tscn")
+			emit_signal("minigameWon")
 func _on_entered_the_hole():
 	is_in_the_hole = true
 	
