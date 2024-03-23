@@ -12,17 +12,17 @@ stamina_lose_on_walk = 1.0
 [node name="TestRoom" type="Node3D"]
 
 [node name="Floor" type="CSGBox3D" parent="."]
-transform = Transform3D(403.452, 0, 0, 0, 1, 0, 0, 0, 592.477, 0, 0, 0)
+transform = Transform3D(26.7541, 0, 0, 0, 1, 0, 0, 0, 22.0744, 0, 0, 0)
 use_collision = true
 
 [node name="Character" parent="." instance=ExtResource("1_wsvjk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.490274, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.60831, 0)
 stamina_lose = SubResource("Resource_clihd")
-
-[node name="Camera" type="Camera3D" parent="Character"]
-unique_name_in_owner = true
-transform = Transform3D(-1, 2.06109e-07, -6.02407e-08, 5.08847e-08, 0.5, 0.866025, 2.08616e-07, 0.866025, -0.5, 0, 12.9117, -8.324)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.206409, 0.978466, 0, -0.978466, 0.206409, 3.74477, 13.3325, 18.4079)
 light_energy = 0.58
+
+[node name="Camera" type="Camera3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(-1, 1.60586e-07, -7.54979e-08, 1.49101e-08, 0.5, 0.866025, 1.76821e-07, 0.866025, -0.5, 0, 30.52, -6.324)

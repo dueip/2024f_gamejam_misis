@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dr1t3444vuiws" path="res://TW/TW.tscn" id="2_fbpmy"]
 [ext_resource type="PackedScene" uid="uid://bvxofregcai0m" path="res://minigames/coffee_minigame.tscn" id="3_3feon"]
 [ext_resource type="PackedScene" uid="uid://ca2gl01dha7hl" path="res://minigames/beer_minigame.tscn" id="4_g6pux"]
-[ext_resource type="PackedScene" uid="uid://daehtsie361vf" path="res://WASD.tscn" id="5_1y2sq"]
-[ext_resource type="PackedScene" uid="uid://dd4njxxt7kqir" path="res://crowd.tscn" id="6_ghrwc"]
+[ext_resource type="PackedScene" uid="uid://0f2cjseltxve" path="res://WASD.tscn" id="5_1y2sq"]
+[ext_resource type="PackedScene" path="res://crowd.tscn" id="6_ghrwc"]
 
 [node name="test_tw" type="Node3D"]
 
