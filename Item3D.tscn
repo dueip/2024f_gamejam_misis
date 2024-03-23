@@ -8,7 +8,6 @@ size = Vector3(2, 2, 2)
 
 [node name="Item3d" type="Node3D"]
 script = ExtResource("1_2aayx")
-spin_speed = 5.0
 
 [node name="Area3D" type="Area3D" parent="."]
 

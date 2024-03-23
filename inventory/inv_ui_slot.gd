@@ -5,7 +5,6 @@ extends Panel
 
 
 func update(item : InvSlot):
-	print(item.item.name, " ", item.amount)
 	if (!item or (item.amount==0 and item.clear_if_empty==true)):
 		item_visual.visible=false
 		item_amount_visual.visible=false
