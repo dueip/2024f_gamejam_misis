@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvxofregcai0m"]
+[gd_scene load_steps=7 format=3 uid="uid://bvxofregcai0m"]
 
 [ext_resource type="Script" path="res://minigames/coffee_minigame.gd" id="1_ck3jk"]
 [ext_resource type="Texture2D" uid="uid://dmpc1jpv02y3f" path="res://sprites/coffee_popup.png" id="2_eix5y"]
 [ext_resource type="Texture2D" uid="uid://b5qpcwc0qr7j0" path="res://sprites/coffee_line.png" id="3_ce8gq"]
 [ext_resource type="Texture2D" uid="uid://e1iqsdosj8fh" path="res://sprites/bobber.png" id="4_ycfu8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xsmsq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7kcyt"]
 
@@ -21,14 +23,24 @@ texture = ExtResource("3_ce8gq")
 transform = Transform3D(0.00650949, 0.535629, 0, -0.402303, 0.00866678, 0, 0, 0, 1, -0.0861943, 0, 0.174164)
 texture = ExtResource("4_ycfu8")
 
+[node name="Area3D" type="Area3D" parent="Fill/Bobber"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fill/Bobber/Area3D"]
+transform = Transform3D(2.65339, -1.86265e-08, 0, 0, 1.97066, 0, 0, 0, 2.54612, 0, 0, 0)
+shape = SubResource("BoxShape3D_xsmsq")
+
 [node name="Area3D" type="Area3D" parent="Fill"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.268024, 0, 0, 0)
-collision_layer = 2
-collision_mask = 2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.755529, 0, 0, 0)
+collision_layer = 0
+collision_mask = 0
+priority = -1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fill/Area3D"]
 transform = Transform3D(1.63432, 0, 0, 0, 4.79868, 0, 0, 0, 1.75198, 0, 0.155027, 0)
 shape = SubResource("BoxShape3D_7kcyt")
 
 [connection signal="minigame_started" from="." to="." method="_on_minigame_started"]
+[connection signal="area_shape_exited" from="Fill/Area3D" to="." method="_on_area_3d_area_shape_exited"]
 [connection signal="body_exited" from="Fill/Area3D" to="." method="_on_area_3d_body_exited"]
