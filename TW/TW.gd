@@ -7,7 +7,6 @@ class_name TW
 @export var minigame: Minigame
 @export var animation_speed: float = 1
 @export var animation_loop_time: float = 1
-@onready var animation_timer: Timer = $AnimationTimer
 @onready var player : Character = get_tree().get_first_node_in_group("Player")
 var change_sign: int = 1
 

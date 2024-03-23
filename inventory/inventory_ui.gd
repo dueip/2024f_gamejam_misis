@@ -1,12 +1,11 @@
 extends Control
 
-@export var inv_size : int = 2
-@export var inv : Inv
-var ui_slots : Array[Node]
+@onready var inv_size : int = 2
 
+var ui_slots : Array[Node]
+@onready var inv : Inv = preload("res://inventory/global_inventory.tres")
 
 func _ready():
-	inv.slots.resize(inv_size)
 	inv.updated.connect(update_slots)
 	var slot=preload("res://inventory/inv_ui_slot.tscn")
 	for i in range(0,inv_size):
@@ -16,6 +15,7 @@ func _ready():
 		
 	ui_slots = get_children()
 	update_slots()
+
 func update_slots():
 	for i in range(0,inv_size):
 		ui_slots[i].update(inv.slots[i])
