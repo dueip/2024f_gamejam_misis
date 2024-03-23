@@ -5,6 +5,7 @@
 [ext_resource type="Script" path="res://inventory/inv.gd" id="2_qtl4p"]
 [ext_resource type="PackedScene" uid="uid://bvxofregcai0m" path="res://minigames/coffee_minigame.tscn" id="3_3feon"]
 [ext_resource type="PackedScene" uid="uid://ca2gl01dha7hl" path="res://minigames/beer_minigame.tscn" id="4_g6pux"]
+
 [ext_resource type="PackedScene" uid="uid://daehtsie361vf" path="res://WASD.tscn" id="5_1y2sq"]
 [ext_resource type="Script" path="res://character_stats.gd" id="6_27bhy"]
 [ext_resource type="PackedScene" uid="uid://dd4njxxt7kqir" path="res://crowd.tscn" id="6_ghrwc"]
@@ -22,6 +23,7 @@ lives = 3
 money = 200
 score = 0
 score_multiplyer = 1.0
+
 
 [node name="test_tw" type="Node3D"]
 

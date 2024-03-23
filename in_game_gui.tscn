@@ -21,6 +21,8 @@ lives = 3
 money = 200
 score = 0
 score_multiplyer = 1.0
+booze_lvl = 0
+smoke_lvl = 0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ek0r7"]
 bg_color = Color(0, 0.203922, 0.329412, 1)
