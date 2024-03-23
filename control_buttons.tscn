@@ -1,24 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1e0xkg2a7g7n"]
+[gd_scene load_steps=3 format=3 uid="uid://d1e0xkg2a7g7n"]
 
 [ext_resource type="Script" path="res://control_buttons.gd" id="1_1rquo"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wwwgd"]
+
 [node name="ControlButtons" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1rquo")
+button_name = "W"
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wwwgd")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
 layout_mode = 0
+offset_top = 8.0
 offset_right = 40.0
-offset_bottom = 40.0
-bbcode_enabled = true
+offset_bottom = 38.0
 scroll_active = false
