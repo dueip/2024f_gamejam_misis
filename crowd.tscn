@@ -1,0 +1,11 @@
+[gd_scene load_steps=6 format=3 uid="uid://dd4njxxt7kqir"]
+
+[ext_resource type="Script" path="res://crowd.gd" id="1_051vd"]
+[ext_resource type="PackedScene" uid="uid://cb3jg3vwagmfr" path="res://assets/Chiknees.glb" id="1_yj7m1"]
+[ext_resource type="PackedScene" uid="uid://cpmqbxmtcwwrq" path="res://assets/Gay.glb" id="2_rxacl"]
+[ext_resource type="PackedScene" uid="uid://dx5eeyxdf1u4i" path="res://assets/Gray.glb" id="3_qc8dx"]
+[ext_resource type="PackedScene" uid="uid://g4l5xeukx78n" path="res://assets/Nudist.glb" id="4_mukqy"]
+
+[node name="Crowd" type="Node3D"]
+script = ExtResource("1_051vd")
+people = Array[PackedScene]([ExtResource("1_yj7m1"), ExtResource("2_rxacl"), ExtResource("3_qc8dx"), ExtResource("4_mukqy")])

@@ -25,6 +25,7 @@ offset_left = 468.0
 offset_top = -43.0
 offset_right = -44.0
 offset_bottom = -563.0
+inv_size = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_2pkr1")
