@@ -40,6 +40,17 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var running_mult: float = 1
 
+var slow_down_value_percents: float = 0
+
+
+
+func restoreFromSlowingDown():
+	slowDown(0)
+
+func slowDown(value_in_percents: float):
+	slow_down_value_percents = value_in_percents
+
+
 func calculatePositionToLookAt(point: Vector2, current_position: Vector3, camera: Camera3D) -> Vector3:
 	var normal = camera.project_ray_normal(point)
 	var C = (current_position.y-camera.position.y)/ normal.y
@@ -119,7 +130,7 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED * speed_multiplyer * running_mult)
 		velocity.z = move_toward(velocity.z, 0, SPEED * speed_multiplyer * running_mult)
-
+	velocity -= velocity * slow_down_value_percents / 100
 	move_and_slide()
 
 
