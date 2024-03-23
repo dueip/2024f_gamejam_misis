@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://626ehrp4x5p8"]
+[gd_scene load_steps=14 format=3 uid="uid://626ehrp4x5p8"]
 
 [ext_resource type="PackedScene" uid="uid://ukij8uagjnc7" path="res://test_room.tscn" id="1_ju52g"]
+[ext_resource type="Script" path="res://test_tw.gd" id="1_ppaav"]
 [ext_resource type="PackedScene" uid="uid://dr1t3444vuiws" path="res://TW/TW.tscn" id="2_fbpmy"]
 [ext_resource type="Script" path="res://inventory/inv.gd" id="2_qtl4p"]
 [ext_resource type="PackedScene" uid="uid://bvxofregcai0m" path="res://minigames/coffee_minigame.tscn" id="3_3feon"]
@@ -9,6 +10,7 @@
 [ext_resource type="Script" path="res://character_stats.gd" id="6_27bhy"]
 [ext_resource type="PackedScene" uid="uid://dd4njxxt7kqir" path="res://crowd.tscn" id="6_ghrwc"]
 [ext_resource type="Resource" uid="uid://12cfv8iouicg" path="res://stamina_resource.tres" id="7_kaqq5"]
+[ext_resource type="PackedScene" uid="uid://b0wnppayfjhow" path="res://scene_manager.tscn" id="10_hhy83"]
 
 [sub_resource type="Resource" id="Resource_ydctm"]
 script = ExtResource("2_qtl4p")
@@ -26,6 +28,7 @@ booze_lvl = 0
 smoke_lvl = 0
 
 [node name="test_tw" type="Node3D"]
+script = ExtResource("1_ppaav")
 
 [node name="TestRoom" parent="." instance=ExtResource("1_ju52g")]
 
@@ -105,5 +108,8 @@ transform = Transform3D(-0.468117, -0.0998947, 0.878002, -0.0504655, 0.99499, 0.
 [node name="Crowd4" parent="." instance=ExtResource("6_ghrwc")]
 transform = Transform3D(-0.977784, -0.0288889, -0.207617, -0.0282399, 0.999583, -0.00608943, 0.207706, -9.10512e-05, -0.978191, 1.69622, 0.21455, -13.5377)
 number = 15
+
+[node name="SceneManager" parent="." groups=["SceneManager"] instance=ExtResource("10_hhy83")]
+unique_name_in_owner = true
 
 [editable path="TestRoom"]
