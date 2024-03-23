@@ -10,7 +10,8 @@ func startGame():
 	emit_signal("minigame_started", self)
 
 func nextTurn(input: String):
-	print(input)
+	if combination.size() > 2:
+		print("Uwu dont do this please")
 	
 	if prev_input.length() == 0: 
 		if input != combination[0]: 

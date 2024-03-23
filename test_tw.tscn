@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://626ehrp4x5p8"]
+[gd_scene load_steps=6 format=3 uid="uid://626ehrp4x5p8"]
 
 [ext_resource type="PackedScene" uid="uid://ukij8uagjnc7" path="res://test_room.tscn" id="1_ju52g"]
 [ext_resource type="PackedScene" uid="uid://dr1t3444vuiws" path="res://TW/TW.tscn" id="2_fbpmy"]
 [ext_resource type="PackedScene" uid="uid://bvxofregcai0m" path="res://minigames/coffee_minigame.tscn" id="3_3feon"]
 [ext_resource type="PackedScene" uid="uid://ca2gl01dha7hl" path="res://minigames/beer_minigame.tscn" id="4_g6pux"]
+[ext_resource type="PackedScene" uid="uid://d1e0xkg2a7g7n" path="res://control_buttons.tscn" id="5_de1d0"]
 
 [node name="test_tw" type="Node3D"]
 
@@ -62,5 +63,47 @@ omni_range = 6.997
 omni_attenuation = 1.46409
 
 [node name="beer_minigame" parent="pab_tw" instance=ExtResource("4_g6pux")]
+
+[node name="ControlButtons" parent="." instance=ExtResource("5_de1d0")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+button_name = "W"
+
+[node name="ControlButtons2" parent="." instance=ExtResource("5_de1d0")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = 42.0
+offset_right = -49.0
+offset_bottom = 42.0
+button_name = "A"
+
+[node name="ControlButtons3" parent="." instance=ExtResource("5_de1d0")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 42.0
+offset_bottom = 42.0
+button_name = "S"
+
+[node name="ControlButtons4" parent="." instance=ExtResource("5_de1d0")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 55.0
+offset_top = 40.0
+offset_right = 55.0
+offset_bottom = 40.0
+button_name = "D"
 
 [editable path="TestRoom"]
