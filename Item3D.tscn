@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7732w45gsl3n"]
+
+[ext_resource type="Script" path="res://Item3D.gd" id="1_2aayx"]
+[ext_resource type="Texture2D" uid="uid://cmj8qp8wk4nwe" path="res://images/vape.png" id="2_bjv13"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3vpet"]
+size = Vector3(2, 2, 2)
+
+[node name="Item3d" type="Node3D"]
+script = ExtResource("1_2aayx")
+spin_speed = 5.0
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0719328, -4.76837e-07, -0.00997925)
+shape = SubResource("BoxShape3D_3vpet")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.193185, -0.0517638, 0, 0.0517638, 0.193185, 0, 0, 0)
+custom_aabb = AABB(0, 0, 0, 2, 2, 2)
+texture = ExtResource("2_bjv13")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -11,7 +11,11 @@ func unhighlight_button(name : String, color: Color = Color(0.745, 0.745, 0.745)
 	var child = find_child(name,false)
 	if  child!=null:
 		child.unhighlight(color)
-	
+
+func unhighlight_all(color: Color = Color(0.745, 0.745, 0.745)):
+	for child_button in get_children():
+			child_button.unhighlight(color)
+
 func _input(event):
 	return
 	if event is InputEventKey:

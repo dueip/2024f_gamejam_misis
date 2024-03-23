@@ -40,6 +40,7 @@ func use(item : InvItem) -> bool:
 		return 0
 
 func use_index(index : int) -> bool:
+	print(slots.size())
 	if (index < 0 or index>=slots.size()):
 		emit_signal("failed_update_slot","use")
 		return false
