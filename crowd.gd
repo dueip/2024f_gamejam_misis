@@ -1,17 +1,20 @@
 extends Node3D
 
-@export var number: int = 5
+@export var number: int = 6
+@export var number_of_rows: int = 3 
 
 @export var people : Array[PackedScene]
 
 var people_spawned : Array[Node3D]
 var tween: Tween
 func _ready():
-	for i in range(0, number):
-		var person : Node3D = people[randi_range(0, people.size() - 1)].instantiate()
-		self.add_child(person)
-		person.position.x += person.scale.x * 2 * i
-		people_spawned.push_back(person)
+	for j in range(0, number_of_rows):
+		for i in range(0, number / number_of_rows):
+			var person : Node3D = people[randi_range(0, people.size() - 1)].instantiate()
+			self.add_child(person)
+			person.position.x += person.scale.x * 2 * j
+			person.position.z += person.scale.z * 2 * i
+			people_spawned.push_back(person)
 		
 		
 	for pers in people_spawned:
