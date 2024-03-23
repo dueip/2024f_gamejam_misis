@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dd4njxxt7kqir"]
+[gd_scene load_steps=7 format=3 uid="uid://5bfg3f511vji"]
 
 [ext_resource type="Script" path="res://crowd.gd" id="1_051vd"]
 [ext_resource type="PackedScene" uid="uid://cb3jg3vwagmfr" path="res://assets/Chiknees.glb" id="1_yj7m1"]
