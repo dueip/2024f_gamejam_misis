@@ -9,7 +9,7 @@ var prev_input: String = ""
 func startGame():
 	emit_signal("minigame_started", self)
 
-func play(input: String):
+func nextTurn(input: String):
 	print(input)
 	return
 	if prev_input.length() == 0: 

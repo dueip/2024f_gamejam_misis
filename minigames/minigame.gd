@@ -13,7 +13,7 @@ func startGame():
 	emit_signal("minigame_started", self)
 	
 	
-func play(input: String):
+func nextTurn(input: String):
 	print("helloworld")
 	
 func endGame(did_player_win: bool):
