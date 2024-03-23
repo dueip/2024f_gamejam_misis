@@ -40,9 +40,12 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var running_mult: float = 1
 
+var point_to_look_at : Vector3 = Vector3(0,0,1000)
+
 func calculatePositionToLookAt(point: Vector2, current_position: Vector3, camera: Camera3D) -> Vector3:
 	var normal = camera.project_ray_normal(point)
-	var C = (current_position.y-camera.position.y)/ normal.y
+	var eye_height= $Body/Цилиндр_002.position.y
+	var C = (current_position.y+eye_height-camera.position.y)/ normal.y
 	var point_to_look_at : Vector3 = (camera.position)
 	point_to_look_at.x+=C*normal.x
 	point_to_look_at.z+=C*normal.z
@@ -80,10 +83,11 @@ func _input(event):
 			current_minigame_focused.startGame()	
 	if event is InputEventMouse:
 		var camera = get_viewport().get_camera_3d()
-		$Body.look_at(calculatePositionToLookAt(event.position, self.position, camera))
-		$Body.rotate_y(deg_to_rad(180))
+		point_to_look_at=calculatePositionToLookAt(get_viewport().get_mouse_position(), self.position, camera)
 	
 func _process(delta):
+	$Body.look_at(point_to_look_at)
+	$Body.rotate_y(deg_to_rad(180))
 	if is_in_minigame:
 		return
 	
