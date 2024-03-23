@@ -41,3 +41,8 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	player.current_minigame_focused = null
+
+
+func _on_tree_exited():
+	player.current_minigame = null
+	player.current_minigame_focused = null
