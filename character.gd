@@ -170,5 +170,7 @@ func _on_item_used(action : String,item_name : String):
 	if item_name=="Кофе":
 		stats.down_booze()
 		stats.stamina.gain(50)
+		
+
 
 	
