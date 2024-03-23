@@ -1,7 +1,9 @@
-extends Node3D
+extends Area3D
 
 @export var number: int = 6
 @export var number_of_rows: int = 3 
+
+
 
 @export var people : Array[PackedScene]
 
@@ -15,6 +17,7 @@ func _ready():
 			person.position.x += person.scale.x * 2 * j
 			person.position.z += person.scale.z * 2 * i
 			people_spawned.push_back(person)
+			
 		
 		
 	for pers in people_spawned:
@@ -35,3 +38,13 @@ func _process(delta):
 func _on_tween_finished():
 	is_tween_finished = true
 	
+
+
+func _on_body_entered(body):
+	if body is Character:
+		body.slowDown(50)
+
+
+func _on_body_exited(body):
+	if body is Character:
+		body.restoreFromSlowingDown()
