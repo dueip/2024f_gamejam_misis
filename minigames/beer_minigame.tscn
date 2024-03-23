@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca2gl01dha7hl"]
+
+[ext_resource type="Script" path="res://minigames/beer_minigame.gd" id="1_rwy0d"]
+[ext_resource type="Texture2D" uid="uid://c552448uwim7m" path="res://sprites/beer_popup.png" id="2_i1et2"]
+
+[node name="beer_minigame" type="Node3D"]
+script = ExtResource("1_rwy0d")
+combination = Array[String](["w", "s"])
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
+texture = ExtResource("2_i1et2")

@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvxofregcai0m"]
+[gd_scene load_steps=3 format=3 uid="uid://bvxofregcai0m"]
 
 [ext_resource type="Script" path="res://minigames/coffee_minigame.gd" id="1_nmy15"]
+[ext_resource type="Texture2D" uid="uid://dmpc1jpv02y3f" path="res://sprites/coffee_popup.png" id="2_eix5y"]
 
 [node name="coffee_minigame" type="Node3D"]
 script = ExtResource("1_nmy15")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.763965, 0.645258, 0, -0.645258, 0.763965, 0, 0, 0)
+texture = ExtResource("2_eix5y")

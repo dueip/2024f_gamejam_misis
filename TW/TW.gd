@@ -7,9 +7,8 @@ class_name TW
 @export var minigame: Minigame
 @export var animation_speed: float = 1
 @export var animation_loop_time: float = 1
-@onready var sprite: Sprite3D = $Sprite3D
 @onready var animation_timer: Timer = $AnimationTimer
-
+@onready var player : Character = get_tree().get_first_node_in_group("Player")
 var change_sign: int = 1
 
 
@@ -21,6 +20,7 @@ func create_tw_at(where_at: Vector3, new_tw_name: String, new_award: int) -> TW:
 	return self
 	
 func _ready():
+	var sprite: Sprite3D = minigame.get_node("Sprite3D") 
 	var tween = get_tree().create_tween()
 	var vector_first = sprite.position
 	var vector_final = Vector3(sprite.position.x, sprite.position.y + 1, sprite.position.z)
@@ -28,24 +28,16 @@ func _ready():
 	tween.tween_property(sprite, "position", vector_first, animation_loop_time / 2).set_trans(tween.TRANS_SINE)
 	tween.set_speed_scale(animation_speed)
 	tween.set_loops()
-func animateSprite(seed): 
 	
-	sprite.position.y += animation_speed * exp(0.001 * seed) * change_sign 
-	if (animation_timer.is_stopped()):
-		animation_timer.start(animation_loop_time)
-
-func _process(delta):
-	pass
-	#animateSprite(delta)
+	
 	
 func _on_mouse_entered():
-	minigame.startGame()
-	minigame.play()
-
-
-func _on_animation_timer_timeout():
-	if change_sign == -1:
-		change_sign = 1
-	else:
-		change_sign = -1
+	player.current_minigame_focused = minigame
+	minigame.minigame_started.connect(player.on_minigame_started)
+	minigame.minigame_ended.connect(player._on_minigame_ended)
 	
+
+
+
+func _on_mouse_exited():
+	player.current_minigame_focused = null

@@ -1,25 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://dr1t3444vuiws"]
+[gd_scene load_steps=4 format=3 uid="uid://dr1t3444vuiws"]
 
 [ext_resource type="Script" path="res://TW/TW.gd" id="1_leflx"]
 [ext_resource type="PackedScene" uid="uid://cbehqu0dsca77" path="res://minigames/minigame.tscn" id="2_m7cxr"]
-[ext_resource type="Texture2D" uid="uid://dmpc1jpv02y3f" path="res://sprites/coffee_popup.png" id="3_uwyy5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_olar8"]
 
-[node name="TW" type="Area3D" node_paths=PackedStringArray("minigame")]
-transform = Transform3D(1.21132, 0, 0, 0, 1.21132, 0, 0, 0, 1.21132, 0, 0, 0)
+[node name="TW" type="Area3D"]
 script = ExtResource("1_leflx")
-minigame = NodePath("minigame")
 
 [node name="minigame" parent="." instance=ExtResource("2_m7cxr")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_olar8")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.473099, 0, 0, 0, 0.388673, 0.269733, 0, -0.269733, 0.388673, 0, 0, 0)
-texture = ExtResource("3_uwyy5")
-
-[node name="AnimationTimer" type="Timer" parent="."]
-
-[connection signal="timeout" from="AnimationTimer" to="." method="_on_animation_timer_timeout"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

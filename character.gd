@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+class_name Character
+
 @export
 var SPEED = 5.0
 @export
@@ -19,6 +21,14 @@ var stamina_lose: StaminaLoseResource
 @export
 var mouse_sens: float = 0.05
 
+
+var current_minigame_focused: Minigame = null
+
+var current_minigame: Minigame = null
+
+var is_in_minigame: bool = false
+
+var can_input: bool = true
 
 var speed_multiplyer: float = 1.0 
 
@@ -42,19 +52,44 @@ func calculatePositionToLookAt(point: Vector2, current_position: Vector3, camera
 
 
 func _ready(): 
+	# var minigames: Minigame = get_tree().find_
 	seed("Byeworld".hash())
 	Input.warp_mouse(Vector2(self.position.x, self.position.y))
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 	
-	
+func handle_minigame_input(input_event: InputEventKey):
+	if can_input:
+		if input_event.keycode == KEY_W:
+			current_minigame.play("w")
+		elif input_event.keycode == KEY_S:
+			current_minigame.play("s")
+		elif input_event.keycode == KEY_A:
+			current_minigame.play("a")
+		elif input_event.keycode == KEY_D:
+			current_minigame.play("d")
+		else:
+			current_minigame.play("")
+
 func _input(event):
+	if is_in_minigame:
+		if event is InputEventKey and not event.is_echo() and Input.is_key_pressed(event.keycode):
+			handle_minigame_input(event)
+		return
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT && current_minigame_focused:
+			current_minigame_focused.startGame()	
 	if event is InputEventMouse:
 		var camera = get_viewport().get_camera_3d()
 		$Body.look_at(calculatePositionToLookAt(event.position, self.position, camera))
 		$Body.rotate_y(deg_to_rad(180))
-
+	
+func _process(delta):
+	if is_in_minigame:
+		return
 	
 func _physics_process(delta):
+	if is_in_minigame:
+		return
 	var is_running: bool = Input.is_action_pressed("character_run")
 	if is_running:
 		running_mult = RUNNING_SPEED_MULT
@@ -90,3 +125,19 @@ func _physics_process(delta):
 func _on_dash_timer_timeout():
 	speed_multiplyer = base_multiplyer
 	dash_timer.stop()
+
+func on_minigame_started(minigame: Minigame):
+	print("Minigame Started")
+	current_minigame = minigame
+	is_in_minigame = true
+
+func _on_minigame_ended(did_player_win: bool):
+	current_minigame = null
+	is_in_minigame = false
+
+
+func _on_timer_to_prevent_double_fires_timeout():
+	if can_input:
+		can_input = false
+	else:
+		can_input = true
