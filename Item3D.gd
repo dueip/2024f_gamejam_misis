@@ -2,17 +2,25 @@ extends Node3D
 
 class_name Item3D
 
-@export var spin_speed : float 
 @onready var sprite : Sprite3D = $Sprite3D
 @export var float_loop_time: float = 3
 @export var spin_loop_time: float = 2
 @export var amplitude : float = 0.5
 @export var animation_speed: float = 1
+@export var time_to_live : float = 30
 
 @export var item : InvItem
 
 func _ready():
 	$Sprite3D.texture=item.texture
+	
+	var timer : Timer = Timer.new()
+	add_child(timer)
+	timer.wait_time=time_to_live
+	timer.one_shot=true
+	timer.start()
+	timer.timeout.connect(destroy_item)
+	
 	var tween_float = get_tree().create_tween()
 	var tween_spin = get_tree().create_tween()
 	var vector_first = sprite.position
@@ -31,11 +39,16 @@ func _ready():
 	tween_spin.set_loops()
 
 
-#func _process(delta):
-	#$Sprite3D.rotate_y(delta*spin_speed)
+
 
 
 func _on_area_3d_body_entered(body):
 	if body is Character:
 		if(body.stats.inventory.add(item)):
-			queue_free()
+			destroy_item()
+
+func destroy_item():
+	var tween_scale = get_tree().create_tween()
+	tween_scale.tween_property(sprite, "scale", Vector3(0,0,0), 0.5).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+	await get_tree().create_timer(0.5).timeout
+	queue_free()
