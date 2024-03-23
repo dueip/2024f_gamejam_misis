@@ -6,6 +6,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_olar8"]
 
 [node name="TW" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1.90401, 0, 0, 0, 2.25321, 0, 0, 0)
 script = ExtResource("1_leflx")
 
 [node name="minigame" parent="." instance=ExtResource("2_m7cxr")]

@@ -8,16 +8,20 @@
 [sub_resource type="Resource" id="Resource_s1n2m"]
 script = ExtResource("2_ypycj")
 item = ExtResource("2_jjs0e")
-amount = 1
+
+amount = 2
 clear_if_empty = true
-capacity = 1
+capacity = 99
+
 
 [sub_resource type="Resource" id="Resource_ont0s"]
 script = ExtResource("2_ypycj")
 item = ExtResource("2_7ijxr")
 amount = 0
-clear_if_empty = false
-capacity = 3
+
+clear_if_empty = true
+capacity = 99
+
 
 [resource]
 script = ExtResource("1_aofla")
