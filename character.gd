@@ -135,7 +135,7 @@ func _on_minigame_ended(did_player_win: bool):
 	if did_player_win:
 		print("Player won!")
 	else:
-		print("Player lost!")
+		print("Player lostr!")
 	
 	current_minigame = null
 	is_in_minigame = false
