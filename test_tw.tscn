@@ -1,24 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://626ehrp4x5p8"]
+[gd_scene load_steps=7 format=3 uid="uid://626ehrp4x5p8"]
 
 [ext_resource type="PackedScene" uid="uid://ukij8uagjnc7" path="res://test_room.tscn" id="1_ju52g"]
 [ext_resource type="PackedScene" uid="uid://dr1t3444vuiws" path="res://TW/TW.tscn" id="2_fbpmy"]
 [ext_resource type="PackedScene" uid="uid://bvxofregcai0m" path="res://minigames/coffee_minigame.tscn" id="3_3feon"]
 [ext_resource type="PackedScene" uid="uid://ca2gl01dha7hl" path="res://minigames/beer_minigame.tscn" id="4_g6pux"]
 [ext_resource type="PackedScene" uid="uid://d1e0xkg2a7g7n" path="res://control_buttons.tscn" id="5_de1d0"]
+[ext_resource type="PackedScene" uid="uid://dd4njxxt7kqir" path="res://crowd.tscn" id="6_ghrwc"]
 
 [node name="test_tw" type="Node3D"]
 
 [node name="TestRoom" parent="." instance=ExtResource("1_ju52g")]
 
 [node name="Character" parent="TestRoom" index="1" groups=["Player"]]
+transform = Transform3D(0.798482, 0, 0, 0, 0.798482, 0, 0, 0, 0.798482, 0, 0.836872, 0)
 
 [node name="DirectionalLight3D" parent="TestRoom" index="2"]
 visible = false
 editor_only = true
-
-[node name="Camera" parent="TestRoom" index="3"]
-transform = Transform3D(-1, 1.60587e-07, -7.5498e-08, 1.49101e-08, 0.5, 0.866025, 1.76821e-07, 0.866025, -0.5, 0, 11.8596, -6.324)
-current = true
 
 [node name="coffee_tw" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("2_fbpmy")]
 transform = Transform3D(-0.999198, 0, -0.0400445, 0, 1, 0, 0.0400445, 0, -0.999198, 6.88699, 5.06528, 3.61969)
@@ -110,5 +108,11 @@ offset_top = 40.0
 offset_right = 55.0
 offset_bottom = 40.0
 button_name = "D"
+
+[node name="Crowd" parent="." instance=ExtResource("6_ghrwc")]
+transform = Transform3D(-0.449215, -0.0852613, -0.720707, -0.0422523, 0.849236, -0.0741307, 0.724502, -0.00333809, -0.451185, 9.58184, 0.229614, -8.91407)
+
+[node name="Crowd2" parent="." instance=ExtResource("6_ghrwc")]
+transform = Transform3D(0.570738, -0.0246569, -0.634139, 0.0165525, 0.853156, -0.018275, 0.634403, -7.77356e-05, 0.570978, 7.39256, -0.291356, -16.4781)
 
 [editable path="TestRoom"]
