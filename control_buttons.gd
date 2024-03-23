@@ -22,7 +22,11 @@ func unhighlight():
 	text_label.push_font_size(16)
 	text_label.append_text("[center]")
 	text_label.append_text(button_name)
-	text_label.pop_all()
+	text_label.pop()
+	text_label.pop()
+	text_label.pop()
+	text_label.pop()
+	text_label.pop()
 	
 func highlight():
 	stylebox.bg_color=Color(0.874, 0.941, 0.996)
@@ -33,7 +37,11 @@ func highlight():
 	text_label.append_text("[center]")
 	text_label.push_font_size(17)
 	text_label.append_text(button_name)
-	text_label.pop_all()	
+	text_label.pop()
+	text_label.pop()
+	text_label.pop()
+	text_label.pop()
+	text_label.pop()	
 	
 
 
