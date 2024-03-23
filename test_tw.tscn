@@ -44,7 +44,7 @@ omni_attenuation = 1.46409
 [node name="coffee_minigame" parent="coffee_tw" instance=ExtResource("3_3feon")]
 
 [node name="pab_tw" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("2_fbpmy")]
-transform = Transform3D(-0.999989, 0, 0.00466003, 0, 1, 0, -0.00466003, 0, -0.999989, -6.11301, 5.52796, 3.61969)
+transform = Transform3D(-6.23151, 0, 0.0179155, 0, 4.25225, 0, -0.0290393, 0, -3.84445, -6.11301, 5.52796, 3.61969)
 minigame = NodePath("beer_minigame")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="pab_tw"]
@@ -63,8 +63,10 @@ omni_range = 6.997
 omni_attenuation = 1.46409
 
 [node name="beer_minigame" parent="pab_tw" instance=ExtResource("4_g6pux")]
+transform = Transform3D(0.160473, 0, 5.82077e-11, 0, 0.23517, 0, 0, 0, 0.260112, 0, 0, 0)
 
 [node name="ControlButtons" parent="." instance=ExtResource("5_de1d0")]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -73,6 +75,7 @@ anchor_bottom = 0.5
 button_name = "W"
 
 [node name="ControlButtons2" parent="." instance=ExtResource("5_de1d0")]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -85,6 +88,7 @@ offset_bottom = 42.0
 button_name = "A"
 
 [node name="ControlButtons3" parent="." instance=ExtResource("5_de1d0")]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -95,6 +99,7 @@ offset_bottom = 42.0
 button_name = "S"
 
 [node name="ControlButtons4" parent="." instance=ExtResource("5_de1d0")]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
