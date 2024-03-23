@@ -88,6 +88,7 @@ func _input(event):
 func _process(delta):
 	$Body.look_at(point_to_look_at)
 	$Body.rotate_y(deg_to_rad(180))
+	
 	if is_in_minigame:
 		return
 	
@@ -143,10 +144,3 @@ func _on_minigame_ended(did_player_win: bool):
 	
 	current_minigame = null
 	is_in_minigame = false
-
-
-func _on_timer_to_prevent_double_fires_timeout():
-	if can_input:
-		can_input = false
-	else:
-		can_input = true
