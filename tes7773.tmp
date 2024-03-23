@@ -22,8 +22,6 @@ lives = 3
 money = 200
 score = 0
 score_multiplyer = 1.0
-booze_lvl = 0
-smoke_lvl = 0
 
 [node name="test_tw" type="Node3D"]
 
@@ -82,8 +80,7 @@ omni_range = 6.997
 omni_attenuation = 1.46409
 
 [node name="beer_minigame" parent="pab_tw" instance=ExtResource("4_g6pux")]
-transform = Transform3D(0.155386, 0, 1.16415e-10, 0, 0.227715, 0, -4.65661e-10, 0, 0.251867, 0, 0, 0)
-combination = Array[String](["w", "s"])
+transform = Transform3D(0.160473, 0, 5.82077e-11, 0, 0.23517, 0, 0, 0, 0.260112, 0, 0, 0)
 
 [node name="WASD" parent="." instance=ExtResource("5_1y2sq")]
 unique_name_in_owner = true

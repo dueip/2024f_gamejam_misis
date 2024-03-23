@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnc5nhr5fhhsb"]
+
+[ext_resource type="Script" path="res://RightPart.gd" id="1_s2y2p"]
+[ext_resource type="Texture2D" uid="uid://e1iqsdosj8fh" path="res://sprites/bobber.png" id="2_ftahs"]
+[ext_resource type="Texture2D" uid="uid://b5qpcwc0qr7j0" path="res://sprites/coffee_line.png" id="3_cj5ol"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yn2sc"]
+radius = 39.6989
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xee44"]
+size = Vector2(27.0826, 20)
+
+[node name="RightPart" type="Node2D"]
+script = ExtResource("1_s2y2p")
+
+[node name="Hole" type="Sprite2D" parent="."]
+scale = Vector2(0.309555, 0.293191)
+texture = ExtResource("2_ftahs")
+
+[node name="HoleArea" type="Area2D" parent="Hole"]
+scale = Vector2(3.23044, 3.41074)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hole/HoleArea"]
+position = Vector2(2, -3)
+scale = Vector2(-0.769138, 0.956351)
+shape = SubResource("CircleShape2D_yn2sc")
+
+[node name="SomeOtherThing" type="Sprite2D" parent="."]
+scale = Vector2(-0.0369241, 0.0368118)
+texture = ExtResource("3_cj5ol")
+
+[node name="Area2D" type="Area2D" parent="SomeOtherThing"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SomeOtherThing/Area2D"]
+position = Vector2(-13.5413, 0)
+scale = Vector2(6.41652, -27.2518)
+shape = SubResource("RectangleShape2D_xee44")
+
+[connection signal="area_entered" from="Hole/HoleArea" to="." method="_on_hole_area_area_entered"]
+[connection signal="area_exited" from="Hole/HoleArea" to="." method="_on_hole_area_area_exited"]

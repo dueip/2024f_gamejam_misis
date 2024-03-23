@@ -80,16 +80,7 @@ func _ready():
 	
 func handle_minigame_input(input_event: InputEventKey):
 	if can_input:
-		if input_event.keycode == KEY_W:
-			current_minigame.nextTurn("w")
-		elif input_event.keycode == KEY_S:
-			current_minigame.nextTurn("s")
-		elif input_event.keycode == KEY_A:
-			current_minigame.nextTurn("a")
-		elif input_event.keycode == KEY_D:
-			current_minigame.nextTurn("d")
-		else:
-			current_minigame.nextTurn("")
+		current_minigame.nextTurn(OS.get_keycode_string(input_event.keycode))
 
 func _input(event):
 	if is_in_minigame:
