@@ -11,7 +11,7 @@ func startGame():
 
 func nextTurn(input: String):
 	print(input)
-	return
+	
 	if prev_input.length() == 0: 
 		if input != combination[0]: 
 			endGame(false)
@@ -20,9 +20,11 @@ func nextTurn(input: String):
 		if input != combination[1]:
 			endGame(false)
 			return
-	prev_input = input
 	if prev_input.length() > 0:
 		current_repetition += 1
+		prev_input = ""
+	else:
+		prev_input = input
 	if current_repetition == repetitions:
 		endGame(true)
 		return

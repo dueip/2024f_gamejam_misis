@@ -132,6 +132,11 @@ func on_minigame_started(minigame: Minigame):
 	is_in_minigame = true
 
 func _on_minigame_ended(did_player_win: bool):
+	if did_player_win:
+		print("Player won!")
+	else:
+		print("Player lost!")
+	
 	current_minigame = null
 	is_in_minigame = false
 
