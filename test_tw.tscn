@@ -4,10 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dr1t3444vuiws" path="res://TW/TW.tscn" id="2_fbpmy"]
 [ext_resource type="PackedScene" uid="uid://bvxofregcai0m" path="res://minigames/coffee_minigame.tscn" id="3_3feon"]
 [ext_resource type="PackedScene" uid="uid://ca2gl01dha7hl" path="res://minigames/beer_minigame.tscn" id="4_g6pux"]
-
-[ext_resource type="PackedScene" uid="uid://0f2cjseltxve" path="res://WASD.tscn" id="5_1y2sq"]
+[ext_resource type="PackedScene" path="res://WASD.tscn" id="5_1y2sq"]
 [ext_resource type="PackedScene" uid="uid://dd4njxxt7kqir" path="res://crowd.tscn" id="6_ghrwc"]
-
 
 [node name="test_tw" type="Node3D"]
 
@@ -65,13 +63,11 @@ omni_attenuation = 1.46409
 [node name="beer_minigame" parent="pab_tw" instance=ExtResource("4_g6pux")]
 transform = Transform3D(0.160473, 0, 5.82077e-11, 0, 0.23517, 0, 0, 0, 0.260112, 0, 0, 0)
 
-
 [node name="WASD" parent="." instance=ExtResource("5_1y2sq")]
 offset_left = 491.0
 offset_top = 44.0
 offset_right = -541.0
 offset_bottom = -524.0
-
 
 [node name="Crowd" parent="." instance=ExtResource("6_ghrwc")]
 transform = Transform3D(-0.449215, -0.0852613, -0.720707, -0.0422523, 0.849236, -0.0741307, 0.724502, -0.00333809, -0.451185, 9.58184, 0.229614, -8.91407)
