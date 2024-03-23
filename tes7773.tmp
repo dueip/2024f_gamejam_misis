@@ -1,33 +1,42 @@
-[gd_scene load_steps=11 format=3 uid="uid://626ehrp4x5p8"]
+[gd_scene load_steps=12 format=3 uid="uid://626ehrp4x5p8"]
 
 [ext_resource type="PackedScene" uid="uid://ukij8uagjnc7" path="res://test_room.tscn" id="1_ju52g"]
 [ext_resource type="PackedScene" uid="uid://dr1t3444vuiws" path="res://TW/TW.tscn" id="2_fbpmy"]
+[ext_resource type="Script" path="res://inventory/inv.gd" id="2_qtl4p"]
 [ext_resource type="PackedScene" uid="uid://bvxofregcai0m" path="res://minigames/coffee_minigame.tscn" id="3_3feon"]
 [ext_resource type="PackedScene" uid="uid://ca2gl01dha7hl" path="res://minigames/beer_minigame.tscn" id="4_g6pux"]
-[ext_resource type="PackedScene" uid="uid://0f2cjseltxve" path="res://WASD.tscn" id="5_1y2sq"]
-[ext_resource type="PackedScene" uid="uid://5bfg3f511vji" path="res://crowd.tscn" id="6_ghrwc"]
-[ext_resource type="PackedScene" uid="uid://brh20oloycgj3" path="res://item_generaion/item_generator.tscn" id="7_571j2"]
-[ext_resource type="Resource" uid="uid://cil8tk8yj7vng" path="res://inventory/items/cider.tres" id="8_vou74"]
-[ext_resource type="Resource" uid="uid://bijsrpn20gthk" path="res://inventory/items/coffee.tres" id="9_8qlnh"]
-[ext_resource type="Resource" uid="uid://boqyxtbmtkwmh" path="res://inventory/items/vape.tres" id="11_0yftj"]
+[ext_resource type="PackedScene" uid="uid://daehtsie361vf" path="res://WASD.tscn" id="5_1y2sq"]
+[ext_resource type="Script" path="res://character_stats.gd" id="6_27bhy"]
+[ext_resource type="PackedScene" uid="uid://dd4njxxt7kqir" path="res://crowd.tscn" id="6_ghrwc"]
+[ext_resource type="Resource" uid="uid://12cfv8iouicg" path="res://stamina_resource.tres" id="7_kaqq5"]
+
+[sub_resource type="Resource" id="Resource_ydctm"]
+script = ExtResource("2_qtl4p")
+slots = Array[Resource("res://inventory/inv_slot.gd")]([])
+
+[sub_resource type="Resource" id="Resource_tgcqt"]
+script = ExtResource("6_27bhy")
+inventory = SubResource("Resource_ydctm")
+stamina = ExtResource("7_kaqq5")
+lives = 3
+money = 200
+score = 0
+score_multiplyer = 1.0
 
 [node name="test_tw" type="Node3D"]
 
 [node name="TestRoom" parent="." instance=ExtResource("1_ju52g")]
 
 [node name="Character" parent="TestRoom" index="1" groups=["Player"]]
-transform = Transform3D(0.798482, 0, 0, 0, 0.798482, 0, 0, 0, 0.798482, 0.264664, 0.690596, -0.0941715)
+transform = Transform3D(0.798482, 0, 0, 0, 0.798482, 0, 0, 0, 0.798482, 0, 0.836872, 0)
+stats = SubResource("Resource_tgcqt")
 
 [node name="DirectionalLight3D" parent="TestRoom" index="2"]
 visible = false
 editor_only = true
 
-[node name="Camera" parent="TestRoom" index="3"]
-transform = Transform3D(1, 0, 0, 0, 0.872922, 0.48786, 0, -0.48786, 0.872922, -0.917303, 7.56586, 13.7569)
-
 [node name="coffee_tw" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("2_fbpmy")]
 transform = Transform3D(-0.999198, 0, -0.0400445, 0, 1, 0, 0.0400445, 0, -0.999198, 6.88699, 5.06528, 3.61969)
-visible = false
 priority = 1
 minigame = NodePath("coffee_minigame")
 animation_speed = 0.5
@@ -53,7 +62,6 @@ combination = Array[String](["a", "d"])
 
 [node name="pab_tw" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("2_fbpmy")]
 transform = Transform3D(-6.23151, 0, 0.0179155, 0, 4.25225, 0, -0.0290393, 0, -3.84445, -6.11301, 5.52796, 3.61969)
-visible = false
 minigame = NodePath("beer_minigame")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="pab_tw"]
@@ -72,8 +80,7 @@ omni_range = 6.997
 omni_attenuation = 1.46409
 
 [node name="beer_minigame" parent="pab_tw" instance=ExtResource("4_g6pux")]
-transform = Transform3D(0.155386, 0, 1.16415e-10, 0, 0.227715, 0, -4.65661e-10, 0, 0.251867, 0, 0, 0)
-combination = Array[String](["w", "s"])
+transform = Transform3D(0.160473, 0, 5.82077e-11, 0, 0.23517, 0, 0, 0, 0.260112, 0, 0, 0)
 
 [node name="WASD" parent="." instance=ExtResource("5_1y2sq")]
 unique_name_in_owner = true
@@ -84,26 +91,16 @@ offset_right = -541.0
 offset_bottom = -524.0
 
 [node name="Crowd" parent="." instance=ExtResource("6_ghrwc")]
-transform = Transform3D(-0.526314, -0.0998947, -0.844402, -0.0495041, 0.99499, -0.0868538, 0.848848, -0.00391103, -0.528622, 9.58184, 4.7445, -8.91407)
+transform = Transform3D(-0.526314, -0.0998947, -0.844402, -0.0495041, 0.99499, -0.0868538, 0.848848, -0.00391103, -0.528622, 9.58184, 0.229614, -8.91407)
 
 [node name="Crowd2" parent="." instance=ExtResource("6_ghrwc")]
-transform = Transform3D(0.668694, -0.0288887, -0.742977, 0.0193934, 0.999583, -0.0214117, 0.743285, -9.09977e-05, 0.668975, 3.6539, 1.93905, -7.03665)
-visible = false
+transform = Transform3D(0.668694, -0.0288887, -0.742977, 0.0193934, 0.999583, -0.0214117, 0.743285, -9.09977e-05, 0.668975, 7.65895, 0.21455, -13.5377)
 
 [node name="Crowd3" parent="." instance=ExtResource("6_ghrwc")]
-transform = Transform3D(-0.468117, -0.0998947, 0.878002, -0.0504655, 0.99499, 0.0862987, -0.882224, -0.00391097, -0.470813, 6.40312, 3.02357, 4.67167)
-visible = false
+transform = Transform3D(-0.468117, -0.0998947, 0.878002, -0.0504655, 0.99499, 0.0862987, -0.882224, -0.00391097, -0.470813, 3.6191, 0.229614, -8.91407)
 
 [node name="Crowd4" parent="." instance=ExtResource("6_ghrwc")]
-transform = Transform3D(-0.977784, -0.0288889, -0.207617, -0.0282399, 0.999583, -0.00608943, 0.207706, -9.10512e-05, -0.978191, 6.16292, 3.69053, -2.26517)
-visible = false
+transform = Transform3D(-0.977784, -0.0288889, -0.207617, -0.0282399, 0.999583, -0.00608943, 0.207706, -9.10512e-05, -0.978191, 1.69622, 0.21455, -13.5377)
 number = 15
-
-[node name="ItemGenerator" parent="." instance=ExtResource("7_571j2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.204842, -0.121562, -0.599185)
-items = Array[Resource("res://inventory/inv_item.gd")]([ExtResource("8_vou74"), ExtResource("9_8qlnh"), ExtResource("11_0yftj")])
-map_size = Vector2(20, 20)
-min_time = 1
-max_time = 5
 
 [editable path="TestRoom"]
