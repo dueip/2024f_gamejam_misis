@@ -11,7 +11,7 @@ func startGame():
 
 func nextTurn(input: String):
 	if combination.size() > 2:
-		print("Uwu dont do this please")
+		print("Uwu dont do this please")#i love you too
 	
 	if prev_input.length() == 0: 
 		if input != combination[0]: 
@@ -29,4 +29,9 @@ func nextTurn(input: String):
 	if current_repetition == repetitions:
 		endGame(true)
 		return
+
+func endGame(did_player_win: bool):
+	prev_input = ""
+	current_repetition=0
+	emit_signal("minigame_ended", did_player_win)
 	
