@@ -49,9 +49,9 @@ func use_index(index : int) -> bool:
 	if slots[index].amount<=0:
 		emit_signal("failed_update_slot","use")
 		return false
-	
+	slots[index].amount-=1
 	emit_signal("updated_slot", "use", slots[index].item.name)
 	emit_signal("updated")
-	slots[index].amount-=1
+	
 	
 	return true

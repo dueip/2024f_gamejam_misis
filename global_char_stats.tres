@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=4 format=3 uid="uid://ue0kd3fugfii"]
+
+[ext_resource type="Script" path="res://character_stats.gd" id="1_f3ujg"]
+[ext_resource type="Resource" uid="uid://dcwansgtieuqh" path="res://inventory/global_inventory.tres" id="1_gyrqh"]
+[ext_resource type="Resource" uid="uid://12cfv8iouicg" path="res://stamina_resource.tres" id="3_7b02x"]
+
+[resource]
+script = ExtResource("1_f3ujg")
+inventory = ExtResource("1_gyrqh")
+stamina = ExtResource("3_7b02x")
+lives = 3
+money = 200
+score = 0
+score_multiplyer = 1.0
+booze_lvl = 0
+smoke_lvl = 0
