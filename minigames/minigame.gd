@@ -4,6 +4,7 @@ class_name Minigame
 signal minigame_started(Minigame)
 signal minigame_ended(bool)
 
+
 @export var award: int
 @export var buff: int
 @export var cost: int
@@ -16,6 +17,6 @@ func startGame():
 func nextTurn(input: String):
 	print("helloworld")
 	
-func endGame(did_player_win: bool):
+func endGame(did_player_win: bool, which_button_was_pressed: String):
 	emit_signal("minigame_ended", did_player_win)
 	
