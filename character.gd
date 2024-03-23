@@ -20,6 +20,8 @@ var stamina: BarResource
 var stamina_lose: StaminaLoseResource
 @export
 var mouse_sens: float = 0.05
+@export
+var stats: CharacterStats
 
 
 var current_minigame_focused: Minigame = null
@@ -41,7 +43,6 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var running_mult: float = 1
 
 
-var point_to_look_at : Vector3 = Vector3(0,0,1000)
 
 var slow_down_value_percents: float = 0
 
@@ -71,6 +72,7 @@ func _ready():
 	# var minigames: Minigame = get_tree().find_
 	seed("Byeworld".hash())
 	Input.warp_mouse(Vector2(self.position.x, self.position.y))
+	stats.inventory.updated_slot.connect(_on_item_used)
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 	
 func handle_minigame_input(input_event: InputEventKey):
@@ -93,13 +95,14 @@ func _input(event):
 		return
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT && current_minigame_focused:
-			current_minigame_focused.startGame()	
-	if event is InputEventMouse:
-		var camera = get_viewport().get_camera_3d()
-		point_to_look_at=calculatePositionToLookAt(get_viewport().get_mouse_position(), self.position, camera)
+			current_minigame_focused.startGame()
+			
+	if Input.is_action_just_pressed("character_use_item") or Input.is_action_just_pressed("character_drop_item"):
+		print("trying")
+		stats.inventory.use_index(0)
 	
 func _process(delta):
-	$Body.look_at(point_to_look_at)
+	$Body.look_at(calculatePositionToLookAt(get_viewport().get_mouse_position(), self.position, get_viewport().get_camera_3d()))
 	$Body.rotate_y(deg_to_rad(180))
 	
 	if is_in_minigame:
@@ -157,3 +160,20 @@ func _on_minigame_ended(did_player_win: bool):
 	
 	current_minigame = null
 	is_in_minigame = false
+
+func _on_item_used(action : String,item_name : String):
+	if (action!="use"):
+		return
+	if !Input.is_action_just_pressed("character_use_item"):
+		return
+	if item_name=="Сидр":
+		stats.up_booze()
+		stats.stamina.gain(30)
+	if item_name=="Вейп":
+		stats.up_smoke()
+		stats.stamina.gain(30)
+	if item_name=="Кофе":
+		stats.down_booze()
+		stats.stamina.gain(50)
+
+	
