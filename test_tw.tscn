@@ -40,6 +40,7 @@ omni_range = 6.997
 omni_attenuation = 1.46409
 
 [node name="coffee_minigame" parent="coffee_tw" instance=ExtResource("3_3feon")]
+combination = Array[String](["a", "d"])
 
 [node name="pab_tw" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("2_fbpmy")]
 transform = Transform3D(-6.23151, 0, 0.0179155, 0, 4.25225, 0, -0.0290393, 0, -3.84445, -6.11301, 5.52796, 3.61969)
