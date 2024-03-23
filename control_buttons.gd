@@ -13,8 +13,8 @@ func _ready():
 	unhighlight()
 
 
-func unhighlight():
-	stylebox.bg_color=Color(0.745, 0.745, 0.745)
+func unhighlight(color: Color = Color(0.745, 0.745, 0.745)):
+	stylebox.bg_color=color
 	text_label.clear()
 	text_label.push_color(Color(255,255,255))
 	text_label.push_outline_color(Color(0,0,0))
@@ -28,8 +28,8 @@ func unhighlight():
 	text_label.pop()
 	text_label.pop()
 	
-func highlight():
-	stylebox.bg_color=Color(0.874, 0.941, 0.996)
+func highlight(color: Color = Color(0.874, 0.941, 0.996) ):
+	stylebox.bg_color=color
 	text_label.clear()
 	text_label.push_color(Color(255,255,255))
 	text_label.push_outline_color(Color(0,0,0))
