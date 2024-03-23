@@ -36,7 +36,7 @@ func revertScene():
 	# Optionally, hide the current scene
 	current_scene.hide()
 	current_scene.process_mode = PROCESS_MODE_DISABLED
-	
+	current_scene.queue_free()
 	# Swap the scenes
 	var swap_scene = prev_scene
 	prev_scene = current_scene
