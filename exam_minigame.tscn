@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://4slegr2fv0pm"]
+
+[ext_resource type="PackedScene" uid="uid://bnc5nhr5fhhsb" path="res://right_part.tscn" id="1_vj1tb"]
+
+[sub_resource type="Curve" id="Curve_qaopc"]
+_data = [Vector2(0.572165, 0.68421), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Border" type="Line2D" parent="."]
+unique_name_in_owner = true
+top_level = true
+position = Vector2(574, 1)
+points = PackedVector2Array(0, 0, 0, 1000)
+width_curve = SubResource("Curve_qaopc")
+default_color = Color(0, 0, 0, 1)
+
+[node name="RightPart" parent="." instance=ExtResource("1_vj1tb")]
+position = Vector2(838, 297)
