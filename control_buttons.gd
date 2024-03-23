@@ -1,5 +1,7 @@
 extends Control
 
+class_name ControlButton
+
 @export var button_name: String
 @onready var text_label: RichTextLabel = $Panel/RichTextLabel
 @onready var stylebox : StyleBox

@@ -1,5 +1,7 @@
 extends Node2D
 
+signal enteredTheHole()
+signal exitedTheHole()
 
 @onready var hole = $Hole
 @onready var SomeOtherThing = $SomeOtherThing
@@ -31,7 +33,8 @@ func _process(delta):
 
 func _on_hole_area_area_entered(area):
 	is_some_other_thing_in = true
-
+	emit_signal("enteredTheHole")
 
 func _on_hole_area_area_exited(area):
 	is_some_other_thing_in = false
+	emit_signal("exitedTheHole")

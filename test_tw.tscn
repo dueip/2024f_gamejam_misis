@@ -22,6 +22,8 @@ lives = 3
 money = 200
 score = 0
 score_multiplyer = 1.0
+booze_lvl = 0
+smoke_lvl = 0
 
 [node name="test_tw" type="Node3D"]
 
