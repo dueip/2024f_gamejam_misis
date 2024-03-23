@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dr1t3444vuiws" path="res://TW/TW.tscn" id="2_fbpmy"]
 [ext_resource type="PackedScene" uid="uid://bvxofregcai0m" path="res://minigames/coffee_minigame.tscn" id="3_3feon"]
 [ext_resource type="PackedScene" uid="uid://ca2gl01dha7hl" path="res://minigames/beer_minigame.tscn" id="4_g6pux"]
-<
+
 [ext_resource type="PackedScene" uid="uid://0f2cjseltxve" path="res://WASD.tscn" id="5_1y2sq"]
 [ext_resource type="PackedScene" uid="uid://5bfg3f511vji" path="res://crowd.tscn" id="6_ghrwc"]
 [ext_resource type="PackedScene" uid="uid://brh20oloycgj3" path="res://item_generaion/item_generator.tscn" id="7_571j2"]
