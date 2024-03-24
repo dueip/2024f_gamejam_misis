@@ -26,6 +26,10 @@ shape = SubResource("CapsuleShape3D_2pkr1")
 
 [node name="Body" parent="." instance=ExtResource("6_2xxda")]
 
+[node name="dasdasadsa" type="Node3D" parent="."]
+
+[node name="dasdad" type="Node3D" parent="."]
+
 [node name="InGameGui" parent="." groups=["UI"] instance=ExtResource("5_1kwrm")]
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

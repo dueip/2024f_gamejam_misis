@@ -13,6 +13,7 @@ point_count = 1
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k71cg"]
 texture = ExtResource("6_us11s")
+use_texture_padding = false
 1:1/0 = 0
 2:1/0 = 0
 3:1/0 = 0
@@ -441,7 +442,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 16
 text = "Из этого следует..."
 
-[node name="EkzNumber" type="Label" parent="."]
+[node name="Label10" type="Label" parent="."]
 custom_minimum_size = Vector2(300, 0)
 offset_left = 265.0
 offset_top = 115.0
@@ -449,8 +450,21 @@ offset_right = 565.0
 offset_bottom = 172.0
 auto_translate = false
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 11
-text = "Экзамен по информационным технологиям №"
+theme_override_font_sizes/font_size = 13
+text = "Экзамен по вычмашу №"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="EkzNumber" type="Label" parent="."]
+custom_minimum_size = Vector2(300, 0)
+offset_left = 260.0
+offset_top = 136.0
+offset_right = 560.0
+offset_bottom = 193.0
+auto_translate = false
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Label6" type="Label" parent="."]
