@@ -8,21 +8,19 @@ func _ready():
 	current_scene = root.get_child(root.get_child_count() - 1)
 
 func switch_visibily_ui():
-	var ui = get_tree().get_nodes_in_group(StringName("UI"))
+	print("here")
+	var ui = get_tree().get_nodes_in_group("UI")
 	for n in ui:
 		n.visible=!n.visible
 
 func chane_scene_to_instance(instance):
-	get_viewport().get_camera_3d().move_to_the_point(get_parent().find_child("Ц*").global_position, 2)
-	await get_tree().create_timer(2).timeout
 	# Hide the current scene
-	switch_visibily_ui()
 	current_scene.hide()
 	current_scene.process_mode = PROCESS_MODE_DISABLED
 	
 	# Load the new scene
 	var new_scene = (instance)
-	
+	switch_visibily_ui()
 	# Add the new scene to the root
 	get_tree().get_root().add_child(new_scene)
 	

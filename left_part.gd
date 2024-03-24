@@ -3,16 +3,14 @@ extends Node2D
 @export var min_size: int = 4
 @export var max_size: int = 8
 @export var combination: Array[String] = ["w", "a", "s", "d"]
-@export var max_mark: int = 2
-@export var cost_of_error: int = 1
+@export var max_mark: int = 100
+@export var cost_of_error: int = 15
 var current_mark: int = max_mark
 var control_buttons: Array
 @onready var controlButton = preload("res://control_buttons.tscn")
 var question_index: int = 0
 
 signal minigameWon()
-signal minigameLost()
-signal lostLive(howMuchLivesLeft: int)
 
 var is_in_the_hole: bool = false
 
@@ -39,9 +37,7 @@ func _input(event):
 				control_buttons[question_index].highlight(Color.RED)
 				#red_tween.tween_callback(control_buttons[question_index].unhighlight).set_delay(0.5)
 				current_mark -= cost_of_error
-				emit_signal("lostLive", current_mark)
 				if current_mark < 0:
-					emit_signal("minigameLost")
 					return
 		if question_index == control_buttons.size():
 			emit_signal("minigameWon")
@@ -51,5 +47,5 @@ func _on_entered_the_hole():
 func _on_exited_the_hole():
 	is_in_the_hole = false
 	
-func _on_lost_live(howMuchLivesLeft: int):
-	get_tree().get_nodes_in_group("Lives")[current_mark].texture = null
+
+	

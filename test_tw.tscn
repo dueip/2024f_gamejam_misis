@@ -1,20 +1,18 @@
-[gd_scene load_steps=16 format=3 uid="uid://626ehrp4x5p8"]
+[gd_scene load_steps=14 format=3 uid="uid://626ehrp4x5p8"]
 
 [ext_resource type="PackedScene" uid="uid://ukij8uagjnc7" path="res://test_room.tscn" id="1_ju52g"]
 [ext_resource type="Script" path="res://test_tw.gd" id="1_ppaav"]
 [ext_resource type="PackedScene" uid="uid://dr1t3444vuiws" path="res://TW/TW.tscn" id="2_fbpmy"]
 [ext_resource type="PackedScene" uid="uid://bvxofregcai0m" path="res://minigames/coffee_minigame.tscn" id="3_3feon"]
-[ext_resource type="Script" path="res://Camera.gd" id="3_w417h"]
 [ext_resource type="PackedScene" uid="uid://ca2gl01dha7hl" path="res://minigames/beer_minigame.tscn" id="4_g6pux"]
 [ext_resource type="PackedScene" uid="uid://daehtsie361vf" path="res://WASD.tscn" id="5_1y2sq"]
-[ext_resource type="PackedScene" uid="uid://dd4njxxt7kqir" path="res://crowd.tscn" id="6_ghrwc"]
+[ext_resource type="PackedScene" uid="uid://5bfg3f511vji" path="res://crowd.tscn" id="6_ghrwc"]
 [ext_resource type="PackedScene" uid="uid://brh20oloycgj3" path="res://item_generaion/item_generator.tscn" id="7_571j2"]
-[ext_resource type="Resource" path="res://inventory/items/cider.tres" id="8_vou74"]
-[ext_resource type="Resource" path="res://inventory/items/coffee.tres" id="9_8qlnh"]
+[ext_resource type="Resource" uid="uid://cil8tk8yj7vng" path="res://inventory/items/cider.tres" id="8_vou74"]
+[ext_resource type="Resource" uid="uid://bijsrpn20gthk" path="res://inventory/items/coffee.tres" id="9_8qlnh"]
 [ext_resource type="PackedScene" uid="uid://b0wnppayfjhow" path="res://scene_manager.tscn" id="10_hhy83"]
-[ext_resource type="Resource" path="res://inventory/items/vape.tres" id="11_0yftj"]
+[ext_resource type="Resource" uid="uid://boqyxtbmtkwmh" path="res://inventory/items/vape.tres" id="11_0yftj"]
 [ext_resource type="PackedScene" uid="uid://7qlfjpp0gal" path="res://possible_exam_spawn.tscn" id="13_rr286"]
-[ext_resource type="PackedScene" path="res://ItemShop.tscn" id="17_sy35x"]
 
 [node name="test_tw" type="Node3D"]
 script = ExtResource("1_ppaav")
@@ -29,9 +27,8 @@ visible = false
 editor_only = true
 
 [node name="Camera" parent="TestRoom" index="3"]
-transform = Transform3D(-0.99909, -0.0319187, 0.0282885, -0.0256561, 0.97962, 0.199214, -0.0340707, 0.198307, -0.979548, 0.341088, 9.607, -11.9374)
+transform = Transform3D(-0.999804, 0.00966358, -0.0172909, 0, 0.872922, 0.48786, 0.0198081, 0.487764, -0.872751, -0.917303, 7.56586, -7.23653)
 current = true
-script = ExtResource("3_w417h")
 
 [node name="coffee_tw" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("2_fbpmy")]
 transform = Transform3D(-0.999198, 0, -0.0400445, 0, 1, 0, 0.0400445, 0, -0.999198, 6.88699, 5.06528, 3.61969)
@@ -118,23 +115,12 @@ max_time = 5
 unique_name_in_owner = true
 
 [node name="PossibleExamSpawn" parent="." instance=ExtResource("13_rr286")]
-transform = Transform3D(-3.15094, 0, -2.75464e-07, 0, 4.98291, 0, 2.75464e-07, 0, -3.15094, 5.38906, 2.2463, 1.68598)
+transform = Transform3D(-4.74782, 0, -4.15067e-07, 0, 7.50822, 0, 4.15067e-07, 0, -4.74782, 5.38906, 2.2463, 1.68598)
 
 [node name="PossibleExamSpawn2" parent="." instance=ExtResource("13_rr286")]
-transform = Transform3D(-2.58968, 0, -2.26396e-07, 0, 4.09533, 0, 2.26396e-07, 0, -2.58968, -5.18498, 2.01497, 1.88534)
+transform = Transform3D(-4.74782, 0, -4.15067e-07, 0, 7.50822, 0, 4.15067e-07, 0, -4.74782, -5.22931, 2.2463, 1.68598)
 
 [node name="PossibleExamSpawn3" parent="." instance=ExtResource("13_rr286")]
-transform = Transform3D(-2.58968, 0, -2.26396e-07, 0, 4.09533, 0, 2.26396e-07, 0, -2.58968, -5.18498, 2.01497, -4.94187)
-
-[node name="ItemShop" parent="." instance=ExtResource("17_sy35x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.77061, 1.91782, 7.05559)
-
-[node name="TW" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("2_fbpmy")]
-transform = Transform3D(1, 0, 0, 0, 1.90401, 0, 0, 0, 2.25321, -10.4795, 1.61907, 9.90228)
-minigame = NodePath("beer_minigame")
-
-[node name="beer_minigame" parent="TW" instance=ExtResource("4_g6pux")]
-transform = Transform3D(1, 0, 0, 0, 0.525207, 0, 0, 0, 0.443812, -1.57532, 0.49103, -0.150357)
-combination = Array[String](["w", "s"])
+transform = Transform3D(-4.74782, 0, -4.15067e-07, 0, 7.50822, 0, 4.15067e-07, 0, -4.74782, -5.22931, 2.2463, -3.6972)
 
 [editable path="TestRoom"]

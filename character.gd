@@ -47,10 +47,6 @@ var running_mult: float = 1
 
 var slow_down_value_percents: float = 0
 
-var freeze = false
-
-func switch_freeze():
-	freeze=!freeze
 
 
 func restoreFromSlowingDown():
@@ -95,15 +91,14 @@ func _input(event):
 		if event.button_index == MOUSE_BUTTON_LEFT && current_minigame_focused:
 			current_minigame_focused.startGame()
 		
-
-func _unhandled_key_input(event):
+			
 	if Input.is_action_just_pressed("character_use_item") or Input.is_action_just_pressed("character_drop_item"):
+		print("trying")
 		stats.inventory.use_index(0)
 	
 func _process(delta):
-	if !freeze:
-		$Body.look_at(calculatePositionToLookAt(get_viewport().get_mouse_position(), self.position, get_viewport().get_camera_3d()))
-		$Body.rotate_y(deg_to_rad(180))
+	$Body.look_at(calculatePositionToLookAt(get_viewport().get_mouse_position(), self.position, get_viewport().get_camera_3d()))
+	$Body.rotate_y(deg_to_rad(180))
 	
 	if is_in_minigame:
 		return

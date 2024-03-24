@@ -1,6 +1,6 @@
 extends ProgressBar
 
-@onready var resource = preload("res://global_char_stats.tres").stamina
+@export var resource : BarResource = BarResource.new()
 
 func _ready():
 	min_value=resource.min_value

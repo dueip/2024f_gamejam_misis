@@ -2,23 +2,15 @@ extends Resource
 
 class_name Exams
 
-@export var max_possible_exams: int = 2
+@export var max_possible_exams: int = 5
 @export var all_possible_exams: Array[Exam]
 var padding_: float = 1
-
-static var number_of_currently_active_exams: int = 0
-
-func _ready():
-	pass
 
 func append_possible_exams(exam: Exam) -> void:
 	all_possible_exams.append(exam)
 	
 func get_random_exam() -> Exam:
-	seed(Time.get_ticks_usec()) 
-	var exam =  all_possible_exams.pick_random()
-	print(exam.exam_name)
-	return exam
+	return all_possible_exams.pick_random()
 	
 func padding() -> float:
 	padding_ += 5
@@ -26,6 +18,3 @@ func padding() -> float:
 
 func get_max_exams() -> int:
 	return max_possible_exams 
-
-func get_currently_active_exams() -> int:
-	return number_of_currently_active_exams

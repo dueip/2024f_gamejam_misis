@@ -1,10 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://yftxegk1j0wc"]
+[gd_scene load_steps=4 format=3 uid="uid://yftxegk1j0wc"]
 
 [ext_resource type="Script" path="res://left_part.gd" id="1_2anu5"]
+[ext_resource type="Texture2D" uid="uid://coe7u0eacy3h4" path="res://sprites/A4-Paper-Sizes-376014548.jpg" id="1_jwr4w"]
 [ext_resource type="PackedScene" uid="uid://d1e0xkg2a7g7n" path="res://control_buttons.tscn" id="2_7jr2j"]
 
 [node name="Bilet" type="Node2D"]
 script = ExtResource("1_2anu5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jwr4w")
 
 [node name="ControlButtons" parent="." instance=ExtResource("2_7jr2j")]
 visible = false
@@ -12,5 +16,3 @@ offset_left = -29.0
 offset_top = -35.0
 offset_right = -29.0
 offset_bottom = -35.0
-
-[connection signal="lostLive" from="." to="." method="_on_lost_live"]

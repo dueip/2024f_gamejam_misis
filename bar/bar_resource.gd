@@ -24,15 +24,11 @@ static func getResourceBar (path_name : String) -> BarResource:
 
 func lose(how_much: int):
 	value=value-how_much
-	if value<min_value:
-		value=min_value
 	emit_signal("updated")
 	emit_signal("updated_value",value)
 	
 	
 func gain(how_much: int):
 	value=value+how_much
-	if value>max_value:
-		value=max_value
 	emit_signal("updated")
 	emit_signal("updated_value",value)
