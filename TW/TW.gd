@@ -15,7 +15,7 @@ func create_tw_at(where_at: Vector3, new_tw_name: String, new_award: int) -> TW:
 	self.position = where_at
 	self.tw_name = new_tw_name
 	self.award = new_award
-	minigame.instance()
+	
 	return self
 	
 func _ready():

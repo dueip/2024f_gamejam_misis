@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://87n1khfxwiab"]
+
+[ext_resource type="Script" path="res://TW/TW.gd" id="1_ndyfa"]
+
+[node name="Node3D" type="Area3D"]
+script = ExtResource("1_ndyfa")

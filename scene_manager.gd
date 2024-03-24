@@ -13,6 +13,36 @@ func switch_visibily_ui():
 	for n in ui:
 		n.visible=!n.visible
 
+func chane_scene_to_instance(instance):
+	# Hide the current scene
+	current_scene.hide()
+	current_scene.process_mode = PROCESS_MODE_DISABLED
+	
+	# Load the new scene
+	var new_scene = (instance)
+	switch_visibily_ui()
+	# Add the new scene to the root
+	get_tree().get_root().add_child(new_scene)
+	
+	# Set the new scene as the current scene
+	prev_scene = current_scene
+	current_scene = new_scene
+
+func change_scene_baked(baked: Resource):
+	# Hide the current scene
+	current_scene.hide()
+	current_scene.process_mode = PROCESS_MODE_DISABLED
+	
+	# Load the new scene
+	var new_scene = (baked).instantiate()
+	switch_visibily_ui()
+	# Add the new scene to the root
+	get_tree().get_root().add_child(new_scene)
+	
+	# Set the new scene as the current scene
+	prev_scene = current_scene
+	current_scene = new_scene
+
 func change_scene(path: String):
 	# Hide the current scene
 	current_scene.hide()

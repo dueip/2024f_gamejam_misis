@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://626ehrp4x5p8"]
+[gd_scene load_steps=14 format=3 uid="uid://626ehrp4x5p8"]
 
 [ext_resource type="PackedScene" uid="uid://ukij8uagjnc7" path="res://test_room.tscn" id="1_ju52g"]
 [ext_resource type="Script" path="res://test_tw.gd" id="1_ppaav"]
@@ -12,6 +12,7 @@
 [ext_resource type="Resource" path="res://inventory/items/coffee.tres" id="9_8qlnh"]
 [ext_resource type="PackedScene" uid="uid://b0wnppayfjhow" path="res://scene_manager.tscn" id="10_hhy83"]
 [ext_resource type="Resource" path="res://inventory/items/vape.tres" id="11_0yftj"]
+[ext_resource type="PackedScene" uid="uid://7qlfjpp0gal" path="res://possible_exam_spawn.tscn" id="13_rr286"]
 
 [node name="test_tw" type="Node3D"]
 script = ExtResource("1_ppaav")
@@ -26,7 +27,7 @@ visible = false
 editor_only = true
 
 [node name="Camera" parent="TestRoom" index="3"]
-transform = Transform3D(1, 0, 0, 0, 0.872922, 0.48786, 0, -0.48786, 0.872922, -0.917303, 7.56586, 13.7569)
+transform = Transform3D(-0.999804, 0.00966358, -0.0172909, 0, 0.872922, 0.48786, 0.0198081, 0.487764, -0.872751, -0.917303, 7.56586, -7.23653)
 current = true
 
 [node name="coffee_tw" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("2_fbpmy")]
@@ -112,5 +113,14 @@ max_time = 5
 
 [node name="SceneManager" parent="." groups=["SceneManager"] instance=ExtResource("10_hhy83")]
 unique_name_in_owner = true
+
+[node name="PossibleExamSpawn" parent="." instance=ExtResource("13_rr286")]
+transform = Transform3D(-4.74782, 0, -4.15067e-07, 0, 7.50822, 0, 4.15067e-07, 0, -4.74782, 5.38906, 2.2463, 1.68598)
+
+[node name="PossibleExamSpawn2" parent="." instance=ExtResource("13_rr286")]
+transform = Transform3D(-4.74782, 0, -4.15067e-07, 0, 7.50822, 0, 4.15067e-07, 0, -4.74782, -5.22931, 2.2463, 1.68598)
+
+[node name="PossibleExamSpawn3" parent="." instance=ExtResource("13_rr286")]
+transform = Transform3D(-4.74782, 0, -4.15067e-07, 0, 7.50822, 0, 4.15067e-07, 0, -4.74782, -5.22931, 2.2463, -3.6972)
 
 [editable path="TestRoom"]
