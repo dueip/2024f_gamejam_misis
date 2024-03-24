@@ -6,11 +6,17 @@ class_name Exams
 @export var all_possible_exams: Array[Exam]
 var padding_: float = 1
 
+func _ready():
+	pass
+
 func append_possible_exams(exam: Exam) -> void:
 	all_possible_exams.append(exam)
 	
 func get_random_exam() -> Exam:
-	return all_possible_exams.pick_random()
+	seed(Time.get_ticks_usec()) 
+	var exam =  all_possible_exams.pick_random()
+	print(exam.exam_name)
+	return exam
 	
 func padding() -> float:
 	padding_ += 5
