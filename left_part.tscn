@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://yftxegk1j0wc"]
+[gd_scene load_steps=4 format=3 uid="uid://dpcb1xrdosy0p"]
 
 [ext_resource type="Script" path="res://left_part.gd" id="1_2anu5"]
 [ext_resource type="Texture2D" uid="uid://coe7u0eacy3h4" path="res://sprites/A4-Paper-Sizes-376014548.jpg" id="1_jwr4w"]
