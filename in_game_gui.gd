@@ -29,6 +29,7 @@ func update_gui(stat : String):
 	if (stat=="all" or stat=="money"):
 		$Money.text="$" + str(stats.money)
 	if (stat=="all" or stat=="score"):
-		$Score.text="Score:\n" + str(stats.score)
-
+		
+		$Score.text="[right][font_size=35][rainbow freq=1 sat=0.6 val=1][shake rate=20.0 level=5 connected=1]Score:\n" + str(stats.score) + "[/shake][/rainbow][/font_size][right]"
+		
 

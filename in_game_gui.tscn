@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://in_game_gui.gd" id="1_bmryf"]
 [ext_resource type="PackedScene" uid="uid://cbkrux0053i8c" path="res://bar/progress_bar.tscn" id="1_ingg5"]
 [ext_resource type="PackedScene" uid="uid://b78nmta87loqj" path="res://inventory/inventory_ui.tscn" id="2_y1k2j"]
+[ext_resource type="Script" path="res://Score.gd" id="4_hs24o"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ek0r7"]
 bg_color = Color(0, 0.203922, 0.329412, 1)
@@ -31,9 +32,6 @@ corner_radius_bottom_left = 15
 [sub_resource type="LabelSettings" id="LabelSettings_csuxo"]
 font_size = 32
 font_color = Color(0, 0.594905, 0.119609, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_xwit1"]
-font_size = 32
 
 [node name="InGameGui" type="Control"]
 process_mode = 4
@@ -88,7 +86,9 @@ grow_vertical = 0
 text = "$150"
 label_settings = SubResource("LabelSettings_csuxo")
 
-[node name="Score" type="Label" parent="."]
+[node name="Score" type="RichTextLabel" parent="."]
+process_mode = 3
+custom_minimum_size = Vector2(130, 100)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
@@ -97,8 +97,9 @@ offset_left = -95.0
 offset_right = -32.0
 offset_bottom = 45.0
 grow_horizontal = 0
-text = "Score:"
-label_settings = SubResource("LabelSettings_xwit1")
+bbcode_enabled = true
+text = "[rainbow freq=1.0 sat = 0.8 val = 0.8]Score:[/rainbow] "
+script = ExtResource("4_hs24o")
 
 [node name="Lives" type="Control" parent="."]
 anchors_preset = 0
