@@ -47,6 +47,10 @@ var running_mult: float = 1
 
 var slow_down_value_percents: float = 0
 
+var freeze = false
+
+func switch_freeze():
+	freeze=!freeze
 
 
 func restoreFromSlowingDown():
@@ -97,8 +101,9 @@ func _input(event):
 		stats.inventory.use_index(0)
 	
 func _process(delta):
-	$Body.look_at(calculatePositionToLookAt(get_viewport().get_mouse_position(), self.position, get_viewport().get_camera_3d()))
-	$Body.rotate_y(deg_to_rad(180))
+	if !freeze:
+		$Body.look_at(calculatePositionToLookAt(get_viewport().get_mouse_position(), self.position, get_viewport().get_camera_3d()))
+		$Body.rotate_y(deg_to_rad(180))
 	
 	if is_in_minigame:
 		return

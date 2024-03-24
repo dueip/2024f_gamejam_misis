@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://626ehrp4x5p8"]
+[gd_scene load_steps=15 format=3 uid="uid://626ehrp4x5p8"]
 
 [ext_resource type="PackedScene" uid="uid://ukij8uagjnc7" path="res://test_room.tscn" id="1_ju52g"]
 [ext_resource type="Script" path="res://test_tw.gd" id="1_ppaav"]
@@ -9,11 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://0f2cjseltxve" path="res://WASD.tscn" id="5_1y2sq"]
 [ext_resource type="PackedScene" uid="uid://5bfg3f511vji" path="res://crowd.tscn" id="6_ghrwc"]
 [ext_resource type="PackedScene" uid="uid://brh20oloycgj3" path="res://item_generaion/item_generator.tscn" id="7_571j2"]
-[ext_resource type="Resource" path="res://inventory/items/cider.tres" id="8_vou74"]
-[ext_resource type="Resource" path="res://inventory/items/coffee.tres" id="9_8qlnh"]
+[ext_resource type="Resource" uid="uid://cil8tk8yj7vng" path="res://inventory/items/cider.tres" id="8_vou74"]
+[ext_resource type="Resource" uid="uid://bijsrpn20gthk" path="res://inventory/items/coffee.tres" id="9_8qlnh"]
 [ext_resource type="PackedScene" uid="uid://b0wnppayfjhow" path="res://scene_manager.tscn" id="10_hhy83"]
-[ext_resource type="Resource" path="res://inventory/items/vape.tres" id="11_0yftj"]
-[ext_resource type="PackedScene" uid="uid://7qlfjpp0gal" path="res://possible_exam_spawn.tscn" id="13_rr286"]
+[ext_resource type="Resource" uid="uid://boqyxtbmtkwmh" path="res://inventory/items/vape.tres" id="11_0yftj"]
+[ext_resource type="PackedScene" uid="uid://bs5eux3pneboo" path="res://possible_exam_spawn.tscn" id="13_rr286"]
 
 [node name="test_tw" type="Node3D"]
 script = ExtResource("1_ppaav")
@@ -28,17 +28,9 @@ visible = false
 editor_only = true
 
 [node name="Camera" parent="TestRoom" index="3"]
-#<<<<<<< main
-#<<<<<<< HEAD
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -0.839538, 7.56586, 13.7569)
-script = ExtResource("3_w417h")
-#=======
 transform = Transform3D(1, 0, 0, 0, 0.872922, 0.48786, 0, -0.48786, 0.872922, -0.917303, 7.56586, 13.7569)
-#=======
-#transform = Transform3D(-0.999804, 0.00966358, -0.0172909, 0, 0.872922, 0.48786, 0.0198081, 0.487764, -0.872751, -0.917303, 7.56586, -7.23653)
-#>>>>>>> main
 current = true
-#>>>>>>> d366327576f838eb0dd0ceffedea0e6a5962f652
+script = ExtResource("3_w417h")
 
 [node name="coffee_tw" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("2_fbpmy")]
 transform = Transform3D(-0.999198, 0, -0.0400445, 0, 1, 0, 0.0400445, 0, -0.999198, 6.88699, 5.06528, 3.61969)
