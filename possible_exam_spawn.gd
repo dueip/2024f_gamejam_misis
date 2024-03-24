@@ -88,7 +88,7 @@ func _on_exam_queue_timeout():
 		$LoadingBar.ascending = false
 		$LoadingBar.show()
 	else:
-		start_exam_queue(5)
+		start_exam_queue(exam_countdown_wait)
 	
 
 

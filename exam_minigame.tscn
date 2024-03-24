@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://4slegr2fv0pm"]
+[gd_scene load_steps=7 format=3 uid="uid://4slegr2fv0pm"]
 
 [ext_resource type="Script" path="res://exam_minigame.gd" id="1_pm2af"]
 [ext_resource type="PackedScene" uid="uid://bnc5nhr5fhhsb" path="res://right_part.tscn" id="1_vj1tb"]
 [ext_resource type="PackedScene" uid="uid://yftxegk1j0wc" path="res://left_part.tscn" id="2_j1shc"]
 [ext_resource type="Texture2D" uid="uid://dbgp0w5bukwsb" path="res://sprites/live.png" id="4_p67ft"]
+[ext_resource type="Script" path="res://Camera2D.gd" id="5_v34b1"]
 
 [sub_resource type="Curve" id="Curve_qaopc"]
 _data = [Vector2(0.572165, 0.68421), 0.0, 0.0, 0, 0]
@@ -25,11 +26,6 @@ position = Vector2(838, 297)
 
 [node name="Bilet" parent="." instance=ExtResource("2_j1shc")]
 position = Vector2(267, 290)
-min_size = 4
-max_size = 8
-combination = Array[String](["w", "a", "s", "d"])
-max_mark = 2
-cost_of_error = 1
 
 [node name="GridContainer" type="GridContainer" parent="."]
 offset_right = 40.0
@@ -49,3 +45,7 @@ flip_v = true
 layout_mode = 2
 texture = ExtResource("4_p67ft")
 flip_h = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(578, 321)
+script = ExtResource("5_v34b1")
