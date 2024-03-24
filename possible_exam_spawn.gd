@@ -26,6 +26,7 @@ func _ready():
 
 
 
+
 func _input(event):
 	if mutex:
 		return
