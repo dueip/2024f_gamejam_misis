@@ -20,7 +20,7 @@ func _ready():
 	var number_of_thingies = randi_range(min_size, max_size)
 	for i in range(0, number_of_thingies):
 		var control_button = controlButton.instantiate()
-		control_button.button_name = combination[randi_range(0, combination.size() - 1)].to_upper()
+		control_button.letter = combination[randi_range(0, combination.size() - 1)].to_upper()
 		control_button.position.x += 45 * i
 		control_buttons.push_back(control_button)
 		add_child(control_button)
@@ -29,14 +29,14 @@ func _input(event):
 	var red_tween = get_tree().create_tween()	
 	if event is InputEventKey:
 		if event.is_pressed() && not event.is_echo():
-			var weirdo: bool = OS.get_keycode_string(event.keycode).to_upper() == control_buttons[question_index].button_name.to_upper()
+			var weirdo: bool = OS.get_keycode_string(event.keycode).to_upper() == control_buttons[question_index].letter.to_upper()
 			if weirdo and is_in_the_hole:
 				red_tween.stop()
 				for i in range(0, question_index + 1):
-					control_buttons[i].highlight(Color.GREEN)
+					control_buttons[i].highlight()
 				question_index += 1
 			else:
-				control_buttons[question_index].highlight(Color.RED)
+				control_buttons[question_index].shake()
 				#red_tween.tween_callback(control_buttons[question_index].unhighlight).set_delay(0.5)
 				current_mark -= cost_of_error
 				emit_signal("lostLive", current_mark)

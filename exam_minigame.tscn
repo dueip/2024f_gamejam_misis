@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://4slegr2fv0pm"]
 
 [ext_resource type="Script" path="res://exam_minigame.gd" id="1_pm2af"]
-[ext_resource type="PackedScene" uid="uid://bnc5nhr5fhhsb" path="res://right_part.tscn" id="1_vj1tb"]
+[ext_resource type="PackedScene" uid="uid://dq8dsyd4cpce1" path="res://right_part.tscn" id="1_vj1tb"]
 [ext_resource type="PackedScene" uid="uid://yftxegk1j0wc" path="res://left_part.tscn" id="2_j1shc"]
 [ext_resource type="Texture2D" uid="uid://dbgp0w5bukwsb" path="res://sprites/live.png" id="4_p67ft"]
 [ext_resource type="Script" path="res://Camera2D.gd" id="5_v34b1"]
