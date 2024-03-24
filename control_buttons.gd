@@ -4,10 +4,13 @@ class_name ControlButton
 
 @export var letter : String
 
-func _ready():
+func eatYoAss():
 	var index = calculate_index(letter)
 	frame=index
 	unhighlight()
+
+func _ready():
+	eatYoAss()
 
 func calculate_index( char: String) -> int :
 	var res = char.unicode_at(0)

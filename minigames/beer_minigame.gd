@@ -5,6 +5,27 @@ extends Minigame
 
 var current_repetition = 0
 var prev_input: String = ""
+var tr: bool = true
+func startGame():
+	super.startGame()
+	%WASD.find_child("FirstButton").letter = combination[0].to_upper()
+	%WASD.find_child("SecondButton").letter = combination[1].to_upper()
+	%WASD.find_child("FirstButton").eatYoAss()
+	%WASD.find_child("SecondButton").eatYoAss()
+	
+	var tween = get_tree().create_tween()
+
+	tween.tween_callback(%WASD.find_child("FirstButton").highlight).set_delay(button_delay * 2)
+	tween.parallel()
+	tween.tween_callback(%WASD.find_child("SecondButton").highlight).set_delay(button_delay * 2)
+	tween.chain()
+	tween.tween_callback(%WASD.find_child("FirstButton").unhighlight).set_delay(button_delay * 2)
+	tween.parallel()
+	tween.tween_callback(%WASD.find_child("SecondButton").unhighlight).set_delay(button_delay * 2)
+	tween.set_loops()
+
+func _process(delta):
+	pass
 
 func nextTurn(input: String):
 	%WASD.highlight_button(input.to_upper(), Color.GREEN)
