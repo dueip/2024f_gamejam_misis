@@ -15,6 +15,11 @@ run/main_scene="res://test_tw.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/resizable=false
+window/stretch/mode="canvas_items"
+
 [input]
 
 character_dash={

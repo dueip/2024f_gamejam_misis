@@ -7,6 +7,7 @@ var is_mouse_in: bool = false
 var current_exam: Exam = null
 var exam_minigame = preload("res://exam_minigame.tscn")
 var exam_instance
+@onready var global_char_stats : CharacterStats = preload("res://global_char_stats.tres")
 
 func start_exam_queue(wait_time: float):
 	$ExamQueue.wait_time = wait_time
@@ -40,6 +41,10 @@ func _on_minigame_won():
 	is_mouse_in = false
 	$Area3D.monitoring = false
 	exams.number_of_currently_active_exams -= 1
+	global_char_stats.add_money($ExamCountdown.time_left * global_char_stats.lives)
+	global_char_stats.add_score(global_char_stats.lives / 3 * $ExamCountdown.time_left)
+	print(global_char_stats.money)
+	print(global_char_stats.score)
 	queue_free()
 
 	

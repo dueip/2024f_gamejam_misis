@@ -13,6 +13,4 @@ func _ready():
 
 func _on_minigame_won():
 	pass
-	#print("we won!")
-	#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	#get_tree().get_first_node_in_group("SceneManager").revertScene()
+

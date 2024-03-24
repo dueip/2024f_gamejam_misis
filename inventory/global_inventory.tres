@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="Inv" load_steps=7 format=3 uid="uid://dcwansgtieuqh"]
 
 [ext_resource type="Script" path="res://inventory/inv.gd" id="1_aofla"]
-[ext_resource type="Resource" uid="uid://byy7884fyuuae" path="res://inventory/items/grade_book.tres" id="2_7ijxr"]
-[ext_resource type="Resource" uid="uid://cil8tk8yj7vng" path="res://inventory/items/cider.tres" id="2_jjs0e"]
+[ext_resource type="Resource" path="res://inventory/items/grade_book.tres" id="2_7ijxr"]
+[ext_resource type="Resource" path="res://inventory/items/cider.tres" id="2_jjs0e"]
 [ext_resource type="Script" path="res://inventory/inv_slot.gd" id="2_ypycj"]
 
 [sub_resource type="Resource" id="Resource_s1n2m"]
