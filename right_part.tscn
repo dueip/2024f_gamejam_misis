@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnc5nhr5fhhsb"]
+[gd_scene load_steps=6 format=3 uid="uid://dq8dsyd4cpce1"]
 
 [ext_resource type="Script" path="res://RightPart.gd" id="1_s2y2p"]
 [ext_resource type="Texture2D" uid="uid://e1iqsdosj8fh" path="res://sprites/bobber.png" id="2_ftahs"]

@@ -25,7 +25,6 @@ func _ready():
 	rand_timer.timeout.connect(restart_timer)
 	
 func spawn_item():
-	print("spawning item")
 	var test_instance=test_collosion.instantiate()
 	var child_item = item_scene.instantiate()
 	var stop = false
@@ -34,7 +33,6 @@ func spawn_item():
 		pos = Vector3(randf_range(-map_size.x/2,map_size.x/2),3.5,randf_range(-map_size.y/2,map_size.y/2))
 		pos.x+=map_center.x
 		pos.z+=map_center.y
-		print(pos)
 		test_instance.position=pos
 		add_child(test_instance)
 		await get_tree().create_timer(0.3).timeout
