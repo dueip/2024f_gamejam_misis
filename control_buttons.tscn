@@ -10,6 +10,7 @@ anchors_preset = 0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1rquo")
+button_name = "W"
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0

@@ -1,3 +1,5 @@
+
+
 [gd_scene load_steps=9 format=3 uid="uid://7qlfjpp0gal"]
 
 [ext_resource type="Script" path="res://possible_exam_spawn.gd" id="1_ksk3v"]
