@@ -1,9 +1,12 @@
 extends Control
 
-@export var stats : CharacterStats
+@onready var stats : CharacterStats = preload("res://global_char_stats.tres")
 
 
 func _ready():
+	set_process_input(false)
+	set_process_unhandled_input(false)
+	set_process(false)
 	update_gui("all")
 	stats.changed_stat.connect(update_gui)
 

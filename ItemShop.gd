@@ -50,11 +50,13 @@ func _input(event):
 
 
 func _on_shop_area_body_entered(body):
-	$OmniLight3D.light_energy*=2
-	in_shop=true
+	if body is Character:
+		$OmniLight3D.light_energy*=2
+		in_shop=true
 
 
 
 func _on_shop_area_body_exited(body):
-	$OmniLight3D.light_energy/=2
-	in_shop=false
+	if body is Character:
+		$OmniLight3D.light_energy/=2
+		in_shop=false
