@@ -7,10 +7,15 @@ var current_exam: Exam = null
 var exam_minigame = preload("res://exam_minigame.tscn")
 var exam_instance
 func _ready():
+	$LoadingBar.data = BarResource.new()
 	$ExamQueue.wait_time = exams.padding()
 	$ExamQueue.start()
 	$ExamQueue.one_shot = true
 	$Area3D.monitoring = false
+	$LoadingBar.data.value = 0
+	$LoadingBar.data.max_value = $ExamQueue.wait_time
+	$LoadingBar.has_finished = false
+	print($LoadingBar.data.max_value)
 
 
 
