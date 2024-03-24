@@ -4,7 +4,7 @@ extends Node2D
 @onready var left_part = $Bilet
 @export var exam_max_questions: int = 4
 var spawning_place: Node3D
-
+static var which_exam: int = 1
 func _ready():
 	left_part.connect("minigameWon", spawning_place._on_minigame_won)
 	left_part.connect("minigameLost", spawning_place._on_minigame_lost)
@@ -12,6 +12,7 @@ func _ready():
 	right_part.connect("enteredTheHole", left_part._on_entered_the_hole)
 	right_part.connect("exitedTheHole", left_part._on_exited_the_hole)
 	left_part.max_size = exam_max_questions
+	$EkzNumber.text += str(which_exam)
 func _on_minigame_won():
 	pass
 

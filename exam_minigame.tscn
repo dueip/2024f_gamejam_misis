@@ -441,6 +441,18 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 16
 text = "Из этого следует..."
 
+[node name="EkzNumber" type="Label" parent="."]
+custom_minimum_size = Vector2(300, 0)
+offset_left = 265.0
+offset_top = 115.0
+offset_right = 565.0
+offset_bottom = 172.0
+auto_translate = false
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 11
+text = "Экзамен по информационным технологиям №"
+autowrap_mode = 2
+
 [node name="Label6" type="Label" parent="."]
 offset_left = 644.0
 offset_top = 320.0

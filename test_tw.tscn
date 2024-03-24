@@ -129,4 +129,12 @@ transform = Transform3D(-2.58968, 0, -2.26396e-07, 0, 4.09533, 0, 2.26396e-07, 0
 [node name="ItemShop" parent="." instance=ExtResource("17_sy35x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.77061, 1.91782, 7.05559)
 
+[node name="TW" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("2_fbpmy")]
+transform = Transform3D(1, 0, 0, 0, 1.90401, 0, 0, 0, 2.25321, -10.4795, 1.61907, 9.90228)
+minigame = NodePath("beer_minigame")
+
+[node name="beer_minigame" parent="TW" instance=ExtResource("4_g6pux")]
+transform = Transform3D(1, 0, 0, 0, 0.525207, 0, 0, 0, 0.443812, -1.57532, 0.49103, -0.150357)
+combination = Array[String](["w", "s"])
+
 [editable path="TestRoom"]
