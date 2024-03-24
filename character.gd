@@ -95,9 +95,9 @@ func _input(event):
 		if event.button_index == MOUSE_BUTTON_LEFT && current_minigame_focused:
 			current_minigame_focused.startGame()
 		
-			
+
+func _unhandled_key_input(event):
 	if Input.is_action_just_pressed("character_use_item") or Input.is_action_just_pressed("character_drop_item"):
-		print("trying")
 		stats.inventory.use_index(0)
 	
 func _process(delta):
