@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://0f2cjseltxve"]
+[gd_scene load_steps=3 format=3 uid="uid://daehtsie361vf"]
 
 [ext_resource type="Script" path="res://WASD.gd" id="1_jgsl3"]
 [ext_resource type="PackedScene" uid="uid://d1e0xkg2a7g7n" path="res://control_buttons.tscn" id="2_ndrxw"]
@@ -16,12 +16,16 @@ script = ExtResource("1_jgsl3")
 
 [node name="W" parent="." instance=ExtResource("2_ndrxw")]
 position = Vector2(29, -6)
+letter = "W"
 
 [node name="A" parent="." instance=ExtResource("2_ndrxw")]
 position = Vector2(-3, 24)
+letter = "A"
 
 [node name="S" parent="." instance=ExtResource("2_ndrxw")]
 position = Vector2(29, 24)
+letter = "S"
 
 [node name="D" parent="." instance=ExtResource("2_ndrxw")]
 position = Vector2(62, 24)
+letter = "D"
