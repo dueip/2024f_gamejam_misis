@@ -18,14 +18,20 @@ func start_exam_queue(wait_time: float):
 	$LoadingBar.data.max_value = $ExamQueue.wait_time
 	$LoadingBar.has_finished = false
 
+var mutex: bool = false
+
 func _ready():
 	$LoadingBar.data = BarResource.new() 
 	start_exam_queue(exams.padding())
 
 
 
-func _unhandled_input(event):
+
+func _input(event):
+	if mutex:
+		return
 	if $Area3D.monitoring && event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT && is_mouse_in && event.is_pressed():
+		mutex = true
 		var SceneManager = get_tree().get_first_node_in_group("SceneManager")
 		SceneManager.chane_scene_to_instance(exam_instance)
 		$ExamCountdown.stop()
@@ -34,6 +40,7 @@ func _on_area_3d_mouse_entered():
 	is_mouse_in = true
 
 func return_to_prev_scene() -> void:
+	mutex = false
 	var SceneManager = get_tree().get_first_node_in_group("SceneManager")
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().get_first_node_in_group("SceneManager").revertScene()
