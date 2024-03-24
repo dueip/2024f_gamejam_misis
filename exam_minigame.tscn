@@ -1,53 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxjcuhmkd8ak"]
+[gd_scene load_steps=6 format=3 uid="uid://4slegr2fv0pm"]
 
 [ext_resource type="Script" path="res://exam_minigame.gd" id="1_pm2af"]
-[ext_resource type="PackedScene" uid="uid://dq8dsyd4cpce1" path="res://right_part.tscn" id="1_vj1tb"]
-[ext_resource type="PackedScene" uid="uid://dpcb1xrdosy0p" path="res://left_part.tscn" id="2_j1shc"]
-[ext_resource type="Script" path="res://Camera2D.gd" id="4_4k08r"]
+[ext_resource type="PackedScene" uid="uid://bnc5nhr5fhhsb" path="res://right_part.tscn" id="1_vj1tb"]
+[ext_resource type="PackedScene" uid="uid://yftxegk1j0wc" path="res://left_part.tscn" id="2_j1shc"]
+[ext_resource type="Texture2D" uid="uid://dbgp0w5bukwsb" path="res://sprites/live.png" id="4_p67ft"]
 
 [sub_resource type="Curve" id="Curve_qaopc"]
 _data = [Vector2(0.572165, 0.68421), 0.0, 0.0, 0, 0]
 point_count = 1
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kgdpd"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fwtp"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j2skq"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06v6u"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_usihb"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_pm2af")
@@ -56,7 +16,7 @@ script = ExtResource("1_pm2af")
 unique_name_in_owner = true
 top_level = true
 position = Vector2(574, 1)
-points = PackedVector2Array(0, 0, 0, 1000)
+points = PackedVector2Array(0, -5000, 0, 5000)
 width_curve = SubResource("Curve_qaopc")
 default_color = Color(0, 0, 0, 1)
 
@@ -65,27 +25,27 @@ position = Vector2(838, 297)
 
 [node name="Bilet" parent="." instance=ExtResource("2_j1shc")]
 position = Vector2(267, 290)
+min_size = 4
+max_size = 8
+combination = Array[String](["w", "a", "s", "d"])
+max_mark = 2
+cost_of_error = 1
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(576, 324)
-script = ExtResource("4_4k08r")
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 3
 
-[node name="Button" type="Button" parent="."]
-offset_left = 773.0
-offset_top = 521.0
-offset_right = 963.0
-offset_bottom = 552.0
-theme_type_variation = &"FlatButton"
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_kgdpd")
-theme_override_styles/hover = SubResource("StyleBoxFlat_0fwtp")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_j2skq")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_06v6u")
-theme_override_styles/focus = SubResource("StyleBoxFlat_usihb")
-text = "Использовать зачётку"
+[node name="TextureRect" type="TextureRect" parent="GridContainer" groups=["Lives"]]
+layout_mode = 2
+texture = ExtResource("4_p67ft")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="TextureRect2" type="TextureRect" parent="GridContainer" groups=["Lives"]]
+layout_mode = 2
+texture = ExtResource("4_p67ft")
+flip_v = true
+
+[node name="TextureRect3" type="TextureRect" parent="GridContainer" groups=["Lives"]]
+layout_mode = 2
+texture = ExtResource("4_p67ft")
+flip_h = true

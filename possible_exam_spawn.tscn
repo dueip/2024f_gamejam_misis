@@ -1,4 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bs5eux3pneboo"]
+
+[gd_scene load_steps=9 format=3 uid="uid://7qlfjpp0gal"]
+
 
 [ext_resource type="Script" path="res://possible_exam_spawn.gd" id="1_ksk3v"]
 [ext_resource type="Script" path="res://exam.gd" id="2_83smv"]
@@ -39,7 +41,7 @@ min_wait_time = 2.0
 
 [sub_resource type="Resource" id="Resource_pkvmj"]
 script = ExtResource("3_s7dlg")
-max_possible_exams = 5
+max_possible_exams = 2
 all_possible_exams = Array[ExtResource("2_83smv")]([SubResource("Resource_q1l7x"), SubResource("Resource_spys5")])
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2tbwc"]
@@ -68,7 +70,11 @@ transform = Transform3D(0.1, 0, 0, 0, 0.13516, 0, 0, 0, 0.1, 0.0119779, 0, -0.06
 transform = Transform3D(10, 0, 0, 0, 3.7594, 0, 0, 0, 10, 0, 0, 0)
 light_color = Color(0.992157, 0.952941, 0.941176, 1)
 
+[node name="ExamCountdown" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="mouse_entered" from="Area3D" to="." method="_on_area_3d_mouse_entered"]
 [connection signal="mouse_exited" from="Area3D" to="." method="_on_area_3d_mouse_exited"]
 [connection signal="timeout" from="ExamQueue" to="." method="_on_exam_queue_timeout"]
 [connection signal="timeout" from="WaitingForNewExam" to="." method="_on_waiting_for_new_exam_timeout"]
+[connection signal="timeout" from="ExamCountdown" to="." method="_on_exam_countdown_timeout"]

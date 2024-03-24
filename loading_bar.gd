@@ -12,6 +12,9 @@ var has_finished: bool = true
 # 0 = 0
 #
 
+func _ready():
+	var remeber_base_scale_x: float = self.scale.x
+
 
 func _process(delta):
 	if has_finished:

@@ -33,7 +33,7 @@ func use_money(amount: int) -> bool: #amount must be >=0
 	else:
 		return false
 
-func change_score(amount : int): #amount could be <0
+func add_score(amount : int): #amount could be <0
 	if score/1000 > (score+amount*score_multiplyer)/1000:
 		inventory.add(InvItem.get_item("grade_book"))
 	score+=amount*score_multiplyer
