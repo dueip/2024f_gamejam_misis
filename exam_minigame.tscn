@@ -401,6 +401,7 @@ script = ExtResource("5_v34b1")
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -10
+texture_filter = 1
 position = Vector2(362, 351)
 scale = Vector2(0.672607, 0.730004)
 tile_set = SubResource("TileSet_un3xm")
@@ -413,65 +414,67 @@ rotation = -3.14159
 scale = Vector2(-3.1747, -1.69653)
 
 [node name="Label" type="Label" parent="."]
-offset_left = 339.0
-offset_top = 162.0
-offset_right = 483.0
-offset_bottom = 188.0
-scale = Vector2(0.852121, 1.60646)
+offset_left = 287.0
+offset_top = 161.0
+offset_right = 735.0
+offset_bottom = 233.0
+scale = Vector2(0.531, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
 text = "Ищем художника"
 
 [node name="Label3" type="Label" parent="."]
 offset_left = 262.0
-offset_top = 323.0
+offset_top = 324.0
 offset_right = 406.0
-offset_bottom = 349.0
-scale = Vector2(1.08455, 1.47358)
+offset_bottom = 350.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
 text = "1 + 1 = "
 
 [node name="Label7" type="Label" parent="."]
 offset_left = 358.0
-offset_top = 355.0
-offset_right = 502.0
-offset_bottom = 381.0
-scale = Vector2(1.08455, 1.47358)
+offset_top = 356.0
+offset_right = 507.0
+offset_bottom = 382.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
 text = "Из этого следует..."
 
 [node name="Label6" type="Label" parent="."]
-offset_left = 697.0
-offset_top = 328.0
-offset_right = 841.0
-offset_bottom = 354.0
-scale = Vector2(1.40925, 2.65679)
-theme_override_colors/font_color = Color(1, 0, 0, 1)
+offset_left = 644.0
+offset_top = 320.0
+offset_right = 847.0
+offset_bottom = 392.0
+theme_override_colors/font_color = Color(0.996078, 0.831373, 0.788235, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 50
 text = "Зачетка
 "
 
 [node name="Label4" type="Label" parent="."]
-offset_left = 420.0
-offset_top = 378.0
-offset_right = 564.0
-offset_bottom = 404.0
-scale = Vector2(0.702011, 1.32347)
+offset_left = 390.0
+offset_top = 390.0
+offset_right = 569.0
+offset_bottom = 416.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
 text = "dy/dx = exp(12t) + xy - t"
 
 [node name="Label5" type="Label" parent="."]
 offset_left = 266.0
-offset_top = 448.0
+offset_top = 449.0
 offset_right = 410.0
-offset_bottom = 474.0
-scale = Vector2(0.702011, 1.32347)
+offset_bottom = 475.0
 theme_override_colors/font_color = Color(0.858824, 0.858824, 0.858824, 1)
+theme_override_font_sizes/font_size = 5
 text = "Люблю надежду"
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 659.0
-offset_top = 142.0
+offset_top = 143.0
 offset_right = 833.0
-offset_bottom = 168.0
-scale = Vector2(0.942011, 1.32347)
+offset_bottom = 169.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Подпишите петицию"
