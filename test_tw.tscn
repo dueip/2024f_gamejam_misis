@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://626ehrp4x5p8"]
+[gd_scene load_steps=16 format=3 uid="uid://626ehrp4x5p8"]
 
 [ext_resource type="PackedScene" uid="uid://ukij8uagjnc7" path="res://test_room.tscn" id="1_ju52g"]
 [ext_resource type="Script" path="res://test_tw.gd" id="1_ppaav"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b0wnppayfjhow" path="res://scene_manager.tscn" id="10_hhy83"]
 [ext_resource type="Resource" uid="uid://boqyxtbmtkwmh" path="res://inventory/items/vape.tres" id="11_0yftj"]
 [ext_resource type="PackedScene" uid="uid://bs5eux3pneboo" path="res://possible_exam_spawn.tscn" id="13_rr286"]
+[ext_resource type="PackedScene" uid="uid://cir51c87ptr02" path="res://ItemShop.tscn" id="15_od68i"]
 
 [node name="test_tw" type="Node3D"]
 script = ExtResource("1_ppaav")
@@ -124,5 +125,8 @@ transform = Transform3D(-4.74782, 0, -4.15067e-07, 0, 7.50822, 0, 4.15067e-07, 0
 
 [node name="PossibleExamSpawn3" parent="." instance=ExtResource("13_rr286")]
 transform = Transform3D(-4.74782, 0, -4.15067e-07, 0, 7.50822, 0, 4.15067e-07, 0, -4.74782, -5.22931, 2.2463, -3.6972)
+
+[node name="ItemShop" parent="." instance=ExtResource("15_od68i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.09737, 2.76328, 8.74283)
 
 [editable path="TestRoom"]
