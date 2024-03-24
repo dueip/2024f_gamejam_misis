@@ -442,7 +442,7 @@ offset_top = 378.0
 offset_right = 564.0
 offset_bottom = 404.0
 scale = Vector2(0.702011, 1.32347)
-text = "Абоба"
+text = "dy/dx = exp(12t) + xy - t"
 
 [node name="Label5" type="Label" parent="."]
 offset_left = 266.0
@@ -450,7 +450,7 @@ offset_top = 448.0
 offset_right = 410.0
 offset_bottom = 474.0
 scale = Vector2(0.702011, 1.32347)
-text = "Надежда"
+text = "Люблю надежду"
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 655.0
