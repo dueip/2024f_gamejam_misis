@@ -28,26 +28,33 @@ func _input(event):
 	if $Area3D.monitoring && event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT && is_mouse_in && event.is_pressed():
 		var SceneManager = get_tree().get_first_node_in_group("SceneManager")
 		SceneManager.chane_scene_to_instance(exam_instance)
+		$ExamCountdown.stop()
 
 func _on_area_3d_mouse_entered():
 	is_mouse_in = true
 
-func _on_minigame_won():
-	self.hide()
+func return_to_prev_scene() -> void:
 	var SceneManager = get_tree().get_first_node_in_group("SceneManager")
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().get_first_node_in_group("SceneManager").revertScene()
+	exams.number_of_currently_active_exams -= 1
 	current_exam = null
 	is_mouse_in = false
+	self.hide()
 	$Area3D.monitoring = false
-	exams.number_of_currently_active_exams -= 1
+
+func _on_minigame_won():
+	return_to_prev_scene()
+	# Add award
 	global_char_stats.add_money($ExamCountdown.time_left * global_char_stats.lives)
 	global_char_stats.add_score(global_char_stats.lives / 3 * $ExamCountdown.time_left)
-	print(global_char_stats.money)
-	print(global_char_stats.score)
 	queue_free()
 
-	
+func _on_minigame_lost():
+	# Do not add any award :(
+	return_to_prev_scene()
+	queue_free()
+
 func _on_area_3d_mouse_exited():
 	is_mouse_in = false
 
