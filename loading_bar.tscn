@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5irc7eelelad"]
+
+[ext_resource type="Script" path="res://loading_bar.gd" id="1_hqtpv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lfp0k"]
+
+[node name="LoadingBar" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("BoxMesh_lfp0k")
+script = ExtResource("1_hqtpv")
