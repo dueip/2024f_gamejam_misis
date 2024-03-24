@@ -126,12 +126,15 @@ unique_name_in_owner = true
 
 [node name="PossibleExamSpawn" parent="." instance=ExtResource("13_rr286")]
 transform = Transform3D(-3.15094, 0, -2.75464e-07, 0, 4.98291, 0, 2.75464e-07, 0, -3.15094, 5.38906, 2.2463, 1.68598)
+exam_countdown_wait = 10
 
 [node name="PossibleExamSpawn2" parent="." instance=ExtResource("13_rr286")]
 transform = Transform3D(-2.58968, 0, -2.26396e-07, 0, 4.09533, 0, 2.26396e-07, 0, -2.58968, -5.18498, 2.01497, 1.88534)
+exam_countdown_wait = 10
 
 [node name="PossibleExamSpawn3" parent="." instance=ExtResource("13_rr286")]
 transform = Transform3D(-2.58968, 0, -2.26396e-07, 0, 4.09533, 0, 2.26396e-07, 0, -2.58968, -5.18498, 2.01497, -4.94187)
+exam_countdown_wait = 10
 
 [node name="LoadingBar" parent="." instance=ExtResource("15_nxa8d")]
 transform = Transform3D(2.90708, 0, 0, 0, 0.528221, 0, 0, 0, 0.0301043, 0.26873, 4.69372, 1.03815)
