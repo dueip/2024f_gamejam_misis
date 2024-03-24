@@ -1,50 +1,38 @@
-extends Control
+extends Sprite2D
 
 class_name ControlButton
 
-@export var button_name: String
-@onready var text_label: RichTextLabel = $Panel/RichTextLabel
-@onready var stylebox : StyleBox
+@export var letter : String
 
 func _ready():
-	stylebox=StyleBoxFlat.new()
-	stylebox.set_corner_radius_all(3)
-	stylebox.set_border_width_all(3)
-	stylebox.border_color=Color(0,0,0)
-	$Panel["theme_override_styles/panel"]=stylebox
+	var index = calculate_index(letter)
+	frame=index
 	unhighlight()
 
+func calculate_index( char: String) -> int :
+	var res = char.unicode_at(0)
+	res-="A".unicode_at(0)
+	if res<0:
+		return 0
+	return res+16
 
-func unhighlight(color: Color = Color(0.745, 0.745, 0.745)):
-	stylebox.bg_color=color
-	text_label.clear()
-	text_label.push_color(Color(255,255,255))
-	text_label.push_outline_color(Color(0,0,0))
-	text_label.push_outline_size(4)
-	text_label.push_font_size(16)
-	text_label.append_text("[center]")
-	text_label.append_text(button_name)
-	text_label.pop()
-	text_label.pop()
-	text_label.pop()
-	text_label.pop()
-	text_label.pop()
+func shake():
+	var tween = get_tree().create_tween()
+	var start=position
+	for i in range(5):
+		var angle = randf_range(0,TAU)
+		tween.tween_property(self, "position",start+Vector2.from_angle(angle)*2, 0.05)
+		tween.tween_property(self, "position",start, 0.05)
+
+
+
+func highlight():
+	if frame<56:
+		frame+=56
 	
-func highlight(color: Color = Color(0.874, 0.941, 0.996) ):
-	stylebox.bg_color=color
-	text_label.clear()
-	text_label.push_color(Color(255,255,255))
-	text_label.push_outline_color(Color(0,0,0))
-	text_label.push_outline_size(8)
-	text_label.append_text("[center]")
-	text_label.push_font_size(17)
-	text_label.append_text(button_name)
-	text_label.pop()
-	text_label.pop()
-	text_label.pop()
-	text_label.pop()
-	text_label.pop()	
-	
+func unhighlight():
+	if frame>=56:
+		frame-=56
 
 
 

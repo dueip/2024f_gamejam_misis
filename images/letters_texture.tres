@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" load_steps=2 format=3 uid="uid://cbmhb6wvqilh5"]
+
+[ext_resource type="Texture2D" uid="uid://cps3un7n6ibe2" path="res://sprites/Keyboard Letters and Symbols.png" id="1_7mthu"]
+
+[resource]
+diffuse_texture = ExtResource("1_7mthu")
+texture_filter = 1
+texture_repeat = 1
