@@ -5,7 +5,5 @@ extends Node3D
 
 
 func _input(event):
-	if event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_RIGHT:
-		SceneManager.change_scene("res://exam_minigame.tscn")
-
-
+	pass
+# Write me a function that returns nothing
