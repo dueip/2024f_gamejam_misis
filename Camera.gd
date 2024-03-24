@@ -45,6 +45,8 @@ func _on_booze_update(stat : String):
 	tween_x.set_speed_scale(animation_speed)
 	tween_y.set_speed_scale(animation_speed)
 	tween_z.set_speed_scale(animation_speed)
+	
+	
 
 
 func finish_x(loop_count):
@@ -58,3 +60,20 @@ func finish_y(loop_count):
 func finish_z(loop_count):
 	if final_loop:
 		tween_z.kill()
+		
+func move_to_the_point(point : Vector3, time : float):
+	var ray = project_ray_normal(get_viewport().get_visible_rect().size/2)
+	var middle_point= Plane(ray,global_position).project(point)
+	
+	var dist_first= middle_point.distance_to(global_position)
+	var dist_second= middle_point.distance_to(point)
+	var t_first=time*dist_first/(dist_first+dist_second)
+	var t_second=time*dist_second/(dist_first+dist_second)
+	var tween = get_tree().create_tween()
+	var start=global_position
+	tween.tween_callback(get_parent().find_child("Character").switch_freeze)
+	tween.tween_property(self, "position", middle_point, t_first)
+	tween.tween_property(self, "position", point, t_second).set_trans(tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "position", start, 0.01)
+	tween.tween_callback(get_parent().find_child("Character").switch_freeze)
+	

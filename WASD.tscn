@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://daehtsie361vf"]
+[gd_scene load_steps=3 format=3 uid="uid://0f2cjseltxve"]
 
 [ext_resource type="Script" path="res://WASD.gd" id="1_jgsl3"]
 [ext_resource type="PackedScene" uid="uid://d1e0xkg2a7g7n" path="res://control_buttons.tscn" id="2_ndrxw"]

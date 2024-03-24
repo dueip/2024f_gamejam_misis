@@ -24,8 +24,7 @@ func _ready():
 
 
 func _input(event):
-	if $Area3D.monitoring && event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT && is_mouse_in:
-		print(current_exam.exam_name)
+	if $Area3D.monitoring && event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT && is_mouse_in && event.is_pressed():
 		var SceneManager = get_tree().get_first_node_in_group("SceneManager")
 		SceneManager.chane_scene_to_instance(exam_instance)
 
