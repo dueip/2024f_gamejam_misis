@@ -11,7 +11,13 @@ script = ExtResource("1_qteky")
 shape = SubResource("BoxShape3D_s1awd")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 2.98023e-08, -1, 0, 1, 2.98023e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 5.76205e-08, 1, 0, -1, 5.76205e-08, 0, 2.93452, 0)
+visible = false
+light_color = Color(1, 1, 0, 1)
+light_energy = 16.0
+light_size = 1.0
+spot_range = 8.706
+spot_attenuation = 0.112656
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

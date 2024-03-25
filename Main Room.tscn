@@ -1319,3 +1319,33 @@ cost = 100
 
 [node name="Bench" parent="." instance=ExtResource("32_ixe86")]
 transform = Transform3D(1, 0, 0, 0, 2.31408, 0, 0, 0, 2.00195, 17.0974, 1.21856, -50.3252)
+
+[node name="Bench6" parent="." instance=ExtResource("32_ixe86")]
+transform = Transform3D(1, 0, 0, 0, 2.31408, 0, 0, 0, 2.00195, 23.117, 1.21856, -37.4263)
+
+[node name="Bench7" parent="." instance=ExtResource("32_ixe86")]
+transform = Transform3D(-4.37114e-08, 0, 2.00195, 0, 2.31408, 0, -1, 0, -8.75079e-08, 13.8665, 1.21856, 10.1364)
+
+[node name="Bench8" parent="." instance=ExtResource("32_ixe86")]
+transform = Transform3D(-4.37114e-08, 0, 2.00195, 0, 2.31408, 0, -1, 0, -8.75079e-08, 1.22158, 1.21856, 10.1364)
+
+[node name="Bench9" parent="." instance=ExtResource("32_ixe86")]
+transform = Transform3D(-1, 0, -1.75016e-07, 0, 2.31408, 0, 8.74228e-08, 0, -2.00195, -4.38626, 1.21856, -30.4268)
+
+[node name="Bench10" parent="." instance=ExtResource("32_ixe86")]
+transform = Transform3D(-1, 0, -1.75016e-07, 0, 2.31408, 0, 8.74228e-08, 0, -2.00195, -29.2291, 1.21856, -67.4368)
+
+[node name="Bench11" parent="." instance=ExtResource("32_ixe86")]
+transform = Transform3D(-1, 0, -1.75016e-07, 0, 2.31408, 0, 8.74228e-08, 0, -2.00195, -29.2291, 1.21856, -78.2898)
+
+[node name="Bench2" parent="." instance=ExtResource("32_ixe86")]
+transform = Transform3D(1, 0, 0, 0, 2.31408, 0, 0, 0, 2.00195, 17.0974, 1.21856, -61.773)
+
+[node name="Bench3" parent="." instance=ExtResource("32_ixe86")]
+transform = Transform3D(1, 0, 0, 0, 2.31408, 0, 0, 0, 2.00195, 17.0974, 1.21856, -73.0589)
+
+[node name="Bench4" parent="." instance=ExtResource("32_ixe86")]
+transform = Transform3D(-4.37114e-08, 0, 2.00195, 0, 2.31408, 0, -1, 0, -8.75079e-08, 25.0974, 1.21856, -66.2025)
+
+[node name="Bench5" parent="." instance=ExtResource("32_ixe86")]
+transform = Transform3D(-4.37114e-08, 0, 2.00195, 0, 2.31408, 0, -1, 0, -8.75079e-08, 29.3793, 1.21856, -66.2025)
