@@ -1,12 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://dd4njxxt7kqir"]
 
 [ext_resource type="Script" path="res://crowd.gd" id="1_051vd"]
-
 [ext_resource type="PackedScene" uid="uid://dx5eeyxdf1u4i" path="res://assets/Gray.glb" id="2_mwugp"]
 [ext_resource type="PackedScene" uid="uid://cpmqbxmtcwwrq" path="res://assets/Gay.glb" id="3_ixt5r"]
 [ext_resource type="PackedScene" uid="uid://cb3jg3vwagmfr" path="res://assets/Chiknees.glb" id="4_sbo7l"]
 [ext_resource type="PackedScene" uid="uid://g4l5xeukx78n" path="res://assets/Nudist.glb" id="5_wugcl"]
-
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7rjkg"]
 
