@@ -47,11 +47,34 @@ var running_mult: float = 1
 
 var slow_down_value_percents: float = 0
 
+var freeze = false
+
+func switch_freeze():
+	freeze=!freeze
 
 
 func restoreFromSlowingDown():
 	slowDown(0)
-
+	
+func throw_book():
+	var resource = preload("res://Item3D.tscn")
+	var book = resource.instantiate()
+	book.item=InvItem.get_item("grade_book")
+	book.find_child("Coll*",true).shape.size=Vector3(3,3,3)
+	book.find_child("Area3D*",false).collision_layer=4
+	book.find_child("Area3D*",false).collision_mask=4
+	book.position=position
+	book.scale=Vector3(0.4,0.4,0.4)
+	add_sibling(book)
+	var begin = global_position
+	begin.y+=1.79
+	var end = calculatePositionToLookAt(get_viewport().get_mouse_position(), global_position, get_viewport().get_camera_3d())
+	book.direction=end-begin
+	book.direction.y=0
+	book.direction=book.direction.normalized()
+	book.speed=10
+	book.set_process(true)
+	
 func slowDown(value_in_percents: float):
 	slow_down_value_percents = value_in_percents
 
@@ -59,9 +82,9 @@ func slowDown(value_in_percents: float):
 
 func calculatePositionToLookAt(point: Vector2, current_position: Vector3, camera: Camera3D) -> Vector3:
 	var normal = camera.project_ray_normal(point)
-	var eye_height= $Body/Цилиндр_002.position.y
-	var C = (current_position.y+eye_height-camera.position.y)/ normal.y
-	var point_to_look_at : Vector3 = (camera.position)
+	var eye_height= global_position.y+1.79
+	var C = (current_position.y+eye_height-camera.global_position.y)/ normal.y
+	var point_to_look_at : Vector3 = (camera.global_position)
 	point_to_look_at.x+=C*normal.x
 	point_to_look_at.z+=C*normal.z
 	point_to_look_at.y= current_position.y
@@ -87,24 +110,34 @@ func _input(event):
 		if event is InputEventKey and not event.is_echo() and Input.is_key_pressed(event.keycode):
 			handle_minigame_input(event)
 		return
+	if freeze:
+		return
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT && current_minigame_focused:
-			current_minigame_focused.startGame()
+			if (stats.use_money(current_minigame_focused.cost)):
+				current_minigame_focused.startGame()
+			else:
+				current_minigame_focused = null
+		if event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
+			if stats.inventory.use_index(1):
+				throw_book()
 		
-			
+
+func _unhandled_key_input(event):
+	if freeze:
+		return
 	if Input.is_action_just_pressed("character_use_item") or Input.is_action_just_pressed("character_drop_item"):
-		print("trying")
 		stats.inventory.use_index(0)
 	
 func _process(delta):
-	$Body.look_at(calculatePositionToLookAt(get_viewport().get_mouse_position(), self.position, get_viewport().get_camera_3d()))
-	$Body.rotate_y(deg_to_rad(180))
+	if !freeze:
+		$Body.look_at(calculatePositionToLookAt(get_viewport().get_mouse_position(), global_position, get_viewport().get_camera_3d()))
 	
 	if is_in_minigame:
 		return
 	
 func _physics_process(delta):
-	if is_in_minigame:
+	if is_in_minigame or freeze:
 		return
 	var is_running: bool = Input.is_action_pressed("character_run")
 	if is_running:
@@ -138,6 +171,21 @@ func _physics_process(delta):
 	move_and_slide()
 
 
+func addAward(award: CharacterStats) -> void:
+	if (award.booze_lvl > 0):
+		stats.up_booze()
+	elif (award.booze_lvl < 0):
+		stats.down_booze()
+	
+	if (award.smoke_lvl > 0):
+		stats.up_smoke()
+	elif (award.smoke_lvl < 0):
+		stats.down_smoke()
+	stats.add_money(award.money)
+	stats.add_score(award.score)
+	stats.up_smoke()
+	stats.score_multiplyer += award.score_multiplyer
+
 func _on_dash_timer_timeout():
 	speed_multiplyer = base_multiplyer
 	dash_timer.stop()
@@ -147,12 +195,12 @@ func on_minigame_started(minigame: Minigame):
 	current_minigame = minigame
 	is_in_minigame = true
 
-func _on_minigame_ended(did_player_win: bool):
+func _on_minigame_ended(did_player_win: bool, award_or_punishment: CharacterStats):
 	if did_player_win:
 		print("Player won!")
 	else:
 		print("Player lost!")
-	
+	addAward(award_or_punishment)
 	current_minigame = null
 	is_in_minigame = false
 

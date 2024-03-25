@@ -1,25 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://d1e0xkg2a7g7n"]
 
 [ext_resource type="Script" path="res://control_buttons.gd" id="1_1rquo"]
+[ext_resource type="Texture2D" uid="uid://cbmhb6wvqilh5" path="res://images/letters_texture.tres" id="2_xdqbq"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wwwgd"]
-
-[node name="ControlButtons" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="ControlButton" type="Sprite2D"]
+scale = Vector2(3, 3)
+texture = ExtResource("2_xdqbq")
+centered = false
+hframes = 8
+vframes = 14
 script = ExtResource("1_1rquo")
-
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_wwwgd")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
-layout_mode = 0
-offset_top = 8.0
-offset_right = 40.0
-offset_bottom = 38.0
-scroll_active = false

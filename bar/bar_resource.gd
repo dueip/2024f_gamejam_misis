@@ -22,13 +22,19 @@ static func getResourceBar (path_name : String) -> BarResource:
 	var new_bar = load("res://bar/bars/" + path_name + ".tres")
 	return new_bar
 
-func lose(how_much: int):
+func lose(how_much: int) -> bool:
 	value=value-how_much
+	if value<min_value:
+		value=min_value
+		return false
 	emit_signal("updated")
 	emit_signal("updated_value",value)
+	return true
 	
 	
 func gain(how_much: int):
 	value=value+how_much
+	if value>max_value:
+		value=max_value
 	emit_signal("updated")
 	emit_signal("updated_value",value)

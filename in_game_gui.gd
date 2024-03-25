@@ -1,9 +1,12 @@
 extends Control
 
-@export var stats : CharacterStats
+@onready var stats : CharacterStats = preload("res://global_char_stats.tres")
 
 
 func _ready():
+	set_process_input(false)
+	set_process_unhandled_input(false)
+	set_process(false)
 	update_gui("all")
 	stats.changed_stat.connect(update_gui)
 
@@ -26,6 +29,7 @@ func update_gui(stat : String):
 	if (stat=="all" or stat=="money"):
 		$Money.text="$" + str(stats.money)
 	if (stat=="all" or stat=="score"):
-		$Score.text="Score:\n" + str(stats.score)
-
+		
+		$Score.text="[right][font_size=35][rainbow freq=1 sat=0.6 val=1][shake rate=20.0 level=5 connected=1]Score:\n" + str(stats.score) + "[/shake][/rainbow][/font_size][right]"
+		
 

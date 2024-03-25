@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://cir51c87ptr02"]
+
+[ext_resource type="Script" path="res://ItemShop.gd" id="1_kkf4l"]
+[ext_resource type="Resource" uid="uid://byy7884fyuuae" path="res://inventory/items/grade_book.tres" id="2_oyn7t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dn5hf"]
+size = Vector3(3, 3, 3)
+
+[node name="ItemShop" type="Node3D"]
+script = ExtResource("1_kkf4l")
+item = ExtResource("2_oyn7t")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+light_energy = 0.2
+light_volumetric_fog_energy = 0.0
+light_specular = 0.2
+distance_fade_begin = 10.0
+distance_fade_length = 1.0
+
+[node name="ShopArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ShopArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0719328, -4.76837e-07, -0.00997925)
+shape = SubResource("BoxShape3D_dn5hf")
+
+[connection signal="body_entered" from="ShopArea" to="." method="_on_shop_area_body_entered"]
+[connection signal="body_exited" from="ShopArea" to="." method="_on_shop_area_body_exited"]

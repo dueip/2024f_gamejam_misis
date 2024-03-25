@@ -8,46 +8,24 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1032.0
-offset_bottom = -568.0
+offset_right = -1047.0
+offset_bottom = -581.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jgsl3")
 
 [node name="W" parent="." instance=ExtResource("2_ndrxw")]
-custom_minimum_size = Vector2(40, 40)
-offset_left = 40.0
-offset_top = 1.0
-offset_right = 80.0
-offset_bottom = 41.0
-grow_horizontal = 1
-grow_vertical = 1
+position = Vector2(29, -6)
+letter = "W"
 
 [node name="A" parent="." instance=ExtResource("2_ndrxw")]
-custom_minimum_size = Vector2(40, 40)
-offset_left = 1.0
-offset_top = 40.0
-offset_right = 41.0
-offset_bottom = 80.0
-grow_horizontal = 1
-grow_vertical = 1
-button_name = "A"
+position = Vector2(-3, 24)
+letter = "A"
 
 [node name="S" parent="." instance=ExtResource("2_ndrxw")]
-custom_minimum_size = Vector2(40, 40)
-offset_left = 40.0
-offset_top = 40.0
-offset_right = 80.0
-offset_bottom = 80.0
-grow_horizontal = 1
-grow_vertical = 1
-button_name = "S"
+position = Vector2(29, 24)
+letter = "S"
 
 [node name="D" parent="." instance=ExtResource("2_ndrxw")]
-offset_left = 79.0
-offset_top = 40.0
-offset_right = 79.0
-offset_bottom = 40.0
-grow_horizontal = 1
-grow_vertical = 1
-button_name = "D"
+position = Vector2(62, 24)
+letter = "D"

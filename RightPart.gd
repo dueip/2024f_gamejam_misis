@@ -5,7 +5,7 @@ signal exitedTheHole()
 
 @onready var hole = $Hole
 @onready var SomeOtherThing = $SomeOtherThing
-
+@onready var speed : Vector2 = Vector2(0,0)
 var is_some_other_thing_in: bool = false
 
 func _ready():
@@ -14,7 +14,8 @@ func _ready():
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		SomeOtherThing.position += event.relative 
+		SomeOtherThing.position += (event.position-get_viewport_rect().size/2)
+		Input.warp_mouse(get_viewport_rect().size/2)
 	if event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT && not event.is_echo():
 		if is_some_other_thing_in:
 			print("Correct!")
@@ -22,11 +23,19 @@ func _input(event):
 
 func _process(delta):
 	
+	SomeOtherThing.position += speed * delta
 	SomeOtherThing.global_position.x = clampf(SomeOtherThing.global_position.x, get_viewport_rect().size.x / 2, get_viewport_rect().size.x);
 	SomeOtherThing.global_position.y = clampf(SomeOtherThing.global_position.y, 0, get_viewport_rect().size.y);
-	
-	SomeOtherThing.position.x += randf_range(-1, 1) * 10
-	SomeOtherThing.position.y += randf_range(-1, 1) * 10
+
+func _physics_process(delta):
+	var stats = preload("res://global_char_stats.tres")
+	var mult = Booze.lvls()[stats.booze_lvl]
+	if speed.length()>275 + mult*25:
+		speed/=10
+	speed.x += randfn(0,30)*(1+ mult)
+	speed.x += randfn(0,30)*(1+ mult)
+	speed.y += randfn(0,30)*(1+ mult)
+	speed.y += randfn(0,30)*(1+ mult)
 
 
 
