@@ -525,12 +525,13 @@ transform = Transform3D(-0.999863, 0, 0.0165449, 0, 1, 0, -0.0165449, 0, -0.9998
 [node name="Character" parent="." groups=["Player"] instance=ExtResource("13_7c0rd")]
 transform = Transform3D(0.798482, 0, 0, 0, 0.798482, 0, 0, 0, 0.798482, 4.26466, 0.110128, -70.0942)
 SPEED = 6.0
+dash_multiplyer = 3.0
 RUNNING_SPEED_MULT = 2.0
 stamina_lose = SubResource("Resource_w1kk4")
 
 [node name="Camera" type="Camera3D" parent="Character"]
 unique_name_in_owner = true
-transform = Transform3D(-1.25236, 0.00467713, -0.0045962, 0, 0.877802, 0.893258, 0.00655749, 0.893246, -0.87779, 0.096, 20.167, -14.832)
+transform = Transform3D(-1.25205, 0.0195583, -0.0206101, 0, 0.908442, 0.862079, 0.0284131, 0.861857, -0.908208, 0.096, 13.167, -10.832)
 current = true
 fov = 46.0
 script = ExtResource("15_60dw6")
