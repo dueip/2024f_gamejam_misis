@@ -8,6 +8,3 @@ script = ExtResource("1_2anu5")
 
 [node name="ControlButtons" parent="." instance=ExtResource("2_7jr2j")]
 visible = false
-
-[connection signal="lostLive" from="." to="." method="_on_lost_live"]
-
