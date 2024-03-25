@@ -10,8 +10,8 @@ func startGame():
 	super.startGame()
 	%WASD.find_child("FirstButton").letter = combination[0].to_upper()
 	%WASD.find_child("SecondButton").letter = combination[1].to_upper()
-	%WASD.find_child("FirstButton").eatYoAss()
-	%WASD.find_child("SecondButton").eatYoAss()
+	%WASD.find_child("FirstButton").findButtonIndexFromLetter()
+	%WASD.find_child("SecondButton").findButtonIndexFromLetter()
 	
 	var tween = get_tree().create_tween()
 
