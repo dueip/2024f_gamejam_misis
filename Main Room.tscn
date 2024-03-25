@@ -1,5 +1,4 @@
-
-[gd_scene load_steps=30 format=3 uid="uid://bah34r2m18704"]
+[gd_scene load_steps=35 format=3 uid="uid://bah34r2m18704"]
 
 [ext_resource type="PackedScene" uid="uid://ct62gqlhtgtlg" path="res://assets/DrugConsumer.glb" id="1_8k3v3"]
 [ext_resource type="PackedScene" uid="uid://dhoiytre65lq6" path="res://assets/Buildings/Pub/scene.gltf" id="2_83bhn"]
@@ -27,6 +26,11 @@
 [ext_resource type="PackedScene" uid="uid://b0wnppayfjhow" path="res://scene_manager.tscn" id="24_jfw1g"]
 [ext_resource type="PackedScene" uid="uid://dfvxwducd83sk" path="res://assets/Buildings/Walls/WallDoor.glb" id="25_sshhq"]
 [ext_resource type="PackedScene" uid="uid://bly400huyi30s" path="res://wall.tscn" id="26_sncp7"]
+[ext_resource type="PackedScene" uid="uid://brh20oloycgj3" path="res://item_generaion/item_generator.tscn" id="27_wi3ad"]
+[ext_resource type="Resource" uid="uid://boqyxtbmtkwmh" path="res://inventory/items/vape.tres" id="28_qwtl7"]
+[ext_resource type="Resource" uid="uid://cil8tk8yj7vng" path="res://inventory/items/cider.tres" id="29_h3o35"]
+[ext_resource type="Resource" uid="uid://bijsrpn20gthk" path="res://inventory/items/coffee.tres" id="30_i56y5"]
+[ext_resource type="PackedScene" uid="uid://cir51c87ptr02" path="res://ItemShop.tscn" id="31_tk4jo"]
 
 [sub_resource type="Resource" id="Resource_w1kk4"]
 script = ExtResource("14_xrwxv")
@@ -783,3 +787,27 @@ light_size = 1.0
 
 [node name="Wall" parent="." instance=ExtResource("26_sncp7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.1335, 0, -72.0584)
+
+[node name="ItemGenerator" parent="." instance=ExtResource("27_wi3ad")]
+items = Array[Resource("res://inventory/inv_item.gd")]([ExtResource("28_qwtl7"), ExtResource("29_h3o35"), ExtResource("30_i56y5")])
+map_size = Vector2(100, 150)
+min_time = 1
+max_time = 3
+
+[node name="ItemShop" parent="." instance=ExtResource("31_tk4jo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.565965, 1.15, -82.4229)
+item = ExtResource("30_i56y5")
+
+[node name="ItemShop2" parent="." instance=ExtResource("31_tk4jo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.78141, 0.862169, -89.2616)
+item = ExtResource("28_qwtl7")
+price = 75.0
+
+[node name="ItemShop3" parent="." instance=ExtResource("31_tk4jo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.22206, 1.15, -82.4229)
+item = ExtResource("29_h3o35")
+price = 100.0
+
+[node name="ItemShop4" parent="." instance=ExtResource("31_tk4jo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.9554, 2.72234, -5.65855)
+price = 500.0

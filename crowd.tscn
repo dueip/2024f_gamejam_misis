@@ -30,30 +30,34 @@ roughness = 0.5
 [sub_resource type="ArrayMesh" id="ArrayMesh_fb5qr"]
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 0, 0, 0),
-"format": 0,
+"format": 34359738368,
 "name": "Материал.004",
 "primitive": 5,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 0,
 "vertex_data": PackedByteArray()
 }, {
 "aabb": AABB(0, 0, 0, 0, 0, 0),
-"format": 0,
+"format": 34359738368,
 "name": "body",
 "primitive": 5,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 0,
 "vertex_data": PackedByteArray()
 }, {
 "aabb": AABB(0, 0, 0, 0, 0, 0),
-"format": 0,
+"format": 34359738368,
 "name": "Линзы",
 "primitive": 5,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 0,
 "vertex_data": PackedByteArray()
 }, {
 "aabb": AABB(0, 0, 0, 0, 0, 0),
-"format": 0,
+"format": 34359738368,
 "name": "Шапка",
 "primitive": 5,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 0,
 "vertex_data": PackedByteArray()
 }]
@@ -63,34 +67,38 @@ blend_shape_mode = 0
 resource_name = "Chiknees_Цилиндр_002"
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 0, 0, 0),
-"format": 0,
+"format": 34359738368,
 "material": SubResource("StandardMaterial3D_gn18r"),
 "name": "Материал.004",
 "primitive": 5,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 0,
 "vertex_data": PackedByteArray()
 }, {
 "aabb": AABB(0, 0, 0, 0, 0, 0),
-"format": 0,
+"format": 34359738368,
 "material": SubResource("StandardMaterial3D_yuls0"),
 "name": "body",
 "primitive": 5,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 0,
 "vertex_data": PackedByteArray()
 }, {
 "aabb": AABB(0, 0, 0, 0, 0, 0),
-"format": 0,
+"format": 34359738368,
 "material": SubResource("StandardMaterial3D_jtep6"),
 "name": "Линзы",
 "primitive": 5,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 0,
 "vertex_data": PackedByteArray()
 }, {
 "aabb": AABB(0, 0, 0, 0, 0, 0),
-"format": 0,
+"format": 34359738368,
 "material": SubResource("StandardMaterial3D_qyu8s"),
 "name": "Шапка",
 "primitive": 5,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 0,
 "vertex_data": PackedByteArray()
 }]
@@ -138,30 +146,34 @@ roughness = 0.5
 [sub_resource type="ArrayMesh" id="ArrayMesh_lpsmq"]
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 0, 0, 0),
-"format": 0,
+"format": 34359738368,
 "name": "body",
 "primitive": 5,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 0,
 "vertex_data": PackedByteArray()
 }, {
 "aabb": AABB(0, 0, 0, 0, 0, 0),
-"format": 0,
+"format": 34359738368,
 "name": "Одежда1",
 "primitive": 5,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 0,
 "vertex_data": PackedByteArray()
 }, {
 "aabb": AABB(0, 0, 0, 0, 0, 0),
-"format": 0,
+"format": 34359738368,
 "name": "Линзы",
 "primitive": 5,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 0,
 "vertex_data": PackedByteArray()
 }, {
 "aabb": AABB(0, 0, 0, 0, 0, 0),
-"format": 0,
+"format": 34359738368,
 "name": "Шапка",
 "primitive": 5,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 0,
 "vertex_data": PackedByteArray()
 }]
@@ -171,34 +183,38 @@ blend_shape_mode = 0
 resource_name = "Gay_Цилиндр_002"
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 0, 0, 0),
-"format": 0,
+"format": 34359738368,
 "material": SubResource("StandardMaterial3D_01lkj"),
 "name": "body",
 "primitive": 5,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 0,
 "vertex_data": PackedByteArray()
 }, {
 "aabb": AABB(0, 0, 0, 0, 0, 0),
-"format": 0,
+"format": 34359738368,
 "material": SubResource("StandardMaterial3D_3rsg3"),
 "name": "Одежда1",
 "primitive": 5,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 0,
 "vertex_data": PackedByteArray()
 }, {
 "aabb": AABB(0, 0, 0, 0, 0, 0),
-"format": 0,
+"format": 34359738368,
 "material": SubResource("StandardMaterial3D_4lq8o"),
 "name": "Линзы",
 "primitive": 5,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 0,
 "vertex_data": PackedByteArray()
 }, {
 "aabb": AABB(0, 0, 0, 0, 0, 0),
-"format": 0,
+"format": 34359738368,
 "material": SubResource("StandardMaterial3D_tgbh5"),
 "name": "Шапка",
 "primitive": 5,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 0,
 "vertex_data": PackedByteArray()
 }]
@@ -240,30 +256,34 @@ roughness = 0.0
 [sub_resource type="ArrayMesh" id="ArrayMesh_dvjy6"]
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 0, 0, 0),
-"format": 0,
+"format": 34359738368,
 "name": "Шапка",
 "primitive": 5,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 0,
 "vertex_data": PackedByteArray()
 }, {
 "aabb": AABB(0, 0, 0, 0, 0, 0),
-"format": 0,
+"format": 34359738368,
 "name": "body",
 "primitive": 5,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 0,
 "vertex_data": PackedByteArray()
 }, {
 "aabb": AABB(0, 0, 0, 0, 0, 0),
-"format": 0,
+"format": 34359738368,
 "name": "Линзы",
 "primitive": 5,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 0,
 "vertex_data": PackedByteArray()
 }, {
 "aabb": AABB(0, 0, 0, 0, 0, 0),
-"format": 0,
+"format": 34359738368,
 "name": "Шапка",
 "primitive": 5,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 0,
 "vertex_data": PackedByteArray()
 }]
@@ -273,34 +293,38 @@ blend_shape_mode = 0
 resource_name = "Gray_Цилиндр_002"
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 0, 0, 0),
-"format": 0,
+"format": 34359738368,
 "material": SubResource("StandardMaterial3D_f5krc"),
 "name": "Шапка",
 "primitive": 5,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 0,
 "vertex_data": PackedByteArray()
 }, {
 "aabb": AABB(0, 0, 0, 0, 0, 0),
-"format": 0,
+"format": 34359738368,
 "material": SubResource("StandardMaterial3D_1w7ch"),
 "name": "body",
 "primitive": 5,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 0,
 "vertex_data": PackedByteArray()
 }, {
 "aabb": AABB(0, 0, 0, 0, 0, 0),
-"format": 0,
+"format": 34359738368,
 "material": SubResource("StandardMaterial3D_t47kd"),
 "name": "Линзы",
 "primitive": 5,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 0,
 "vertex_data": PackedByteArray()
 }, {
 "aabb": AABB(0, 0, 0, 0, 0, 0),
-"format": 0,
+"format": 34359738368,
 "material": SubResource("StandardMaterial3D_f5krc"),
 "name": "Шапка",
 "primitive": 5,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 0,
 "vertex_data": PackedByteArray()
 }]
@@ -342,23 +366,26 @@ roughness = 0.5
 [sub_resource type="ArrayMesh" id="ArrayMesh_f57yr"]
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 0, 0, 0),
-"format": 0,
+"format": 34359738368,
 "name": "body",
 "primitive": 5,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 0,
 "vertex_data": PackedByteArray()
 }, {
 "aabb": AABB(0, 0, 0, 0, 0, 0),
-"format": 0,
+"format": 34359738368,
 "name": "Линзы",
 "primitive": 5,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 0,
 "vertex_data": PackedByteArray()
 }, {
 "aabb": AABB(0, 0, 0, 0, 0, 0),
-"format": 0,
+"format": 34359738368,
 "name": "Шапка",
 "primitive": 5,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 0,
 "vertex_data": PackedByteArray()
 }]
@@ -368,26 +395,29 @@ blend_shape_mode = 0
 resource_name = "Nudist_Цилиндр_002"
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 0, 0, 0),
-"format": 0,
+"format": 34359738368,
 "material": SubResource("StandardMaterial3D_o8dtv"),
 "name": "body",
 "primitive": 5,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 0,
 "vertex_data": PackedByteArray()
 }, {
 "aabb": AABB(0, 0, 0, 0, 0, 0),
-"format": 0,
+"format": 34359738368,
 "material": SubResource("StandardMaterial3D_j0xgj"),
 "name": "Линзы",
 "primitive": 5,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 0,
 "vertex_data": PackedByteArray()
 }, {
 "aabb": AABB(0, 0, 0, 0, 0, 0),
-"format": 0,
+"format": 34359738368,
 "material": SubResource("StandardMaterial3D_ktthd"),
 "name": "Шапка",
 "primitive": 5,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 0,
 "vertex_data": PackedByteArray()
 }]
