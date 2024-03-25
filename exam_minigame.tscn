@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://4slegr2fv0pm"]
+[gd_scene load_steps=12 format=3 uid="uid://4slegr2fv0pm"]
 
 [ext_resource type="Script" path="res://exam_minigame.gd" id="1_pm2af"]
 [ext_resource type="PackedScene" uid="uid://dq8dsyd4cpce1" path="res://right_part.tscn" id="1_vj1tb"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dbgp0w5bukwsb" path="res://sprites/live.png" id="4_p67ft"]
 [ext_resource type="Script" path="res://Camera2D.gd" id="5_v34b1"]
 [ext_resource type="Texture2D" uid="uid://ddoifc7q34ub8" path="res://sprites/UI Assets pack_v.1_st/Book.png" id="6_us11s"]
+[ext_resource type="Texture2D" uid="uid://cqrsotirj0oqs" path="res://sprites/blood_drop_1.png" id="7_m6omf"]
+[ext_resource type="Texture2D" uid="uid://d33i53gqkgl01" path="res://sprites/blood_drop_3.png" id="9_5e417"]
 
 [sub_resource type="Curve" id="Curve_qaopc"]
 _data = [Vector2(0.572165, 0.68421), 0.0, 0.0, 0, 0]
@@ -490,3 +492,20 @@ offset_right = 833.0
 offset_bottom = 169.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Подпишите петицию"
+
+[node name="BloodDrop1" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(401, 360)
+scale = Vector2(0.63112, 0.800717)
+texture = ExtResource("7_m6omf")
+
+[node name="BloodDrop3" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(808, 580)
+scale = Vector2(0.710826, 0.710009)
+texture = ExtResource("9_5e417")
+
+[node name="BloodDrop4" type="Sprite2D" parent="."]
+position = Vector2(856, 259)
+scale = Vector2(-0.217944, -0.59618)
+texture = ExtResource("7_m6omf")
