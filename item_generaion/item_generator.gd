@@ -39,7 +39,7 @@ func spawn_item():
 		stop=(!test_instance.has_overlapping_areas() and !test_instance.has_overlapping_bodies())
 		remove_child(test_instance)
 	child_item.position=pos
-	child_item.position.y=2.5
+	child_item.position.y=0.5
 	child_item.time_to_live=max_time*2
 	if !items.is_empty():
 		child_item.item=items[randi()%items.size()]

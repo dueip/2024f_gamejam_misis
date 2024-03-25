@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://b5h7nqgmrswi5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2j7k0"]
-size = Vector3(3, 3, 3)
+size = Vector3(1.5, 1.5, 1.5)
 
 [node name="Collision_finder" type="Area3D"]
 collision_mask = 65535

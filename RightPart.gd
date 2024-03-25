@@ -12,10 +12,15 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 	
 
+var prev_pos : Vector2
+
+
 func _input(event):
 	if event is InputEventMouseMotion:
-		SomeOtherThing.position += (event.position-get_viewport_rect().size/2)
-		Input.warp_mouse(get_viewport_rect().size/2)
+		SomeOtherThing.position += (event.position-prev_pos)
+		print(get_viewport().get_mouse_position())
+		Input.warp_mouse(Vector2(100,100))
+		prev_pos=get_viewport().get_mouse_position()
 	if event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT && not event.is_echo():
 		if is_some_other_thing_in:
 			print("Correct!")
@@ -26,7 +31,6 @@ func _process(delta):
 	SomeOtherThing.position += speed * delta
 	SomeOtherThing.global_position.x = clampf(SomeOtherThing.global_position.x, get_viewport_rect().size.x / 2, get_viewport_rect().size.x);
 	SomeOtherThing.global_position.y = clampf(SomeOtherThing.global_position.y, 0, get_viewport_rect().size.y);
-
 func _physics_process(delta):
 	var stats = preload("res://global_char_stats.tres")
 	var mult = Booze.lvls()[stats.booze_lvl]
