@@ -166,6 +166,8 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED * speed_multiplyer * running_mult)
 		velocity.z = move_toward(velocity.z, 0, SPEED * speed_multiplyer * running_mult)
 	velocity -= velocity * slow_down_value_percents / 100
+	if velocity == Vector3.ZERO:
+		stamina.gain(stamina_lose.stamina_lose_on_walk)
 	move_and_slide()
 
 
