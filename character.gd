@@ -166,6 +166,8 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED * speed_multiplyer * running_mult)
 		velocity.z = move_toward(velocity.z, 0, SPEED * speed_multiplyer * running_mult)
 	velocity -= velocity * slow_down_value_percents / 100
+	if velocity == Vector3.ZERO:
+		stamina.gain(stamina_lose.stamina_lose_on_walk)
 	move_and_slide()
 
 
@@ -206,23 +208,30 @@ func _on_minigame_ended(did_player_win: bool, award_or_punishment: CharacterStat
 	is_in_minigame = false
 
 func _on_item_used(action : String,item_name : String):
+	# 100 - 2000
+	# 50 - x
+	# 100 / 50 = 2000 / x
+	# 50 / 100 = x / 2000
+	# 50 * 2000 / 10
+	#
 	if (action!="use"):
 		return
 	if !Input.is_action_just_pressed("character_use_item"):
 		return
 	if item_name=="Сидр":
 		stats.up_booze()
+    stats.stamina.gain(30 * stats.stamina.max_value / 100)
 		stats.score_multiplyer+=1
-		stats.stamina.gain(120)
 	if item_name=="Вейп":
 		stats.up_smoke()
-		stats.stamina.gain(120)
 		stats.score_multiplyer-=0.25
+		stats.stamina.gain(30 * stats.stamina.max_value / 100)
 	if item_name=="Кофе":
 		if stats.booze_lvl!=0:
 			stats.score_multiplyer-=1
 		stats.down_booze()
-		stats.stamina.gain(200)
+		stats.stamina.gain(50 * stats.stamina.max_value / 100)
+    
 	stats.add_score(50)
 		
 

@@ -29,7 +29,9 @@
 [ext_resource type="Resource" uid="uid://cil8tk8yj7vng" path="res://inventory/items/cider.tres" id="29_h3o35"]
 [ext_resource type="Resource" uid="uid://bijsrpn20gthk" path="res://inventory/items/coffee.tres" id="30_i56y5"]
 [ext_resource type="PackedScene" uid="uid://bvxofregcai0m" path="res://minigames/coffee_minigame.tscn" id="30_wvi35"]
+
 [ext_resource type="PackedScene" uid="uid://cir51c87ptr02" path="res://ItemShop.tscn" id="31_tk4jo"]
+
 
 [sub_resource type="Resource" id="Resource_w1kk4"]
 script = ExtResource("14_xrwxv")
@@ -850,7 +852,7 @@ number = 2
 number_of_rows = 2
 
 [node name="TW" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("20_vgwii")]
-transform = Transform3D(1, 0, 0, 0, 1.90401, 0, 0, 0, 2.25321, 4.80461, 1.14596, -80.1357)
+transform = Transform3D(1.89149, 0, 0, 0, 1.90401, 0, 0, 0, 2.25321, 4.80461, 1.14596, -80.1357)
 minigame = NodePath("beer_minigame")
 
 [node name="beer_minigame" parent="TW" instance=ExtResource("21_08fuf")]
@@ -1277,7 +1279,7 @@ price = 500.0
 transform = Transform3D(-2.03916, 0.00222209, -0.00380297, 0.00351847, 1.288, -5.87961e-05, 0.00737945, -8.01364e-05, -1.05084, 10.4301, -0.128574, -34.8773)
 
 [node name="PossibleExamSpawn" parent="Exams" instance=ExtResource("23_khftv")]
-transform = Transform3D(-0.49039, 0.000846144, 0.00177466, 0.00133946, 0.776395, -4.8288e-05, -0.00344383, -5.32654e-05, -0.951607, -9.66131, 0.589824, -41.8434)
+transform = Transform3D(-2.25237, 0.00388635, 0.00815104, 0.00615217, 3.566, -0.000221788, -0.0158176, -0.000244649, -4.37075, -9.66131, 0.589824, -41.8434)
 
 [node name="PossibleExamSpawn2" parent="Exams" instance=ExtResource("23_khftv")]
 transform = Transform3D(-0.49039, 0.000846144, 0.00177466, 0.00133946, 0.776395, -4.8288e-05, -0.00344383, -5.32654e-05, -0.951608, 16.1356, 0.519362, -41.6622)
@@ -1295,13 +1297,23 @@ transform = Transform3D(-0.49039, 0.000846145, 0.00177466, 0.00133946, 0.776395,
 transform = Transform3D(-0.49039, 0.000846145, 0.00177466, 0.00133946, 0.776395, -4.8288e-05, -0.00344383, -5.32654e-05, -0.951611, 18.9765, 0.514675, 25.6722)
 
 [node name="CoffeeTw" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("20_vgwii")]
-transform = Transform3D(0.0398703, 0, 2.25142, 0, 9.14132, 0, -0.999205, 0, 0.0898361, 21.5519, 0, -84.3013)
+transform = Transform3D(0.0592984, 0, 2.20764, 0, 9.14132, 0, -1.4861, 0, 0.0880894, 21.5519, 0, -84.3013)
 minigame = NodePath("../coffee_minigame")
 
 [node name="coffee_minigame" parent="." instance=ExtResource("30_wvi35")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 20.9623, 3, -84.4162)
 begin_speed = 0.7
 axeleration = 0.02
+award = SubResource("Resource_k81w8")
+punishment = SubResource("Resource_kmux3")
+cost = 100
+
+[node name="CoffeeTw2" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("20_vgwii")]
+transform = Transform3D(0.0812088, 0, 2.15828, 0, 9.14132, 0, -2.03521, 0, 0.0861195, -9.82639, 0, -37.8015)
+minigame = NodePath("../coffee_minigame")
+
+[node name="coffee_minigame2" parent="." instance=ExtResource("30_wvi35")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -10.416, 3, -37.9164)
 award = SubResource("Resource_k81w8")
 punishment = SubResource("Resource_kmux3")
 cost = 100
