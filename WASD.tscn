@@ -29,6 +29,7 @@ letter = "S"
 [node name="D" parent="." instance=ExtResource("2_ndrxw")]
 position = Vector2(62, 24)
 letter = "D"
+
 [node name="FirstButton" parent="." instance=ExtResource("2_ndrxw")]
 position = Vector2(-71, 73)
 

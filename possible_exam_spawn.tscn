@@ -34,6 +34,7 @@ exams = SubResource("Resource_pkvmj")
 
 [node name="Label3D" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.657375, 0)
+font_size = 256
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_mask = 4
