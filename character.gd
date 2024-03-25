@@ -179,6 +179,9 @@ func addAward(award: CharacterStats) -> void:
 		stats.up_smoke()
 	elif (award.smoke_lvl < 0):
 		stats.down_smoke()
+	if award.stamina != null:
+		if stats.stamina.value + award.stamina.value < stats.stamina.max_value:
+			stats.stamina.value += award.stamina.value 
 	stats.add_money(award.money)
 	stats.add_score(award.score)
 	stats.up_smoke()

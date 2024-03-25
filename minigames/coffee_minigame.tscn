@@ -75,7 +75,6 @@ texture = ExtResource("2_eix5y")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 8.74228e-07, 0, 5.85979)
-current = true
 
 [connection signal="minigame_started" from="." to="." method="_on_minigame_started"]
 [connection signal="area_exited" from="Fill/Area3D" to="." method="_on_area_3d_area_exited"]
