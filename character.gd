@@ -143,6 +143,13 @@ func _physics_process(delta):
 	move_and_slide()
 
 
+func addAward(award: CharacterStats) -> void:
+	stats.up_booze()
+	stats.add_money(award.money)
+	stats.add_score(award.score)
+	stats.up_smoke()
+	stats.score_multiplyer += award.score_multiplyer
+
 func _on_dash_timer_timeout():
 	speed_multiplyer = base_multiplyer
 	dash_timer.stop()
@@ -152,12 +159,12 @@ func on_minigame_started(minigame: Minigame):
 	current_minigame = minigame
 	is_in_minigame = true
 
-func _on_minigame_ended(did_player_win: bool):
+func _on_minigame_ended(did_player_win: bool, award_or_punishment: CharacterStats):
 	if did_player_win:
 		print("Player won!")
 	else:
 		print("Player lost!")
-	
+	addAward(award_or_punishment)
 	current_minigame = null
 	is_in_minigame = false
 
