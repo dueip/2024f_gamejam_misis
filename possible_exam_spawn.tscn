@@ -52,6 +52,7 @@ exams = SubResource("Resource_pkvmj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.657375, 0)
 
 [node name="Area3D" type="Area3D" parent="."]
+collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_2tbwc")
@@ -72,6 +73,7 @@ light_color = Color(0.992157, 0.952941, 0.941176, 1)
 [node name="ExamCountdown" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="mouse_entered" from="Area3D" to="." method="_on_area_3d_mouse_entered"]
 [connection signal="mouse_exited" from="Area3D" to="." method="_on_area_3d_mouse_exited"]
 [connection signal="timeout" from="ExamQueue" to="." method="_on_exam_queue_timeout"]

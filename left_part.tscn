@@ -10,4 +10,3 @@ script = ExtResource("1_2anu5")
 visible = false
 
 [connection signal="lostLive" from="." to="." method="_on_lost_live"]
-

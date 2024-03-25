@@ -55,7 +55,26 @@ func switch_freeze():
 
 func restoreFromSlowingDown():
 	slowDown(0)
-
+	
+func throw_book():
+	var resource = preload("res://Item3D.tscn")
+	var book = resource.instantiate()
+	book.item=InvItem.get_item("grade_book")
+	book.find_child("Coll*",true).shape.size=Vector3(3,3,3)
+	book.find_child("Area3D*",false).collision_layer=4
+	book.find_child("Area3D*",false).collision_mask=4
+	book.position=position
+	book.scale=Vector3(0.4,0.4,0.4)
+	add_sibling(book)
+	var begin = global_position
+	begin.y+=1.79
+	var end = calculatePositionToLookAt(get_viewport().get_mouse_position(), global_position, get_viewport().get_camera_3d())
+	book.direction=end-begin
+	book.direction.y=0
+	book.direction=book.direction.normalized()
+	book.speed=10
+	book.set_process(true)
+	
 func slowDown(value_in_percents: float):
 	slow_down_value_percents = value_in_percents
 
@@ -63,9 +82,9 @@ func slowDown(value_in_percents: float):
 
 func calculatePositionToLookAt(point: Vector2, current_position: Vector3, camera: Camera3D) -> Vector3:
 	var normal = camera.project_ray_normal(point)
-	var eye_height= $Body/Цилиндр_002.position.y
-	var C = (current_position.y+eye_height-camera.position.y)/ normal.y
-	var point_to_look_at : Vector3 = (camera.position)
+	var eye_height= global_position.y+1.79
+	var C = (current_position.y+eye_height-camera.global_position.y)/ normal.y
+	var point_to_look_at : Vector3 = (camera.global_position)
 	point_to_look_at.x+=C*normal.x
 	point_to_look_at.z+=C*normal.z
 	point_to_look_at.y= current_position.y
@@ -91,22 +110,28 @@ func _input(event):
 		if event is InputEventKey and not event.is_echo() and Input.is_key_pressed(event.keycode):
 			handle_minigame_input(event)
 		return
+	if freeze:
+		return
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT && current_minigame_focused:
 			if (stats.use_money(current_minigame_focused.cost)):
 				current_minigame_focused.startGame()
 			else:
 				current_minigame_focused = null
+		if event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
+			if stats.inventory.use_index(1):
+				throw_book()
 		
 
 func _unhandled_key_input(event):
+	if freeze:
+		return
 	if Input.is_action_just_pressed("character_use_item") or Input.is_action_just_pressed("character_drop_item"):
 		stats.inventory.use_index(0)
 	
 func _process(delta):
 	if !freeze:
-		$Body.look_at(calculatePositionToLookAt(get_viewport().get_mouse_position(), self.position, get_viewport().get_camera_3d()))
-		$Body.rotate_y(deg_to_rad(180))
+		$Body.look_at(calculatePositionToLookAt(get_viewport().get_mouse_position(), global_position, get_viewport().get_camera_3d()))
 	
 	if is_in_minigame:
 		return
