@@ -220,7 +220,7 @@ func _on_item_used(action : String,item_name : String):
 		return
 	if item_name=="Сидр":
 		stats.up_booze()
-    stats.stamina.gain(30 * stats.stamina.max_value / 100)
+		stats.stamina.gain(30 * stats.stamina.max_value / 100)
 		stats.score_multiplyer+=1
 	if item_name=="Вейп":
 		stats.up_smoke()
@@ -231,7 +231,7 @@ func _on_item_used(action : String,item_name : String):
 			stats.score_multiplyer-=1
 		stats.down_booze()
 		stats.stamina.gain(50 * stats.stamina.max_value / 100)
-    
+	
 	stats.add_score(50)
 		
 

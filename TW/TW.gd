@@ -20,13 +20,14 @@ func create_tw_at(where_at: Vector3, new_tw_name: String, new_award: int) -> TW:
 	
 func _ready():
 	var sprite: Sprite3D = minigame.get_node("Sprite3D") 
-	var tween = get_tree().create_tween()
-	var vector_first = sprite.position
-	var vector_final = Vector3(sprite.position.x, sprite.position.y + 1, sprite.position.z)
-	tween.tween_property(sprite, "position", vector_final, animation_loop_time / 2).set_trans(tween.TRANS_SINE)
-	tween.tween_property(sprite, "position", vector_first, animation_loop_time / 2).set_trans(tween.TRANS_SINE)
-	tween.set_speed_scale(animation_speed)
-	tween.set_loops()
+	if sprite != null:
+		var tween = get_tree().create_tween()
+		var vector_first = sprite.position
+		var vector_final = Vector3(sprite.position.x, sprite.position.y + 1, sprite.position.z)
+		tween.tween_property(sprite, "position", vector_final, animation_loop_time / 2).set_trans(tween.TRANS_SINE)
+		tween.tween_property(sprite, "position", vector_first, animation_loop_time / 2).set_trans(tween.TRANS_SINE)
+		tween.set_speed_scale(animation_speed)
+		tween.set_loops()
 	
 	
 	
