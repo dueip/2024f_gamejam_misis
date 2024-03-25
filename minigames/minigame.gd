@@ -22,17 +22,4 @@ func nextTurn(input: String):
 	endGame(false, "")
 	
 func endGame(did_player_win: bool, which_button_was_pressed: String):
-	var tween = get_tree().create_tween()
-	if (not did_player_win):
-		%WASD.highlight_button(which_button_was_pressed.to_upper(), Color.RED)
-		tween.tween_callback(%WASD.unhighlight_button.bind(which_button_was_pressed.to_upper())).set_delay(button_delay)
-		tween.finished.connect(_on_tween_finished)
-	else:
-		%WASD.highlight_button(which_button_was_pressed.to_upper(), Color.GREEN)
-		tween.tween_callback(%WASD.unhighlight_button.bind(which_button_was_pressed.to_upper())).set_delay(button_delay)
-	tween.finished.connect(_on_tween_finished)
 	emit_signal("minigame_ended", did_player_win)
-	
-func _on_tween_finished():
-	%WASD.hide()
-	get_parent().queue_free()

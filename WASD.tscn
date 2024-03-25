@@ -16,12 +16,16 @@ script = ExtResource("1_jgsl3")
 
 [node name="W" parent="." instance=ExtResource("2_ndrxw")]
 position = Vector2(29, -6)
+letter = "W"
 
 [node name="A" parent="." instance=ExtResource("2_ndrxw")]
 position = Vector2(-3, 24)
+letter = "A"
 
 [node name="S" parent="." instance=ExtResource("2_ndrxw")]
 position = Vector2(29, 24)
+letter = "S"
 
 [node name="D" parent="." instance=ExtResource("2_ndrxw")]
 position = Vector2(62, 24)
+letter = "D"

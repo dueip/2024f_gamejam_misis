@@ -30,7 +30,7 @@ func _process(delta):
 func _physics_process(delta):
 	var stats = preload("res://global_char_stats.tres")
 	var mult = Booze.lvls()[stats.booze_lvl]
-	if speed.length()>500:
+	if speed.length()>275 + mult*25:
 		speed/=10
 	speed.x += randfn(0,30)*(1+ mult)
 	speed.x += randfn(0,30)*(1+ mult)
