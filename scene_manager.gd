@@ -15,6 +15,8 @@ func switch_visibily_ui():
 		n.visible=!n.visible
 
 func chane_scene_to_instance(instance):
+	print("here")
+	print()
 	get_tree().get_first_node_in_group("Player").switch_freeze()
 	prevCameraPosition = get_parent().find_child("Ц*").position
 	get_viewport().get_camera_3d().move_to_the_point(get_parent().find_child("Ц*").position, 2)
@@ -82,4 +84,4 @@ func revertScene():
 	var swap_scene = prev_scene
 	prev_scene = current_scene
 	current_scene = swap_scene
-	
+

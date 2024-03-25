@@ -65,7 +65,8 @@ func _process(delta):
 	
 	speed+=axeleration*delta
 	$Bean.position.y+=delta*speed*direction
-	$ProgressBar.value=1-timer.time_left/time_length
+	
+	$ProgressBar.set_value(1-timer.time_left/time_length)
 	if Input.is_action_pressed("character_up"):
 		$Fill.position.y+=move_speed*delta
 	if Input.is_action_pressed("character_back"):
