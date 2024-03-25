@@ -95,11 +95,8 @@ func _ready():
 	# var minigames: Minigame = get_tree().find_
 	seed("Byeworld".hash())
 	Input.warp_mouse(Vector2(self.position.x, self.position.y))
-	#print(stats.inventory.slots[0].amount)
-	#print(stats.inventory.slots[1].amount)
 	stats.inventory.updated_slot.connect(_on_item_used)
 	
-	#Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 	
 func handle_minigame_input(input_event: InputEventKey):
 	if can_input:

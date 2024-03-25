@@ -8,9 +8,9 @@
 
 [sub_resource type="Resource" id="Resource_71j2l"]
 script = ExtResource("3_cif5q")
-stamina_lose_on_dash = 10.0
-stamina_lose_on_sprint = 2.0
-stamina_lose_on_walk = 1.0
+stamina_lose_on_dash = 5.0
+stamina_lose_on_sprint = 0.5
+stamina_lose_on_walk = 0.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2pkr1"]
 
