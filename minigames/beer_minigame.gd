@@ -16,11 +16,11 @@ func startGame():
 	var tween = get_tree().create_tween()
 
 	tween.tween_callback(%WASD.find_child("FirstButton").highlight).set_delay(button_delay * 2)
-	tween.parallel()
-	tween.tween_callback(%WASD.find_child("SecondButton").highlight).set_delay(button_delay * 2)
 	tween.chain()
-	tween.tween_callback(%WASD.find_child("FirstButton").unhighlight).set_delay(button_delay * 2)
+	tween.tween_callback(%WASD.find_child("SecondButton").highlight).set_delay(button_delay * 2)
 	tween.parallel()
+	tween.tween_callback(%WASD.find_child("FirstButton").unhighlight).set_delay(button_delay * 2)
+	tween.chain()
 	tween.tween_callback(%WASD.find_child("SecondButton").unhighlight).set_delay(button_delay * 2)
 	tween.set_loops()
 
