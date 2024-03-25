@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bah34r2m18704"]
+[gd_scene load_steps=37 format=3 uid="uid://bah34r2m18704"]
 
 [ext_resource type="PackedScene" uid="uid://dhoiytre65lq6" path="res://assets/Buildings/Pub/scene.gltf" id="2_83bhn"]
 [ext_resource type="PackedScene" uid="uid://d33a0dcpg6d0t" path="res://assets/Buildings/Walls/Wall.glb" id="3_wxdun"]
@@ -30,6 +30,7 @@
 [ext_resource type="Resource" path="res://inventory/items/coffee.tres" id="30_i56y5"]
 [ext_resource type="PackedScene" uid="uid://bvxofregcai0m" path="res://minigames/coffee_minigame.tscn" id="30_wvi35"]
 [ext_resource type="PackedScene" path="res://ItemShop.tscn" id="31_tk4jo"]
+[ext_resource type="PackedScene" uid="uid://dwh47ix5i2f12" path="res://bench.tscn" id="32_ixe86"]
 
 [sub_resource type="Resource" id="Resource_w1kk4"]
 script = ExtResource("14_xrwxv")
@@ -1315,3 +1316,6 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -10.41
 award = SubResource("Resource_k81w8")
 punishment = SubResource("Resource_kmux3")
 cost = 100
+
+[node name="Bench" parent="." instance=ExtResource("32_ixe86")]
+transform = Transform3D(1, 0, 0, 0, 2.31408, 0, 0, 0, 2.00195, 17.0974, 1.21856, -50.3252)
