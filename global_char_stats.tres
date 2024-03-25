@@ -1,11 +1,9 @@
-[gd_resource type="Resource" script_class="CharacterStats" load_steps=3 format=3 uid="uid://ue0kd3fugfii"]
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=2 format=3 uid="uid://k6gkk3nbv2dv"]
 
 [ext_resource type="Script" path="res://character_stats.gd" id="1_f3ujg"]
-[ext_resource type="Resource" uid="uid://dcwansgtieuqh" path="res://inventory/global_inventory.tres" id="1_gyrqh"]
 
 [resource]
 script = ExtResource("1_f3ujg")
-inventory = ExtResource("1_gyrqh")
 lives = 3
 money = 200
 score = 0
