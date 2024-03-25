@@ -96,6 +96,7 @@ func _ready():
 	seed("Byeworld".hash())
 	Input.warp_mouse(Vector2(self.position.x, self.position.y))
 	stats.inventory.updated_slot.connect(_on_item_used)
+	stats.died.connect(die)
 	
 	
 func handle_minigame_input(input_event: InputEventKey):
@@ -220,5 +221,17 @@ func _on_item_used(action : String,item_name : String):
 		stats.stamina.gain(200)
 		
 
+func die():
+	stats.inventory.slots[0]=null
+	stats.inventory.slots[1].amount=1
+	stats.stamina.value=stamina.max_value
+	stats.lives=3
+	stats.money=200
+	stats.score=0
+	stats.score_multiplyer=1
+	stats.booze_lvl=0
+	stats.smoke_lvl=0
+	get_tree().change_scene_to_file("res://to_out/to_out/menu.tscn")
 
+	
 	

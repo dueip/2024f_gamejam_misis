@@ -3,7 +3,7 @@ extends Resource
 class_name CharacterStats
 
 @export var inventory : Inv
-@export var stamina : BarResource
+var stamina : BarResource
 @export var lives : int = 3
 @export var money : int = 200
 @export var score : int = 0
@@ -14,9 +14,15 @@ class_name CharacterStats
 
 signal changed_stats
 signal changed_stat(stat : String)
+signal died
 
+	
 #static func get_global_stats() -> CharacterStats:
 #	return preload("res://global_char_stats.tres")
+
+func _init():
+	stamina=preload("res://stamina_resource.tres")
+	stamina.updated.connect(check_stamina)
 
 func add_money(amount: int): #amount must be >=0
 	money+=amount
@@ -52,6 +58,8 @@ func lose_live() -> bool :
 		lives-=1
 	emit_signal("changed_stats")
 	emit_signal("changed_stat", "lives")
+	if lives>=4:
+		emit_signal("died")
 	return lives<=0
 	
 
@@ -59,6 +67,8 @@ func up_booze() -> bool:
 	booze_lvl+=1
 	emit_signal("changed_stats")
 	emit_signal("changed_stat", "booze_lvl")
+	if booze_lvl>=4:
+		emit_signal("died")
 	return booze_lvl>=4
 	
 func down_booze():
@@ -71,6 +81,8 @@ func up_smoke() -> bool:
 	smoke_lvl+=1
 	emit_signal("changed_stats")
 	emit_signal("changed_stat", "smoke_lvl")
+	if smoke_lvl>=4:
+		emit_signal("died")
 	return smoke_lvl>=4
 	
 func down_smoke()  :
@@ -78,6 +90,12 @@ func down_smoke()  :
 		smoke_lvl-=1
 	emit_signal("changed_stats")
 	emit_signal("changed_stat", "smoke_lvl")
-	
+
+func check_stamina():
+	if stamina.value<=stamina.min_value:
+		emit_signal("died")
+		
+
+
 
 
