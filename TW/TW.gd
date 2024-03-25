@@ -31,17 +31,27 @@ func _ready():
 	
 	
 func _on_mouse_entered():
-	player.current_minigame_focused = minigame
-	minigame.minigame_started.connect(player.on_minigame_started)
-	minigame.minigame_ended.connect(player._on_minigame_ended)
+	pass
 	
 
 
 
 func _on_mouse_exited():
-	player.current_minigame_focused = null
+	pass
 
 
 func _on_tree_exited():
 	player.current_minigame = null
+	player.current_minigame_focused = null
+
+
+func _on_body_entered(body):
+	if body is Character:
+		player.current_minigame_focused = minigame
+		minigame.minigame_started.connect(player.on_minigame_started)
+		minigame.minigame_ended.connect(player._on_minigame_ended)
+		
+
+
+func _on_body_exited(body):
 	player.current_minigame_focused = null

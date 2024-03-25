@@ -15,6 +15,8 @@ script = ExtResource("1_leflx")
 shape = SubResource("BoxShape3D_olar8")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
