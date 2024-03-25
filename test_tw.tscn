@@ -7,13 +7,33 @@
 [ext_resource type="PackedScene" uid="uid://0f2cjseltxve" path="res://WASD.tscn" id="5_1y2sq"]
 [ext_resource type="PackedScene" uid="uid://5bfg3f511vji" path="res://crowd.tscn" id="6_ghrwc"]
 [ext_resource type="PackedScene" uid="uid://brh20oloycgj3" path="res://item_generaion/item_generator.tscn" id="7_571j2"]
-[ext_resource type="Resource" uid="uid://cil8tk8yj7vng" path="res://inventory/items/cider.tres" id="8_vou74"]
-[ext_resource type="Resource" uid="uid://bijsrpn20gthk" path="res://inventory/items/coffee.tres" id="9_8qlnh"]
+[ext_resource type="Resource" path="res://inventory/items/cider.tres" id="8_vou74"]
+[ext_resource type="Resource" path="res://inventory/items/coffee.tres" id="9_8qlnh"]
 [ext_resource type="PackedScene" uid="uid://b0wnppayfjhow" path="res://scene_manager.tscn" id="10_hhy83"]
-[ext_resource type="Resource" uid="uid://boqyxtbmtkwmh" path="res://inventory/items/vape.tres" id="11_0yftj"]
+[ext_resource type="Resource" path="res://inventory/items/vape.tres" id="11_0yftj"]
 [ext_resource type="PackedScene" uid="uid://7qlfjpp0gal" path="res://possible_exam_spawn.tscn" id="13_rr286"]
 [ext_resource type="PackedScene" uid="uid://cir51c87ptr02" path="res://ItemShop.tscn" id="17_sy35x"]
 
+[ext_resource type="Script" path="res://character_stats.gd" id="16_o0jtw"]
+[ext_resource type="PackedScene" path="res://ItemShop.tscn" id="17_sy35x"]
+
+[sub_resource type="Resource" id="Resource_v5mly"]
+script = ExtResource("16_o0jtw")
+lives = 0
+money = 0
+score = 0
+score_multiplyer = 1.0
+booze_lvl = 1
+smoke_lvl = 0
+
+[sub_resource type="Resource" id="Resource_f0u75"]
+script = ExtResource("16_o0jtw")
+lives = 0
+money = 0
+score = 10000
+score_multiplyer = 0.0
+booze_lvl = 0
+smoke_lvl = 0
 [node name="test_tw" type="Node3D"]
 script = ExtResource("1_ppaav")
 
