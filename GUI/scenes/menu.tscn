@@ -1,0 +1,265 @@
+[gd_scene load_steps=13 format=3 uid="uid://ceuduslww3flf"]
+
+[ext_resource type="Script" path="res://GUI/scenes/menu_buttons.gd" id="1_petho"]
+[ext_resource type="Texture2D" uid="uid://c3u7km0r2dr82" path="res://GUI/assets/Free Paper UI System/1 Sprites/Book Desk/7.png" id="1_tlkg8"]
+[ext_resource type="Theme" uid="uid://bu28irrywymk2" path="res://GUI/scenes/pixi_font.tres" id="2_pmtwl"]
+[ext_resource type="Texture2D" uid="uid://ioab3aa5tb7b" path="res://GUI/assets/Free Paper UI System/1 Sprites/Paper UI Pack/Paper UI/Folding & Cutout/4 Notification/2.png" id="2_s5v0t"]
+[ext_resource type="FontFile" uid="uid://ybvbhw5wgrhw" path="res://GUI/assets/pixy_font/PIXY.ttf" id="3_6nsd8"]
+[ext_resource type="Texture2D" uid="uid://btj1ykd4pmod5" path="res://GUI/assets/Free Paper UI System/1 Sprites/Paper UI Pack/Paper UI/Folding & Cutout/9 Rewards/2.png" id="3_27xce"]
+[ext_resource type="Texture2D" uid="uid://cbt7s33bd6hf4" path="res://GUI/assets/Free Paper UI System/1 Sprites/Paper UI Pack/Paper UI/Folding & Cutout/10 Calander/1.png" id="5_4krh8"]
+[ext_resource type="Texture2D" uid="uid://cdb7ryqib1ivq" path="res://GUI/assets/coffecup.png" id="5_6r57u"]
+[ext_resource type="Texture2D" uid="uid://denblgoev05mg" path="res://images/grade_book.png" id="6_pq30n"]
+[ext_resource type="Texture2D" uid="uid://darswtjuecybr" path="res://GUI/assets/ketchup.png" id="6_s4irr"]
+[ext_resource type="Texture2D" uid="uid://brtvlodogkvrj" path="res://GUI/assets/roll.png" id="8_0wmvj"]
+[ext_resource type="Texture2D" uid="uid://c66lxtr1pffpx" path="res://GUI/assets/blood_drop.png" id="8_d6r0b"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_petho")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 80
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_tlkg8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="name" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_s5v0t")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/name"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.5
+offset_top = -11.5
+offset_right = 16.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_6nsd8")
+theme_override_font_sizes/font_size = 32
+text = "DEDLINER"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="play" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_27xce")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/play"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.5
+offset_top = -11.5
+offset_right = 16.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_6nsd8")
+theme_override_font_sizes/font_size = 32
+text = "play
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="credits" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_pmtwl")
+texture_normal = ExtResource("3_27xce")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/credits"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.5
+offset_top = -11.5
+offset_right = 16.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_6nsd8")
+theme_override_font_sizes/font_size = 32
+text = "credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="exit" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_pmtwl")
+texture_normal = ExtResource("3_27xce")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/exit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.5
+offset_top = -11.5
+offset_right = 16.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_6nsd8")
+theme_override_font_sizes/font_size = 32
+text = "exit
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="kursach" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 137.0
+offset_top = 65.0
+offset_right = 271.0
+offset_bottom = 238.0
+grow_vertical = 2
+texture = ExtResource("5_4krh8")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="kursach"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -76.0
+offset_right = 76.0
+offset_bottom = 34.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_6nsd8")
+theme_override_font_sizes/font_size = 32
+text = "Курсовая
+
+beta
+version"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 184.0
+offset_top = -32.0
+offset_right = 347.0
+offset_bottom = 147.0
+grow_vertical = 2
+texture = ExtResource("5_6r57u")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 806.0
+offset_top = -247.0
+offset_right = 923.0
+offset_bottom = 7.0
+grow_vertical = 2
+texture = ExtResource("6_s4irr")
+expand_mode = 4
+
+[node name="TextureRect5" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 789.0
+offset_top = 21.0
+offset_right = 972.0
+offset_bottom = 227.0
+grow_vertical = 2
+texture = ExtResource("6_pq30n")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 844.0
+offset_top = -121.0
+offset_right = 969.0
+offset_bottom = 35.0
+grow_vertical = 2
+texture = ExtResource("8_0wmvj")
+expand_mode = 1
+
+[node name="BloodDrop" type="Sprite2D" parent="."]
+position = Vector2(941, 457)
+scale = Vector2(1.4375, 1.21875)
+texture = ExtResource("8_d6r0b")
+
+[node name="BloodDrop5" type="Sprite2D" parent="."]
+position = Vector2(927, 519)
+scale = Vector2(1.4375, 1.21875)
+texture = ExtResource("8_d6r0b")
+
+[node name="BloodDrop4" type="Sprite2D" parent="."]
+position = Vector2(1010, 527)
+scale = Vector2(3.5, 4.35938)
+texture = ExtResource("8_d6r0b")
+
+[node name="BloodDrop3" type="Sprite2D" parent="."]
+position = Vector2(905, 459)
+scale = Vector2(1.4375, 1.21875)
+texture = ExtResource("8_d6r0b")
+
+[node name="BloodDrop2" type="Sprite2D" parent="."]
+position = Vector2(884, 485)
+scale = Vector2(1.34375, 1.625)
+texture = ExtResource("8_d6r0b")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]

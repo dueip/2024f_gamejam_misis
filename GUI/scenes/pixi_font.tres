@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bu28irrywymk2"]
+
+[ext_resource type="FontFile" uid="uid://ybvbhw5wgrhw" path="res://GUI/assets/pixy_font/PIXY.ttf" id="1_ktx2s"]
+
+[resource]
+Fonts/fonts/normal = ExtResource("1_ktx2s")
