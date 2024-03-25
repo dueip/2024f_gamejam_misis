@@ -19,6 +19,7 @@ func start_exam_queue(wait_time: float):
 	$LoadingBar.has_finished = false
 
 var mutex: bool = false
+var time_left: float = 0
 
 func _ready():
 	$LoadingBar.data = BarResource.new() 
@@ -34,7 +35,7 @@ func _input(event):
 		mutex = true
 		var SceneManager = get_tree().get_first_node_in_group("SceneManager")
 		SceneManager.chane_scene_to_instance(exam_instance)
-		$ExamCountdown.stop()
+		$ExamCountdown.paused = true
 
 func _on_area_3d_mouse_entered():
 	is_mouse_in = true
@@ -51,10 +52,13 @@ func return_to_prev_scene() -> void:
 	$Area3D.monitoring = false
 
 func _on_minigame_won():
+	var exam_countdown: Timer = $ExamCountdown
+	print(exam_countdown.time_left)
+	global_char_stats.add_money($ExamCountdown.time_left * global_char_stats.lives / 3)
+	global_char_stats.add_score(global_char_stats.lives / 3 * $ExamCountdown.time_left)
 	return_to_prev_scene()
 	# Add award
-	global_char_stats.add_money($ExamCountdown.time_left * global_char_stats.lives)
-	global_char_stats.add_score(global_char_stats.lives / 3 * $ExamCountdown.time_left)
+	
 	queue_free()
 
 func _on_minigame_lost():
@@ -78,6 +82,7 @@ func _on_waiting_for_new_exam_timeout():
 
 
 func _on_exam_queue_timeout():
+	print("Helloworld")
 	if exams.number_of_currently_active_exams < exams.get_max_exams():
 		self.show()
 		exams.number_of_currently_active_exams += 1
@@ -87,6 +92,7 @@ func _on_exam_queue_timeout():
 		$Label3D.text = current_exam.exam_name
 		$Area3D.monitoring = true
 		$ExamCountdown.wait_time = exam_countdown_wait
+		print($ExamCountdown.wait_time)
 		$ExamCountdown.start()
 		$LoadingBar.data.value = exam_countdown_wait
 		$LoadingBar.data.max_value = exam_countdown_wait
