@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bah34r2m18704"]
+[gd_scene load_steps=35 format=3 uid="uid://bah34r2m18704"]
 
 [ext_resource type="PackedScene" uid="uid://dhoiytre65lq6" path="res://assets/Buildings/Pub/scene.gltf" id="2_83bhn"]
 [ext_resource type="PackedScene" uid="uid://d33a0dcpg6d0t" path="res://assets/Buildings/Walls/Wall.glb" id="3_wxdun"]
@@ -37,24 +37,6 @@ script = ExtResource("14_xrwxv")
 stamina_lose_on_dash = 10.0
 stamina_lose_on_sprint = 2.0
 stamina_lose_on_walk = 1.0
-
-[sub_resource type="Resource" id="Resource_rsr0l"]
-script = ExtResource("22_oq55w")
-lives = 3
-money = 200
-score = 0
-score_multiplyer = 1.0
-booze_lvl = 1
-smoke_lvl = 0
-
-[sub_resource type="Resource" id="Resource_xrn1h"]
-script = ExtResource("22_oq55w")
-lives = 3
-money = -200
-score = 0
-score_multiplyer = 1.0
-booze_lvl = 0
-smoke_lvl = 0
 
 [sub_resource type="Resource" id="Resource_k81w8"]
 script = ExtResource("22_oq55w")
@@ -864,8 +846,7 @@ minigame = NodePath("beer_minigame")
 
 [node name="beer_minigame" parent="TW" instance=ExtResource("21_08fuf")]
 transform = Transform3D(-0.330957, 0, -2.89332e-08, 3.32346e-09, 0.167898, -0.038016, 1.24033e-08, -0.0449882, -0.141877, 0.0340953, 0.323686, -0.153522)
-award = SubResource("Resource_rsr0l")
-punishment = SubResource("Resource_xrn1h")
+award_stamina_percent = 50.0
 cost = 200
 combination = Array[String](["w", "s"])
 

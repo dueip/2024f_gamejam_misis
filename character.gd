@@ -115,6 +115,13 @@ func _input(event):
 			if (stats.use_money(current_minigame_focused.cost)):
 				current_minigame_focused.startGame()
 			else:
+				var tween1 = get_tree().create_tween()
+				$InGameGui/RichTextLabel.show()
+				tween1.tween_property($InGameGui/RichTextLabel, "modulate:a", 0, 2.5)
+				
+				tween1.tween_property($InGameGui/RichTextLabel, "modulate:a", 255, 0.1) 
+				
+				tween1.tween_callback($InGameGui/RichTextLabel.hide)
 				current_minigame_focused = null
 		if event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
 			if stats.inventory.use_index(1):

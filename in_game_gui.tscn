@@ -60,6 +60,9 @@ theme_override_font_sizes/font_size = 32
 theme_override_styles/background = SubResource("StyleBoxFlat_ek0r7")
 theme_override_styles/fill = SubResource("StyleBoxFlat_4fp6e")
 fill_mode = 3
+theme_override_font_sizes/font_size = 32
+theme_override_styles/background = SubResource("StyleBoxFlat_ek0r7")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4fp6e")
 
 [node name="inventory_ui" parent="." instance=ExtResource("2_y1k2j")]
 custom_minimum_size = Vector2(0, 0)
@@ -105,3 +108,22 @@ script = ExtResource("4_hs24o")
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -268.0
+offset_top = -20.0
+offset_right = 269.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center][font_size=35][rainbow freq=1 sat=0.6 val=1][shake rate=10.0 level=10 connected=1][tornado radius=15 freq=1.5 connected=1]Мать денег не дала?)[/tornado][/shake][/rainbow][/font_size][center]"
+fit_content = true
