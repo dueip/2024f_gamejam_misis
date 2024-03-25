@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bah34r2m18704"]
+[gd_scene load_steps=30 format=3 uid="uid://bah34r2m18704"]
 
 [ext_resource type="PackedScene" uid="uid://ct62gqlhtgtlg" path="res://assets/DrugConsumer.glb" id="1_8k3v3"]
 [ext_resource type="PackedScene" uid="uid://dhoiytre65lq6" path="res://assets/Buildings/Pub/scene.gltf" id="2_83bhn"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://7qlfjpp0gal" path="res://possible_exam_spawn.tscn" id="23_khftv"]
 [ext_resource type="PackedScene" uid="uid://b0wnppayfjhow" path="res://scene_manager.tscn" id="24_jfw1g"]
 [ext_resource type="PackedScene" uid="uid://dfvxwducd83sk" path="res://assets/Buildings/Walls/WallDoor.glb" id="25_sshhq"]
+[ext_resource type="PackedScene" uid="uid://bly400huyi30s" path="res://wall.tscn" id="26_sncp7"]
 
 [sub_resource type="Resource" id="Resource_w1kk4"]
 script = ExtResource("14_xrwxv")
@@ -409,6 +410,10 @@ unique_name_in_owner = true
 [node name="Walldoors" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16.3782, 0.0785527, -55.6173)
 
+[node name="Wall" parent="Walldoors" instance=ExtResource("26_sncp7")]
+transform = Transform3D(11.2791, 0, -7.10543e-15, 0, 1.568, 0, 0, 0, 1.28352, 0, 0, 0)
+visible = false
+
 [node name="WallDoor3" parent="Walldoors" instance=ExtResource("25_sshhq")]
 transform = Transform3D(-1, 0, 3.17865e-08, 0, 1, 0, -3.17865e-08, 0, -1, 1.97936, 0.0473704, -22.1874)
 
@@ -439,3 +444,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -20.68
 transform = Transform3D(0.396203, 0, 0.918163, 0, 1, 0, -0.918163, 0, 0.396203, 18.7584, 0, -7.50093)
 light_energy = 10.36
 light_size = 1.0
+
+[node name="Wall" parent="." instance=ExtResource("26_sncp7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.1335, 0, -72.0584)
