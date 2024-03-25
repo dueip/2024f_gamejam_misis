@@ -37,10 +37,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_ngec7")
 
 [node name="Fill" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 texture = ExtResource("3_3fwye")
 
 [node name="Area3D" type="Area3D" parent="Fill"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
 collision_layer = 2
 collision_mask = 2
 
@@ -63,9 +64,6 @@ theme_override_styles/background = SubResource("StyleBoxFlat_dgts2")
 theme_override_styles/fill = SubResource("StyleBoxFlat_drp21")
 max_value = 1.0
 fill_mode = 3
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.27984, 6.73752)
 
 [connection signal="minigame_started" from="." to="." method="_on_minigame_started"]
 [connection signal="area_exited" from="Fill/Area3D" to="." method="_on_area_3d_area_exited"]

@@ -70,10 +70,11 @@ func move_to_the_point(point : Vector3, time : float):
 	var t_first=time*dist_first/(dist_first+dist_second)
 	var t_second=time*dist_second/(dist_first+dist_second)
 	var tween = get_tree().create_tween()
-	var start=global_position
-	tween.tween_callback(get_parent().find_child("Character").switch_freeze)
+	var start=position
+	
+	#tween.tween_callback()
 	tween.tween_property(self, "position", middle_point, t_first)
 	tween.tween_property(self, "position", point, t_second).set_trans(tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "position", start, 0.01)
-	tween.tween_callback(get_parent().find_child("Character").switch_freeze)
+	#tween.tween_callback(get_parent().switch_freeze)
 	

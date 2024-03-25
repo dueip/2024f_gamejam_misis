@@ -49,6 +49,7 @@ script = ExtResource("1_ksk3v")
 exams = SubResource("Resource_pkvmj")
 
 [node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.657375, 0)
 
 [node name="Area3D" type="Area3D" parent="."]
 

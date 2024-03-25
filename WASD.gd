@@ -19,7 +19,8 @@ func unhighlight_button(name : String):
 
 func unhighlight_all(color: Color = Color(0.745, 0.745, 0.745)):
 	for child_button in get_children():
-			child_button.unhighlight(color)
+		if child_button is ControlButton:
+			child_button.unhighlight()
 
 func _input(event):
 	return

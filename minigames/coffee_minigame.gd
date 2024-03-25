@@ -12,8 +12,7 @@ var speed : float
 var direction = 1
 @onready var timer= Timer.new()
 
-func _ready():
-	startGame()
+
 	
 func startGame():
 	#super.startGame()

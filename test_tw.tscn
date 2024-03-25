@@ -24,14 +24,12 @@ script = ExtResource("1_ppaav")
 [node name="Character" parent="TestRoom" index="1" groups=["Player"]]
 transform = Transform3D(0.798482, 0, 0, 0, 0.798482, 0, 0, 0, 0.798482, 0.264664, 0.690596, -0.0941715)
 
+[node name="Camera" parent="TestRoom/Character" index="4"]
+script = ExtResource("3_w417h")
+
 [node name="DirectionalLight3D" parent="TestRoom" index="2"]
 visible = false
 editor_only = true
-
-[node name="Camera" parent="TestRoom" index="3"]
-transform = Transform3D(-0.99909, -0.0319187, 0.0282885, -0.0256561, 0.97962, 0.199214, -0.0340707, 0.198307, -0.979548, 0.341088, 9.607, -11.9374)
-current = true
-script = ExtResource("3_w417h")
 
 [node name="coffee_tw" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("2_fbpmy")]
 transform = Transform3D(-0.999198, 0, -0.0400445, 0, 1, 0, 0.0400445, 0, -0.999198, 6.88699, 5.06528, 3.61969)
@@ -129,12 +127,18 @@ transform = Transform3D(-2.58968, 0, -2.26396e-07, 0, 4.09533, 0, 2.26396e-07, 0
 [node name="ItemShop" parent="." instance=ExtResource("17_sy35x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.77061, 1.91782, 7.05559)
 
-[node name="TW" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("2_fbpmy")]
-transform = Transform3D(1, 0, 0, 0, 1.90401, 0, 0, 0, 2.25321, -10.4795, 1.61907, 9.90228)
-minigame = NodePath("beer_minigame")
-
-[node name="beer_minigame" parent="TW" instance=ExtResource("4_g6pux")]
-transform = Transform3D(1, 0, 0, 0, 0.525207, 0, 0, 0, 0.443812, -1.57532, 0.49103, -0.150357)
+[node name="beer_minigame" parent="." instance=ExtResource("4_g6pux")]
+transform = Transform3D(-1, 0, -8.74228e-08, 2.26267e-08, 0.965925, -0.258819, 8.44439e-08, -0.258819, -0.965926, -12.0548, 2.554, 9.56349)
 combination = Array[String](["w", "s"])
+
+[node name="TW" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("2_fbpmy")]
+transform = Transform3D(4.4273, 0, 0, 0, 3.94071, 0, 0, 0, 2.81805, -12.0133, 2.09822, 10.1015)
+minigame = NodePath("../beer_minigame")
+
+[node name="TW2" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("2_fbpmy")]
+transform = Transform3D(1, 0, 0, 0, 1.90401, 0, 0, 0, 2.25321, 3.05298, 2.0932, -2.6167)
+minigame = NodePath("coffee_minigame")
+
+[node name="coffee_minigame" parent="TW2" instance=ExtResource("3_3feon")]
 
 [editable path="TestRoom"]
