@@ -401,9 +401,6 @@ punishment = SubResource("Resource_xrn1h")
 cost = 200
 combination = Array[String](["w", "s"])
 
-[node name="PossibleExamSpawn" parent="." instance=ExtResource("23_khftv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.2915, 0.599586, 9.02205)
-
 [node name="SceneManager" parent="." groups=["SceneManager"] instance=ExtResource("24_jfw1g")]
 unique_name_in_owner = true
 
@@ -782,3 +779,24 @@ light_size = 1.0
 
 [node name="Wall" parent="." instance=ExtResource("26_sncp7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.1335, 0, -72.0584)
+
+[node name="Exams" type="Node3D" parent="."]
+transform = Transform3D(-2.03916, 0.00222209, -0.00380297, 0.00351847, 1.288, -5.87961e-05, 0.00737945, -8.01364e-05, -1.05084, 10.4301, -0.128574, -34.8773)
+
+[node name="PossibleExamSpawn" parent="Exams" instance=ExtResource("23_khftv")]
+transform = Transform3D(-0.49039, 0.000846144, 0.00177466, 0.00133946, 0.776395, -4.8288e-05, -0.00344383, -5.32654e-05, -0.951607, -9.66131, 0.589824, -41.8434)
+
+[node name="PossibleExamSpawn2" parent="Exams" instance=ExtResource("23_khftv")]
+transform = Transform3D(-0.49039, 0.000846144, 0.00177466, 0.00133946, 0.776395, -4.8288e-05, -0.00344383, -5.32654e-05, -0.951608, 16.1356, 0.519362, -41.6622)
+
+[node name="PossibleExamSpawn3" parent="Exams" instance=ExtResource("23_khftv")]
+transform = Transform3D(-0.49039, 0.000846144, 0.00177466, 0.00133946, 0.776395, -4.8288e-05, -0.00344383, -5.32654e-05, -0.951608, -13.7924, 0.601455, -34.2595)
+
+[node name="PossibleExamSpawn4" parent="Exams" instance=ExtResource("23_khftv")]
+transform = Transform3D(-0.49039, 0.000846145, 0.00177466, 0.00133946, 0.776395, -4.8288e-05, -0.00344383, -5.32654e-05, -0.95161, -4.59364, 0.577675, -4.722)
+
+[node name="PossibleExamSpawn5" parent="Exams" instance=ExtResource("23_khftv")]
+transform = Transform3D(-0.49039, 0.000846145, 0.00177466, 0.00133946, 0.776395, -4.8288e-05, -0.00344383, -5.32654e-05, -0.95161, -5.99966, 0.58207, 7.41605)
+
+[node name="PossibleExamSpawn6" parent="Exams" instance=ExtResource("23_khftv")]
+transform = Transform3D(-0.49039, 0.000846145, 0.00177466, 0.00133946, 0.776395, -4.8288e-05, -0.00344383, -5.32654e-05, -0.951611, 18.9765, 0.514675, 25.6722)

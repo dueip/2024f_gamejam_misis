@@ -2,7 +2,7 @@ extends Node3D
 
 
 @export var exams: Exams
-@export var exam_countdown_wait: int = 10
+@export var exam_countdown_wait: int = 60
 var is_mouse_in: bool = false
 var current_exam: Exam = null
 var exam_minigame = preload("res://exam_minigame.tscn")
@@ -92,11 +92,11 @@ func _on_exam_queue_timeout():
 		exam_instance.spawning_place = self
 		$Label3D.text = current_exam.exam_name
 		$Area3D.monitoring = true
-		$ExamCountdown.wait_time = exam_countdown_wait
+		$ExamCountdown.wait_time = current_exam.duration
 		print($ExamCountdown.wait_time)
 		$ExamCountdown.start()
-		$LoadingBar.data.value = exam_countdown_wait
-		$LoadingBar.data.max_value = exam_countdown_wait
+		$LoadingBar.data.value = current_exam.duration
+		$LoadingBar.data.max_value = current_exam.duration
 		$LoadingBar.data.min_value = 0
 		$LoadingBar.has_finished = false
 		$LoadingBar.ascending = false
