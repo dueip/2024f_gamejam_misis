@@ -29,10 +29,11 @@ func _ready():
 
 
 func _input(event):
-	if mutex:
+	if mutex || get_tree().get_first_node_in_group("Player").is_in_minigame:
 		return
 	if $Area3D.monitoring && event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT && is_mouse_in && event.is_pressed():
 		mutex = true
+		
 		var SceneManager = get_tree().get_first_node_in_group("SceneManager")
 		SceneManager.chane_scene_to_instance(exam_instance)
 		$ExamCountdown.paused = true

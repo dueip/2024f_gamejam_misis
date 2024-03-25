@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://possible_exam_spawn.gd" id="1_ksk3v"]
 [ext_resource type="Script" path="res://exam.gd" id="2_83smv"]
 [ext_resource type="Script" path="res://exams.gd" id="3_s7dlg"]
-[ext_resource type="PackedScene" uid="uid://b5irc7eelelad" path="res://loading_bar.tscn" id="4_7sl4f"]
+[ext_resource type="PackedScene" uid="uid://c40bc2tgesibc" path="res://loading_bar.tscn" id="4_7sl4f"]
 
 [sub_resource type="Resource" id="Resource_q1l7x"]
 script = ExtResource("2_83smv")

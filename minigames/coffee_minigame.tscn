@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bvxofregcai0m"]
+[gd_scene load_steps=10 format=3 uid="uid://bvxofregcai0m"]
 
 [ext_resource type="Script" path="res://minigames/coffee_minigame.gd" id="1_ck3jk"]
+[ext_resource type="Texture2D" uid="uid://dmpc1jpv02y3f" path="res://sprites/coffee_popup.png" id="2_eix5y"]
 [ext_resource type="Texture2D" uid="uid://dhw1chrhotb5m" path="res://sprites/coffee_bean.png" id="2_muosm"]
 [ext_resource type="Texture2D" uid="uid://dl4miumsug1un" path="res://sprites/coffee_line_good.png" id="3_3fwye"]
-[ext_resource type="PackedScene" uid="uid://0f2cjseltxve" path="res://WASD.tscn" id="4_2oae1"]
+[ext_resource type="PackedScene" uid="uid://daehtsie361vf" path="res://WASD.tscn" id="4_2oae1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ngec7"]
 margin = 0.0
@@ -19,43 +20,46 @@ bg_color = Color(0.466667, 0.439216, 0.34902, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_drp21"]
 bg_color = Color(0.266667, 0.145098, 0.00784314, 1)
 
-[node name="coffee_minigame" type="Node3D"]
+[node name="coffee_minigame" type="Node3D" groups=["Coffee_minigame"]]
 script = ExtResource("1_ck3jk")
 time_length = 5
 axeleration = 0.01
 
-[node name="Bean" type="Sprite3D" parent="."]
+[node name="Bean" type="Sprite3D" parent="." groups=["Coffee_minigame"]]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0.5)
+visible = false
 texture = ExtResource("2_muosm")
 
-[node name="Area3D" type="Area3D" parent="Bean"]
+[node name="Area3D" type="Area3D" parent="Bean" groups=["Coffee_minigame"]]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bean/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bean/Area3D" groups=["Coffee_minigame"]]
 shape = SubResource("BoxShape3D_ngec7")
 
-[node name="Fill" type="Sprite3D" parent="."]
+[node name="Fill" type="Sprite3D" parent="." groups=["Coffee_minigame"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+visible = false
 texture = ExtResource("3_3fwye")
 
-[node name="Area3D" type="Area3D" parent="Fill"]
+[node name="Area3D" type="Area3D" parent="Fill" groups=["Coffee_minigame"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Fill/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fill/Area3D" groups=["Coffee_minigame"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.12775, 0)
 shape = SubResource("BoxShape3D_elm6l")
 
-[node name="WASD" parent="." instance=ExtResource("4_2oae1")]
+[node name="WASD" parent="." groups=["Coffee_minigame"] instance=ExtResource("4_2oae1")]
+visible = false
 offset_left = 102.0
 offset_top = 490.0
 offset_right = -945.0
 offset_bottom = -91.0
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="ProgressBar" type="ProgressBar" parent="." groups=["Coffee_minigame"]]
+visible = false
 offset_left = 65.0
 offset_top = 135.0
 offset_right = 232.0
@@ -64,6 +68,13 @@ theme_override_styles/background = SubResource("StyleBoxFlat_dgts2")
 theme_override_styles/fill = SubResource("StyleBoxFlat_drp21")
 max_value = 1.0
 fill_mode = 3
+
+[node name="Sprite3D" type="Sprite3D" parent="." groups=["just_usual"]]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0.5)
+texture = ExtResource("2_eix5y")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 8.74228e-07, 0, 5.85979)
 
 [connection signal="minigame_started" from="." to="." method="_on_minigame_started"]
 [connection signal="area_exited" from="Fill/Area3D" to="." method="_on_area_3d_area_exited"]
