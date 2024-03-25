@@ -11,8 +11,12 @@ func _process(delta):
 func _on_body_entered(body):
 	if body is Character:
 		is_body_in = true
+		var tween = get_tree().create_tween()
+		tween.tween_callback($SpotLight3D.show).set_delay(0.1)
+		
 
 
 func _on_body_exited(body):
 	if body is Character:
-		is_body_in = true
+		is_body_in = false
+		$SpotLight3D.hide()
