@@ -6,6 +6,7 @@ extends Node3D
 @export var map_center : Vector2
 @export var min_time : int
 @export var max_time : int
+@export var time_to_live : int = 20
 @onready var rand_timer : Timer = Timer.new()
 var test_collosion = preload("res://item_generaion/test_collision.tscn")
 var item_scene = preload("res://Item3D.tscn")
@@ -40,7 +41,8 @@ func spawn_item():
 		remove_child(test_instance)
 	child_item.position=pos
 	child_item.position.y=0.5
-	child_item.time_to_live=max_time*2
+	child_item.time_to_live=time_to_live
+	child_item.scale= Vector3(0.5,0.5,0.5)
 	if !items.is_empty():
 		child_item.item=items[randi()%items.size()]
 	add_child(child_item)

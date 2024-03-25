@@ -208,13 +208,13 @@ func _on_item_used(action : String,item_name : String):
 		return
 	if item_name=="Сидр":
 		stats.up_booze()
-		stats.stamina.gain(30)
+		stats.stamina.gain(120)
 	if item_name=="Вейп":
 		stats.up_smoke()
-		stats.stamina.gain(30)
+		stats.stamina.gain(120)
 	if item_name=="Кофе":
 		stats.down_booze()
-		stats.stamina.gain(50)
+		stats.stamina.gain(200)
 		
 
 
