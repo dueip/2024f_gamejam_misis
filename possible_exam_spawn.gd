@@ -2,7 +2,7 @@ extends Node3D
 
 
 @export var exams: Exams
-@export var exam_countdown_wait: int = 10
+@export var exam_countdown_wait: int = 60
 var is_mouse_in: bool = false
 var current_exam: Exam = null
 var exam_minigame = preload("res://exam_minigame.tscn")
@@ -10,6 +10,7 @@ var exam_instance
 @onready var global_char_stats : CharacterStats = preload("res://global_char_stats.tres")
 
 func start_exam_queue(wait_time: float):
+	self.hide()
 	$ExamQueue.wait_time = wait_time
 	$ExamQueue.start()
 	$ExamQueue.one_shot = true
@@ -59,14 +60,15 @@ func _on_minigame_won():
 	global_char_stats.add_score(global_char_stats.lives / 3 * $ExamCountdown.time_left)
 	return_to_prev_scene()
 	# Add award
-	
-	queue_free()
+	start_exam_queue(exam_countdown_wait)
 
 func _on_minigame_lost():
 	# Do not add any award :(
 	preload("res://global_char_stats.tres").lose_live()
+	start_exam_queue(exam_countdown_wait)
+
 	return_to_prev_scene()
-	queue_free()
+	#queue_free()
 
 func _on_area_3d_mouse_exited():
 	is_mouse_in = false
@@ -84,7 +86,6 @@ func _on_waiting_for_new_exam_timeout():
 
 
 func _on_exam_queue_timeout():
-	print("Helloworld")
 	if exams.number_of_currently_active_exams < exams.get_max_exams():
 		self.show()
 		exams.number_of_currently_active_exams += 1
@@ -93,11 +94,11 @@ func _on_exam_queue_timeout():
 		exam_instance.spawning_place = self
 		$Label3D.text = current_exam.exam_name
 		$Area3D.monitoring = true
-		$ExamCountdown.wait_time = exam_countdown_wait
+		$ExamCountdown.wait_time = current_exam.duration
 		print($ExamCountdown.wait_time)
 		$ExamCountdown.start()
-		$LoadingBar.data.value = exam_countdown_wait
-		$LoadingBar.data.max_value = exam_countdown_wait
+		$LoadingBar.data.value = current_exam.duration
+		$LoadingBar.data.max_value = current_exam.duration
 		$LoadingBar.data.min_value = 0
 		$LoadingBar.has_finished = false
 		$LoadingBar.ascending = false
@@ -109,7 +110,7 @@ func _on_exam_queue_timeout():
 
 func _on_exam_countdown_timeout():
 	exams.number_of_currently_active_exams -= 1
-	queue_free()
+	start_exam_queue(exam_countdown_wait)
 
 
 func _on_area_3d_area_entered(area):
