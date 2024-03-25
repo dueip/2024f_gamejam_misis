@@ -64,7 +64,9 @@ func _on_minigame_won():
 
 func _on_minigame_lost():
 	# Do not add any award :(
+	preload("res://global_char_stats.tres").lose_live()
 	start_exam_queue(exam_countdown_wait)
+
 	return_to_prev_scene()
 	#queue_free()
 
