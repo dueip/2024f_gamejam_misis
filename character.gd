@@ -185,9 +185,9 @@ func addAward(award: CharacterStats) -> void:
 		if stats.stamina.value + award.stamina.value < stats.stamina.max_value:
 			stats.stamina.value += award.stamina.value 
 	stats.add_money(award.money)
-	stats.add_score(award.score)
 	stats.up_smoke()
 	stats.score_multiplyer += award.score_multiplyer
+	stats.add_score(award.score)
 
 func _on_dash_timer_timeout():
 	speed_multiplyer = base_multiplyer
@@ -220,17 +220,23 @@ func _on_item_used(action : String,item_name : String):
 		return
 	if item_name=="Сидр":
 		stats.up_booze()
-		stats.stamina.gain(30 * stats.stamina.max_value / 100)
+    stats.stamina.gain(30 * stats.stamina.max_value / 100)
+		stats.score_multiplyer+=1
 	if item_name=="Вейп":
 		stats.up_smoke()
+		stats.score_multiplyer-=0.25
 		stats.stamina.gain(30 * stats.stamina.max_value / 100)
 	if item_name=="Кофе":
+		if stats.booze_lvl!=0:
+			stats.score_multiplyer-=1
 		stats.down_booze()
 		stats.stamina.gain(50 * stats.stamina.max_value / 100)
+    
+	stats.add_score(50)
 		
 
 func die():
-	stats.inventory.slots[0]=null
+	stats.inventory.slots[0].amount=0
 	stats.inventory.slots[1].amount=1
 	stats.stamina.value=stamina.max_value
 	stats.lives=3

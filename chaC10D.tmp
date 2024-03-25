@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://ca4ode1cog4je"]
+
+[ext_resource type="Script" path="res://character.gd" id="1_s7r02"]
+[ext_resource type="Resource" uid="uid://12cfv8iouicg" path="res://stamina_resource.tres" id="2_roinp"]
+[ext_resource type="Script" path="res://StaminaLoseResource.gd" id="3_cif5q"]
+[ext_resource type="PackedScene" uid="uid://bn1nth8kg7t12" path="res://in_game_gui.tscn" id="5_1kwrm"]
+[ext_resource type="PackedScene" uid="uid://ct62gqlhtgtlg" path="res://assets/DrugConsumer.glb" id="6_2xxda"]
+
+[sub_resource type="Resource" id="Resource_71j2l"]
+script = ExtResource("3_cif5q")
+stamina_lose_on_dash = 5.0
+stamina_lose_on_sprint = 0.5
+stamina_lose_on_walk = 0.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2pkr1"]
+
+[node name="Character" type="CharacterBody3D"]
+script = ExtResource("1_s7r02")
+stamina = ExtResource("2_roinp")
+stamina_lose = SubResource("Resource_71j2l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_2pkr1")
+
+[node name="DashTimer" type="Timer" parent="."]
+
+[node name="Body" parent="." instance=ExtResource("6_2xxda")]
+
+[node name="InGameGui" parent="." groups=["UI"] instance=ExtResource("5_1kwrm")]
+
+[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

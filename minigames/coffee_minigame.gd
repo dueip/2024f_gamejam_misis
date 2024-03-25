@@ -76,6 +76,7 @@ func endGame(did_player_win: bool, character: String):
 	for i in get_tree().get_nodes_in_group("Coffee_minigame"):
 		i.hide()
 	$Sprite3D.show()
+	show()
 	print("did we win:", did_player_win)
 	#super.endGame(did_we_win, character)
 	var award_or_punishment: CharacterStats = award if did_player_win else punishment

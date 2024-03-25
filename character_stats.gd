@@ -2,7 +2,7 @@ extends Resource
 
 class_name CharacterStats
 
-@export var inventory : Inv
+var inventory : Inv
 var stamina : BarResource
 @export var lives : int = 3
 @export var money : int = 200
@@ -22,6 +22,7 @@ signal died
 
 func _init():
 	stamina=preload("res://stamina_resource.tres")
+	inventory=preload("res://inventory/global_inventory.tres")
 	stamina.updated.connect(check_stamina)
 
 func add_money(amount: int): #amount must be >=0

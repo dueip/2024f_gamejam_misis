@@ -25,11 +25,13 @@
 [ext_resource type="PackedScene" uid="uid://dfvxwducd83sk" path="res://assets/Buildings/Walls/WallDoor.glb" id="25_sshhq"]
 [ext_resource type="PackedScene" uid="uid://bly400huyi30s" path="res://wall.tscn" id="26_sncp7"]
 [ext_resource type="PackedScene" uid="uid://brh20oloycgj3" path="res://item_generaion/item_generator.tscn" id="27_wi3ad"]
-[ext_resource type="Resource" path="res://inventory/items/vape.tres" id="28_qwtl7"]
-[ext_resource type="Resource" path="res://inventory/items/cider.tres" id="29_h3o35"]
-[ext_resource type="Resource" path="res://inventory/items/coffee.tres" id="30_i56y5"]
+[ext_resource type="Resource" uid="uid://boqyxtbmtkwmh" path="res://inventory/items/vape.tres" id="28_qwtl7"]
+[ext_resource type="Resource" uid="uid://cil8tk8yj7vng" path="res://inventory/items/cider.tres" id="29_h3o35"]
+[ext_resource type="Resource" uid="uid://bijsrpn20gthk" path="res://inventory/items/coffee.tres" id="30_i56y5"]
 [ext_resource type="PackedScene" uid="uid://bvxofregcai0m" path="res://minigames/coffee_minigame.tscn" id="30_wvi35"]
-[ext_resource type="PackedScene" path="res://ItemShop.tscn" id="31_tk4jo"]
+
+[ext_resource type="PackedScene" uid="uid://cir51c87ptr02" path="res://ItemShop.tscn" id="31_tk4jo"]
+
 
 [sub_resource type="Resource" id="Resource_w1kk4"]
 script = ExtResource("14_xrwxv")
@@ -1300,6 +1302,8 @@ minigame = NodePath("../coffee_minigame")
 
 [node name="coffee_minigame" parent="." instance=ExtResource("30_wvi35")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 20.9623, 3, -84.4162)
+begin_speed = 0.7
+axeleration = 0.02
 award = SubResource("Resource_k81w8")
 punishment = SubResource("Resource_kmux3")
 cost = 100
