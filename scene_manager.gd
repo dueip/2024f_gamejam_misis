@@ -3,6 +3,8 @@ extends Node
 var current_scene = null
 var prev_scene = null
 
+var prevCameraPosition: Vector3 
+
 func _ready():
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
@@ -13,7 +15,9 @@ func switch_visibily_ui():
 		n.visible=!n.visible
 
 func chane_scene_to_instance(instance):
-	get_viewport().get_camera_3d().move_to_the_point(get_parent().find_child("Ц*").global_position, 2)
+	get_tree().get_first_node_in_group("Player").switch_freeze()
+	prevCameraPosition = get_parent().find_child("Ц*").position
+	get_viewport().get_camera_3d().move_to_the_point(get_parent().find_child("Ц*").position, 2)
 	await get_tree().create_timer(2).timeout
 	# Hide the current scene
 	switch_visibily_ui()
@@ -32,6 +36,7 @@ func chane_scene_to_instance(instance):
 
 func change_scene_baked(baked: Resource):
 	# Hide the current scene
+	get_tree().get_first_node_in_group("Player").switch_freeze()
 	current_scene.hide()
 	current_scene.process_mode = PROCESS_MODE_DISABLED
 	
@@ -47,6 +52,7 @@ func change_scene_baked(baked: Resource):
 
 func change_scene(path: String):
 	# Hide the current scene
+	get_tree().get_first_node_in_group("Player").switch_freeze()
 	current_scene.hide()
 	current_scene.process_mode = PROCESS_MODE_DISABLED
 	
@@ -61,6 +67,9 @@ func change_scene(path: String):
 	current_scene = new_scene
 
 func revertScene():
+	#get_viewport().get_camera_3d().move_to_the_point(prevCameraPosition, 2)
+	
+	get_tree().get_first_node_in_group("Player").switch_freeze()
 	# Ensure the previous scene is enabled and visible
 	prev_scene.show()
 	prev_scene.process_mode = PROCESS_MODE_ALWAYS
@@ -73,3 +82,4 @@ func revertScene():
 	var swap_scene = prev_scene
 	prev_scene = current_scene
 	current_scene = swap_scene
+	

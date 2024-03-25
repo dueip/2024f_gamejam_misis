@@ -14,8 +14,11 @@ func _ready():
 		for i in range(0, number / number_of_rows):
 			var person : Node3D = people[randi_range(0, people.size() - 1)].instantiate()
 			self.add_child(person)
-			person.position.x += person.scale.x * 2 * j
-			person.position.z += person.scale.z * 2 * i
+			person.position.x += person.scale.x * 1.2 * j
+			person.position.z += person.scale.z * 1.2 * i
+			person.rotation.y = randf_range(0, 360)
+			
+			person.show()
 			people_spawned.push_back(person)
 			
 		

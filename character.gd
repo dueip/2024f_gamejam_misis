@@ -93,7 +93,10 @@ func _input(event):
 		return
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT && current_minigame_focused:
-			current_minigame_focused.startGame()
+			if (stats.use_money(current_minigame_focused.cost)):
+				current_minigame_focused.startGame()
+			else:
+				current_minigame_focused = null
 		
 
 func _unhandled_key_input(event):
@@ -109,7 +112,7 @@ func _process(delta):
 		return
 	
 func _physics_process(delta):
-	if is_in_minigame:
+	if is_in_minigame or freeze:
 		return
 	var is_running: bool = Input.is_action_pressed("character_run")
 	if is_running:

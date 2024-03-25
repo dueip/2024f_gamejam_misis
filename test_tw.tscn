@@ -43,14 +43,12 @@ script = ExtResource("1_ppaav")
 [node name="Character" parent="TestRoom" index="1" groups=["Player"]]
 transform = Transform3D(0.798482, 0, 0, 0, 0.798482, 0, 0, 0, 0.798482, 0.264664, 0.690596, -0.0941715)
 
+[node name="Camera" parent="TestRoom/Character" index="6"]
+script = ExtResource("3_w417h")
+
 [node name="DirectionalLight3D" parent="TestRoom" index="2"]
 visible = false
 editor_only = true
-
-[node name="Camera" parent="TestRoom" index="3"]
-transform = Transform3D(-0.99909, -0.0319187, 0.0282885, -0.0256561, 0.97962, 0.199214, -0.0340707, 0.198307, -0.979548, 0.341088, 9.607, -11.9374)
-current = true
-script = ExtResource("3_w417h")
 
 [node name="coffee_tw" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("2_fbpmy")]
 transform = Transform3D(-0.999198, 0, -0.0400445, 0, 1, 0, 0.0400445, 0, -0.999198, 6.88699, 5.06528, 3.61969)
