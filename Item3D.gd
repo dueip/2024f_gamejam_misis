@@ -11,9 +11,12 @@ class_name Item3D
 
 @export var item : InvItem
 
+var direction : Vector3 = Vector3(0,1,0)
+var speed : float = 0
+
 func _ready():
 	$Sprite3D.texture=item.texture
-	
+	set_process(false)
 	var timer : Timer = Timer.new()
 	add_child(timer)
 	timer.wait_time=time_to_live
@@ -39,16 +42,21 @@ func _ready():
 	tween_spin.set_loops()
 
 
-
-
+func _process(delta):
+	position+=direction*speed*delta
 
 func _on_area_3d_body_entered(body):
 	if body is Character:
 		if(body.stats.inventory.add(item)):
 			destroy_item()
+		
 
 func destroy_item():
 	var tween_scale = get_tree().create_tween()
 	tween_scale.tween_property(sprite, "scale", Vector3(0,0,0), 0.5).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 	await get_tree().create_timer(0.5).timeout
 	queue_free()
+
+
+func _on_area_3d_area_entered(area):
+	destroy_item()

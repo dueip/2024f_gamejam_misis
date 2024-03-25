@@ -109,3 +109,9 @@ func _on_exam_queue_timeout():
 func _on_exam_countdown_timeout():
 	exams.number_of_currently_active_exams -= 1
 	queue_free()
+
+
+func _on_area_3d_area_entered(area):
+	global_char_stats.add_money($ExamCountdown.time_left * global_char_stats.lives / 3)
+	global_char_stats.add_score(global_char_stats.lives / 3 * $ExamCountdown.time_left)
+	queue_free()
