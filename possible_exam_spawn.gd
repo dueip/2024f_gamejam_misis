@@ -10,6 +10,7 @@ var exam_instance
 @onready var global_char_stats : CharacterStats = preload("res://global_char_stats.tres")
 
 func start_exam_queue(wait_time: float):
+	self.hide()
 	$ExamQueue.wait_time = wait_time
 	$ExamQueue.start()
 	$ExamQueue.one_shot = true
@@ -59,13 +60,13 @@ func _on_minigame_won():
 	global_char_stats.add_score(global_char_stats.lives / 3 * $ExamCountdown.time_left)
 	return_to_prev_scene()
 	# Add award
-	
-	queue_free()
+	start_exam_queue(exam_countdown_wait)
 
 func _on_minigame_lost():
 	# Do not add any award :(
+	start_exam_queue(exam_countdown_wait)
 	return_to_prev_scene()
-	queue_free()
+	#queue_free()
 
 func _on_area_3d_mouse_exited():
 	is_mouse_in = false
@@ -83,7 +84,6 @@ func _on_waiting_for_new_exam_timeout():
 
 
 func _on_exam_queue_timeout():
-	print("Helloworld")
 	if exams.number_of_currently_active_exams < exams.get_max_exams():
 		self.show()
 		exams.number_of_currently_active_exams += 1
@@ -108,7 +108,7 @@ func _on_exam_queue_timeout():
 
 func _on_exam_countdown_timeout():
 	exams.number_of_currently_active_exams -= 1
-	queue_free()
+	start_exam_queue(exam_countdown_wait)
 
 
 func _on_area_3d_area_entered(area):
