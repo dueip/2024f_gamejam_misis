@@ -40,7 +40,8 @@ func _input(event):
 		$ExamCountdown.paused = true
 
 func _on_area_3d_mouse_entered():
-	is_mouse_in = true
+	#is_mouse_in = true
+	pass
 
 func return_to_prev_scene() -> void:
 	mutex = false
@@ -71,8 +72,9 @@ func _on_minigame_lost():
 	#queue_free()
 
 func _on_area_3d_mouse_exited():
-	is_mouse_in = false
-
+	pass
+	#is_mouse_in = false
+	
 
 func _on_waiting_for_new_exam_timeout():
 	var new_exam: Exam = Exam.new()
@@ -117,3 +119,14 @@ func _on_area_3d_area_entered(area):
 	global_char_stats.add_money($ExamCountdown.time_left * global_char_stats.lives / 3)
 	global_char_stats.add_score(global_char_stats.lives / 3 * $ExamCountdown.time_left)
 	queue_free()
+
+
+func _on_area_3d_body_entered(body):
+	print("hello world?")
+	if body is Character:
+		is_mouse_in = true
+
+
+func _on_area_3d_body_exited(body):
+	if body is Character:
+		is_mouse_in = false
