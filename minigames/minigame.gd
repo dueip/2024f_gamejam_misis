@@ -8,6 +8,7 @@ signal minigame_ended(bool, CharacterStats)
 
 @export var button_delay: float = 0.2
 @export var award: CharacterStats
+@export var award_stamina_percent: float = 0
 @export var punishment: CharacterStats
 @export var buff: int
 @export var cost: int
@@ -16,6 +17,12 @@ signal minigame_ended(bool, CharacterStats)
 
 
 func startGame():
+	# 2000 - 100 
+	# x - 50
+	# 2000 / x = 100 / 50
+	# x / 2000 = 50 / 100
+	# x = 50 * 20000 / 100
+	award.stamina.value = award_stamina_percent  * get_tree().get_first_node_in_group("Player").stats.stamina.max_value / 100
 	%WASD.show()
 	#%WASD.highlight_button(combination[0].to_upper(), Color.LIGHT_GOLDENROD)
 	emit_signal("minigame_started", self)

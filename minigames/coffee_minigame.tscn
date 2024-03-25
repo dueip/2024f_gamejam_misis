@@ -1,10 +1,20 @@
-[gd_scene load_steps=10 format=3 uid="uid://bvxofregcai0m"]
+[gd_scene load_steps=12 format=3 uid="uid://bvxofregcai0m"]
 
 [ext_resource type="Script" path="res://minigames/coffee_minigame.gd" id="1_ck3jk"]
+[ext_resource type="Script" path="res://character_stats.gd" id="2_a428k"]
 [ext_resource type="Texture2D" uid="uid://dmpc1jpv02y3f" path="res://sprites/coffee_popup.png" id="2_eix5y"]
 [ext_resource type="Texture2D" uid="uid://dhw1chrhotb5m" path="res://sprites/coffee_bean.png" id="2_muosm"]
 [ext_resource type="Texture2D" uid="uid://dl4miumsug1un" path="res://sprites/coffee_line_good.png" id="3_3fwye"]
 [ext_resource type="PackedScene" uid="uid://daehtsie361vf" path="res://WASD.tscn" id="4_2oae1"]
+
+[sub_resource type="Resource" id="Resource_0cqs1"]
+script = ExtResource("2_a428k")
+lives = 0
+money = 0
+score = 0
+score_multiplyer = 0.0
+booze_lvl = -1
+smoke_lvl = 0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ngec7"]
 margin = 0.0
@@ -24,6 +34,8 @@ bg_color = Color(0.266667, 0.145098, 0.00784314, 1)
 script = ExtResource("1_ck3jk")
 time_length = 5
 axeleration = 0.01
+award = SubResource("Resource_0cqs1")
+award_stamina_percent = 75.0
 
 [node name="Bean" type="Sprite3D" parent="." groups=["Coffee_minigame"]]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0.5)
