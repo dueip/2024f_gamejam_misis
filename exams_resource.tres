@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://jrhlfo2uo8yc"]
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://3inckt08httl"]
 
 [sub_resource type="GDScript" id="GDScript_res3y"]
 script/source = "extends Resource"

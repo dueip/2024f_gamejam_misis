@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://daehtsie361vf"]
+[gd_scene load_steps=3 format=3 uid="uid://0f2cjseltxve"]
 
 [ext_resource type="Script" path="res://WASD.gd" id="1_jgsl3"]
 [ext_resource type="PackedScene" uid="uid://d1e0xkg2a7g7n" path="res://control_buttons.tscn" id="2_ndrxw"]
@@ -29,17 +29,3 @@ letter = "S"
 [node name="D" parent="." instance=ExtResource("2_ndrxw")]
 position = Vector2(62, 24)
 letter = "D"
-
-[node name="FirstButton" parent="." instance=ExtResource("2_ndrxw")]
-position = Vector2(-71, 73)
-
-[node name="SecondButton" parent="." instance=ExtResource("2_ndrxw")]
-position = Vector2(72, 75)
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = -120.0
-offset_top = 87.0
-offset_right = 212.0
-offset_bottom = 108.0
-text = "CLICK        AND THEN         AS FAST AS POSSIBLE"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://626ehrp4x5p8"]
+[gd_scene load_steps=16 format=3 uid="uid://626ehrp4x5p8"]
 
 [ext_resource type="PackedScene" uid="uid://ukij8uagjnc7" path="res://test_room.tscn" id="1_ju52g"]
 [ext_resource type="Script" path="res://test_tw.gd" id="1_ppaav"]
@@ -6,14 +6,17 @@
 [ext_resource type="PackedScene" uid="uid://bvxofregcai0m" path="res://minigames/coffee_minigame.tscn" id="3_3feon"]
 [ext_resource type="Script" path="res://Camera.gd" id="3_w417h"]
 [ext_resource type="PackedScene" uid="uid://ca2gl01dha7hl" path="res://minigames/beer_minigame.tscn" id="4_g6pux"]
-[ext_resource type="PackedScene" uid="uid://daehtsie361vf" path="res://WASD.tscn" id="5_1y2sq"]
-[ext_resource type="PackedScene" uid="uid://dd4njxxt7kqir" path="res://crowd.tscn" id="6_ghrwc"]
+[ext_resource type="PackedScene" uid="uid://0f2cjseltxve" path="res://WASD.tscn" id="5_1y2sq"]
+[ext_resource type="PackedScene" uid="uid://5bfg3f511vji" path="res://crowd.tscn" id="6_ghrwc"]
 [ext_resource type="PackedScene" uid="uid://brh20oloycgj3" path="res://item_generaion/item_generator.tscn" id="7_571j2"]
 [ext_resource type="Resource" path="res://inventory/items/cider.tres" id="8_vou74"]
 [ext_resource type="Resource" path="res://inventory/items/coffee.tres" id="9_8qlnh"]
 [ext_resource type="PackedScene" uid="uid://b0wnppayfjhow" path="res://scene_manager.tscn" id="10_hhy83"]
 [ext_resource type="Resource" path="res://inventory/items/vape.tres" id="11_0yftj"]
 [ext_resource type="PackedScene" uid="uid://7qlfjpp0gal" path="res://possible_exam_spawn.tscn" id="13_rr286"]
+
+[ext_resource type="PackedScene" uid="uid://cir51c87ptr02" path="res://ItemShop.tscn" id="17_sy35x"]
+
 [ext_resource type="Script" path="res://character_stats.gd" id="16_o0jtw"]
 [ext_resource type="PackedScene" path="res://ItemShop.tscn" id="17_sy35x"]
 
@@ -34,7 +37,6 @@ score = 10000
 score_multiplyer = 0.0
 booze_lvl = 0
 smoke_lvl = 0
-
 [node name="test_tw" type="Node3D"]
 script = ExtResource("1_ppaav")
 
@@ -43,7 +45,7 @@ script = ExtResource("1_ppaav")
 [node name="Character" parent="TestRoom" index="1" groups=["Player"]]
 transform = Transform3D(0.798482, 0, 0, 0, 0.798482, 0, 0, 0, 0.798482, 0.264664, 0.690596, -0.0941715)
 
-[node name="Camera" parent="TestRoom/Character" index="6"]
+[node name="Camera" parent="TestRoom/Character" index="4"]
 script = ExtResource("3_w417h")
 
 [node name="DirectionalLight3D" parent="TestRoom" index="2"]
@@ -148,12 +150,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.77061, 1.91782, 7.05559)
 
 [node name="beer_minigame" parent="." instance=ExtResource("4_g6pux")]
 transform = Transform3D(-1, 0, -8.74228e-08, 2.26267e-08, 0.965925, -0.258819, 8.44439e-08, -0.258819, -0.965926, -12.0548, 2.554, 9.56349)
-award = SubResource("Resource_v5mly")
-punishment = SubResource("Resource_f0u75")
 combination = Array[String](["w", "s"])
 
 [node name="TW" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("2_fbpmy")]
 transform = Transform3D(4.4273, 0, 0, 0, 3.94071, 0, 0, 0, 2.81805, -12.0133, 2.09822, 10.1015)
 minigame = NodePath("../beer_minigame")
+
+[node name="TW2" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("2_fbpmy")]
+transform = Transform3D(1, 0, 0, 0, 1.90401, 0, 0, 0, 2.25321, 3.05298, 2.0932, -2.6167)
+minigame = NodePath("coffee_minigame")
+
+[node name="coffee_minigame" parent="TW2" instance=ExtResource("3_3feon")]
 
 [editable path="TestRoom"]
