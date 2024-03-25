@@ -172,7 +172,15 @@ func _physics_process(delta):
 
 
 func addAward(award: CharacterStats) -> void:
-	stats.up_booze()
+	if (award.booze_lvl > 0):
+		stats.up_booze()
+	elif (award.booze_lvl < 0):
+		stats.down_booze()
+	
+	if (award.smoke_lvl > 0):
+		stats.up_smoke()
+	elif (award.smoke_lvl < 0):
+		stats.down_smoke()
 	stats.add_money(award.money)
 	stats.add_score(award.score)
 	stats.up_smoke()

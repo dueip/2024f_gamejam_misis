@@ -1,7 +1,5 @@
 
-
 [gd_scene load_steps=30 format=3 uid="uid://bah34r2m18704"]
-
 
 [ext_resource type="PackedScene" uid="uid://ct62gqlhtgtlg" path="res://assets/DrugConsumer.glb" id="1_8k3v3"]
 [ext_resource type="PackedScene" uid="uid://dhoiytre65lq6" path="res://assets/Buildings/Pub/scene.gltf" id="2_83bhn"]
@@ -19,8 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://ca4ode1cog4je" path="res://character.tscn" id="13_7c0rd"]
 [ext_resource type="Script" path="res://StaminaLoseResource.gd" id="14_xrwxv"]
 [ext_resource type="Script" path="res://Camera.gd" id="15_60dw6"]
-[ext_resource type="PackedScene" uid="uid://0f2cjseltxve" path="res://WASD.tscn" id="16_801pi"]
-[ext_resource type="PackedScene" uid="uid://5bfg3f511vji" path="res://crowd.tscn" id="17_n0j0h"]
+[ext_resource type="PackedScene" uid="uid://daehtsie361vf" path="res://WASD.tscn" id="16_801pi"]
+[ext_resource type="PackedScene" uid="uid://dd4njxxt7kqir" path="res://crowd.tscn" id="17_n0j0h"]
 [ext_resource type="PackedScene" uid="uid://cb3jg3vwagmfr" path="res://assets/Chiknees.glb" id="19_jke54"]
 [ext_resource type="PackedScene" uid="uid://dr1t3444vuiws" path="res://TW/TW.tscn" id="20_vgwii"]
 [ext_resource type="PackedScene" uid="uid://ca2gl01dha7hl" path="res://minigames/beer_minigame.tscn" id="21_08fuf"]
@@ -414,7 +412,11 @@ unique_name_in_owner = true
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16.3782, 0.0785527, -55.6173)
 
 [node name="Wall" parent="Walldoors" instance=ExtResource("26_sncp7")]
-transform = Transform3D(11.2791, 0, -7.10543e-15, 0, 1.568, 0, 0, 0, 1.28352, 0, 0, 0)
+transform = Transform3D(6.48614, 0, -7.10543e-15, 0, 1.568, 0, 2.84217e-14, 0, 1.28352, -20.9489, -1.26154, 0.105988)
+visible = false
+
+[node name="Wall2" parent="Walldoors" instance=ExtResource("26_sncp7")]
+transform = Transform3D(5.32224, -0.00221992, 0.00118285, 0.0091832, 1.28663, -5.89276e-05, -0.00597688, 7.45108e-05, 1.0532, 17.4297, -0.207127, 0.0164909)
 visible = false
 
 [node name="WallDoor3" parent="Walldoors" instance=ExtResource("25_sshhq")]
